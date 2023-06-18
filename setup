@@ -52,7 +52,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
     glow bat npm yarn unzip fd acpi toipe nitrogen neofetch btop \
     pass ripgrep docker docker-compose brightnessctl bluez bluez-utils \
-    python3 python3-pip 
+    python3 python3-pip xclip nb
 
     # Start the bluetooth service
     echo -e "Starting the Bluetooth Service...\n"

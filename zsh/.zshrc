@@ -26,7 +26,6 @@ source "$HOME/.config/zsh/fzf-tab/fzf-tab.zsh"
 
 # source "$HOME/.config/zsh/fzf.zsh"
 
-source "$HOME/.config/zsh/env.zsh"
 source "$HOME/.config/zsh/functions/pass.zsh"
 source "$HOME/.config/zsh/functions/dock.zsh"
 source "$HOME/.config/zsh/functions/got.zsh"
@@ -88,3 +87,8 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 # export GOPATH="$GOPATH:$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+
+# password management
+export GITHUB_TOKEN=$(pass show github/token)
+export OPENAI_API_KEY=$(pass show open-ai/api-key)
+export PASS_PUB_KEY=$(pass show pass/pub-key)
