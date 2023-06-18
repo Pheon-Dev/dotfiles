@@ -9,5 +9,5 @@ cp -r $HOME/.config/rofi $HOME/dotfiles && cd $HOME/dotfiles/rofi && rm -rf .git
 cp -r $HOME/.config/zsh $HOME/dotfiles && cd $HOME/dotfiles/zsh && rm -rf .git* && cd -
 cp -r $HOME/.config/btop $HOME/dotfiles && cd $HOME/dotfiles/btop && rm -rf .git* && cd -
 cp -r $HOME/.config/starship $HOME/dotfiles && cd $HOME/dotfiles/starship && rm -rf .git* && cd -
-cp -r $HOME/.config/lazygit $HOME/dotfiles && cd $HOME/dotfiles/starship && rm -rf .git* && cd -
+cp -r $HOME/.config/lazygit $HOME/dotfiles && cd $HOME/dotfiles/lazygit && rm -rf .git* && cd -
 cp -r $HOME/.config/zellij $HOME/dotfiles && cd $HOME/dotfiles/zellij && rm -rf .git* && cd -
