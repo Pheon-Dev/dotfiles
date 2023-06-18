@@ -1,0 +1,5 @@
+butterfly   "cd $HOME/Documents/Rust/butterfly && nvim"
+nvim        "cd $HOME/.config/nvim && nvim"
+dwm         "cd $HOME/.config/arco-dwm && nvim"
+st          "cd $HOME/.config/arco-at && nvim"
+zellij      "cd $HOME/.config/zellij && nvim"

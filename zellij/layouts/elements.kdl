@@ -1,0 +1,49 @@
+layout name="elements" {
+  cwd "/home/pheon"
+
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="metal_pane" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="metal_tab" {
+      children
+    }
+
+  metal_tab name="plutonium" {
+      metal_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  metal_tab name="titanium" {
+      metal_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  metal_tab name="thorium" {
+      metal_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  metal_tab name="uranium" {
+      metal_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+}

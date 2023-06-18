@@ -1,0 +1,57 @@
+layout name="noble" {
+  cwd "/home/pheon"
+
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="inert_pane" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="inert_tab" {
+      children
+    }
+
+  inert_tab name="neon" focus=true {
+      inert_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  inert_tab name="helium" {
+      inert_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  inert_tab name="krypton" {
+      inert_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  inert_tab name="radon" {
+      inert_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  inert_tab name="argon" {
+      inert_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+}

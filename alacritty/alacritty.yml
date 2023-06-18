@@ -1,0 +1,118 @@
+---
+env:
+  TERM: xterm-256color
+window:
+  padding:
+    x: 0
+    y: 0
+  dynamic_padding: true
+  decorations: full
+  title: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
+scrolling:
+  history: 5000
+font:
+  normal:
+    family: ComicMonoNF
+    style: Bold
+  bold:
+    family: ComicMonoNF
+    style: Bold
+  italic:
+    family: ComicMonoNF
+    style: Italic
+  bold_italic:
+    family: ComicMonoNF
+    style: Bold Italic
+  size: 07.8
+  offset:
+    x: 1
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: true
+
+mouse:
+    hide_when_typing: true
+
+#######################################
+##      START OF COLOR SCHEMES       ##
+#######################################
+schemes:
+  ### Solarized Dark ###
+  TokyoNight: &TokyoNight
+    primary: # Default colors
+      background: "#21222c"
+      foreground: "#c0caf5"
+    # Normal colors
+    normal:
+      black: "#414868"
+      red: "#ff5555"
+      green: "#50fa7b"
+      yellow: "#f1fa8c"
+      blue: "#6790eb"
+      magenta: "#bb9af7"
+      cyan: "#7dcfff"
+      white: "#c0caf5"
+    # Bright colors
+    bright:
+      black: "#414868"
+      red: "#ff5555"
+      green: "#50fa7b"
+      yellow: "#f1fa8c"
+      blue: "#7aa2f7"
+      magenta: "#bb9af7"
+      cyan: "#7dcfff"
+      white: "#c0caf5"
+  Tokyo: &Tokyo
+    primary: # Default colors
+      background: "#303030"
+      foreground: "#c0caf5"
+    # Normal colors
+    normal:
+      black: "#363636"
+      red: "#ec5f67"
+      green: "#82cf00"
+      yellow: "#ffff0f"
+      blue: "#464646"
+      magenta: "#bb9af7"
+      cyan: "#7dcfff"
+      white: "#c0caf5"
+
+######################################################################
+## SET THEME: Choose ONE color scheme from those in the above list. ##
+## ###################################################################
+# colors: *Tokyo
+colors: *TokyoNight
+
+key_bindings:
+  # (Windows, Linux, and BSD only)
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: N, mods: Control|Shift, action: CreateNewWindow }
+  - { key: Return, mods: Alt, action: CreateNewWindow }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: F11, mods: None, action: ToggleFullscreen }
+  - { key: Paste, mods: None, action: Paste }
+  - { key: Copy, mods: None, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: PageUp, mods: None, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+  - { key: L, mods: Control, chars: "\f" }
+  - { key: G, mods: Control, chars: "\flg\n" }
+  - { key: I, mods: Control, chars: "\fv\n" }
+  - { key: Z, mods: Control, chars: "\fzz\n" }
+  - { key: F, mods: Control, chars: "\ff\n\f" }
+  - { key: W, mods: Control, chars: "\fww\n" }
+theme: 3024.dark

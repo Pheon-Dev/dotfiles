@@ -1,0 +1,89 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+format = """
+[┃   ](bold purple)\
+$git_branch\
+$git_state\
+$git_status\
+$golang\
+$rust\
+$c\
+$lua\
+$node_js\
+$python\
+$docker_context\
+$package\
+$cmd_duration\
+$line_break\
+[┃ ](bold purple)\
+$username\
+$hostname\
+$directory\
+$character"""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold purple)"
+vimcmd_replace_one_symbol = "[❮](bold blue)"
+vimcmd_replace_symbol = "[❮](bold blue)"
+vimcmd_visual_symbol = "[❮](bold yellow)"
+
+[git_status]
+format = "[[(* $conflicted$untracked$modified$staged$renamed$deleted)](218)($ahead$behind$stashed)]($style)"
+style = "cyan"
+conflicted = "⚑ "
+renamed = " "
+deleted = "✖ "
+ahead = "↑·"
+behind = "↓·"
+staged = "● "
+modified = "✚ "
+untracked = "… "
+stashed = "≡ "
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[c]
+symbol = " "
+
+[directory]
+read_only = " "
+style = "blue"
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+# symbol = " "
+symbol = "  "
+style = "green"
+
+[golang]
+symbol = " "
+
+[python]
+symbol = "  "
+
+[lua]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[rust]
+symbol = " "
+

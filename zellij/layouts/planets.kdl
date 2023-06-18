@@ -1,0 +1,84 @@
+layout name="planets" {
+  cwd "/home/pheon"
+
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="solar_pane" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="solar_tab" {
+      children
+    }
+
+  solar_tab name="mercury" focus=true {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="venus" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="earth" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="mars" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="jupiter" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="saturn" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="uranus" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="neptune" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+
+  solar_tab name="pluto" {
+      solar_pane split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+}

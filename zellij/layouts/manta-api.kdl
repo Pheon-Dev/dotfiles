@@ -1,0 +1,48 @@
+layout name="manta-api" {
+  cwd "/home/pheon/Documents/Rust/manta-api"
+
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="child" {
+      children
+    }
+
+  pane_template name="dev" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="code_tab" {
+      children
+    }
+
+  code_tab name="manta (api)" focus=true {
+      dev split_direction="vertical" {
+          pane split_direction="horizontal" size="60%" {
+              pane borderless=true
+              pane size="28%" split_direction="vertical" {
+                  pane
+                  pane
+              }
+           }
+          pane split_direction="horizontal" {
+              pane name="ref" cwd="/home/pheon/Documents/Rust/rust-axum-base-preview"
+              pane size="40%"
+           }
+       }
+    }
+
+  code_tab name="reference" {
+      dev split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+}

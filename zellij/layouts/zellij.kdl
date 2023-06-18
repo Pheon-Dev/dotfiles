@@ -1,0 +1,25 @@
+layout {
+  cwd "/home/pheon/.config/zellij"
+
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="dev" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="code_tab" {
+      children
+    }
+
+  code_tab name="zellij" focus=true {
+      pane command="nvim"
+    }
+}

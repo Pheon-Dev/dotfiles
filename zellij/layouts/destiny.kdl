@@ -1,0 +1,54 @@
+layout name="destiny" {
+  cwd "/home/pheon/Documents/NextJS/App/destiny-credit"
+
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="dev" {
+      pane split_direction="vertical" {
+          children
+        }
+    }
+
+  tab_template name="serve_tab" cwd="/home/pheon/Documents/NextJS/App/destiny-credit" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane split_direction="vertical" {
+          children
+        }
+    }
+
+  tab_template name="code_tab" cwd="/home/pheon/Documents/NextJS/App/destiny-credit" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane split_direction="vertical" {
+          children
+        }
+    }
+
+  code_tab name="code (destiny-credit)" focus=true {
+      pane command="nvim" name="neovim" borderless=true
+    }
+
+  serve_tab name="serve (yarn|pscale|prisma)" {
+    dev split_direction="vertical" borderless=false {
+      pane name="yarn dev" command="yarn" {
+          args "dev"
+        }
+      pane split_direction="horizontal" {
+        pane name="planet scale" command="pscale" {
+            args "connect" "destiny-credit" "dev"
+          }
+        pane name="prisma studio" size="30%" command="yarn" {
+            args "prisma" "studio"
+          }
+       }
+     }
+   }
+}
