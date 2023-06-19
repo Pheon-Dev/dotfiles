@@ -51,9 +51,12 @@ nmcli dev wifi list
 nmcli dev wifi connect "essid" password "*******"
 cd /opt
 sudo git clone https://aur.archlinux.org/yay-git.git
-sudo chmod -R user:user yay-git
-cd yay-git
-makepkg -si
+sudo git clone https://aur.archlinux.org/snapd.git
+sudo chown -R user:user yay-git
+sudo chown -R user:user snapd
+cd yay-git && makepkg -si
+cd -
+cd snapd && makepkg -si
 
 yay -Syu rustup rustc
 rustup default nightly

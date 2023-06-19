@@ -49,7 +49,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     yay -Syu --noconfirm exa starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-meslo-nerd \
     zsh git neovim zellij picom rofi joshuto alacritty fzf flameshot \
-    aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
+    youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
     glow bat npm yarn unzip fd acpi toipe nitrogen neofetch btop \
     pass ripgrep docker docker-compose brightnessctl bluez bluez-utils \
     python3 python3-pip xclip nb
