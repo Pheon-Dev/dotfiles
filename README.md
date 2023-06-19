@@ -57,6 +57,8 @@ sudo chown -R user:user snapd
 cd yay-git && makepkg -si
 cd -
 cd snapd && makepkg -si
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
 
 yay -Syu rustup rustc
 rustup default nightly
