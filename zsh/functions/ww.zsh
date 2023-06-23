@@ -31,6 +31,9 @@ ww () {
       echo -n "$(tput setaf 3)     -g, --gui "
       echo -n "$(tput setaf 8) →"
       echo -e "$(tput setaf 6)        GUI connection editor"
+      echo -n "$(tput setaf 3)     -r, --restart "
+      echo -n "$(tput setaf 8) →"
+      echo -e "$(tput setaf 6)        Restart the Network Manager"
       echo -n "$(tput setaf 3)     -e, --ethernet "
       echo -n "$(tput setaf 8) →"
       echo -e "$(tput setaf 6)    Ethernet connection"
@@ -41,6 +44,10 @@ ww () {
   }
   if [[ $1 == "-t" || $1 == "--toggle" ]]; then
     wifi toggle
+    return 1
+  fi
+  if [[ $1 == "-r" || $1 == "--restart" ]]; then
+    sudo systemctl restart NetworkManager
     return 1
   fi
   if [[ $1 == "-d"  || $1 == "--disconnect" ]]; then

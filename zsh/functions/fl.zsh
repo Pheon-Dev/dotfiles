@@ -1,4 +1,4 @@
-#!/bin/bash zsh
+#!/sbin/sh
 
 fl () {
   clear
