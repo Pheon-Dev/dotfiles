@@ -194,9 +194,9 @@ return {
         end,
       },
       experimental = {
-        ghost_text = true,
+        ghost_text = false,
       },
-      completion = { completeopt = "menu,menuone,noinsert" },
+      -- completion = { completeopt = "menu,menuone,noinsert" },
     })
 
     cmp.setup.cmdline({ "?", "/", ":" }, {

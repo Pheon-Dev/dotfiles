@@ -42,7 +42,7 @@ return {
         scroll_up = "<c-u>",   -- binding to scroll up inside the popup
       },
       window = {
-        border = "none",          -- none, single, double, shadow
+        border = "single",        -- none, single, double, shadow
         position = "bottom",      -- bottom, top
         margin = { 1, 0, 1, 0 },  -- extra window margin [top, right, bottom, left]
         padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -140,7 +140,7 @@ return {
       k = { ":lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon" },
       l = { toggle_lazygit, "LazyGit" },
       m = { ":Antelope marks<cr>", "Marks" },
-      n = { ":Telescope notify initial_mode=normal<cr>", "Notifications" },
+      n = { ":Telescope notify<cr>", "Notifications" },
       o = {
         name = "Others",
         c = {
@@ -193,7 +193,6 @@ return {
         p = { ":Antelope tabpages<cr>", "tabs" },
         f = { ":TypescriptFixAll<cr>", "Fix All" },
       },
-      u = { ":NodeAction<cr>", "Node Action" },
       w = {
         name = "Windows",
         e = { ":WinShift<cr><esc>:WindowsEqualize<cr>", "Window Shift" },
