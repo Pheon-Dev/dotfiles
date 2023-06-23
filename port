@@ -1,0 +1,15 @@
+#!/bin/bash
+cp $HOME/.zshrc $HOME/.config/zsh/.zshrc
+# cp $HOME/.z* $HOME/dotfiles
+cp -r $HOME/.config/nvim $HOME/dotfiles && cd $HOME/dotfiles/nvim && rm -rf .git* && cd -
+cp -r $HOME/.config/alacritty $HOME/dotfiles && cd $HOME/dotfiles/alacritty && rm -rf .git* && cd -
+cp -r $HOME/.config/dwm $HOME/dotfiles && cd $HOME/dotfiles/dwm && rm -rf .git* && cd -
+cp -r $HOME/.config/picom $HOME/dotfiles && cd $HOME/dotfiles/picom && rm -rf .git* && cd -
+cp -r $HOME/.config/rofi $HOME/dotfiles && cd $HOME/dotfiles/rofi && rm -rf .git* && cd -
+cp -r $HOME/.config/zsh $HOME/dotfiles && cd $HOME/dotfiles/zsh && rm -rf .git* && cd -
+cp -r $HOME/.config/btop $HOME/dotfiles && cd $HOME/dotfiles/btop && rm -rf .git* && cd -
+cp -r $HOME/.config/starship $HOME/dotfiles && cd $HOME/dotfiles/starship && rm -rf .git* && cd -
+cp -r $HOME/.config/lazygit $HOME/dotfiles && cd $HOME/dotfiles/lazygit && rm -rf .git* && cd -
+cp -r $HOME/.config/zellij $HOME/dotfiles && cd $HOME/dotfiles/zellij && rm -rf .git* && cd -
+cp -r $HOME/.config/flamingo $HOME/dotfiles && cd $HOME/dotfiles/flamingo && rm -rf .git* && cd -
+cp -r $HOME/.config/joshuto $HOME/dotfiles && cd $HOME/dotfiles/joshuto && rm -rf .git* && cd -
