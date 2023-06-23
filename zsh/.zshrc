@@ -19,17 +19,18 @@ export STARSHIP_CACHE=~/.starship/cache
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
+# export DISPLAY=eDP-1
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-source "$HOME/.config/zsh/fzf-tab/fzf-tab.zsh"
+# source "$HOME/.config/zsh/fzf-tab/fzf-tab.zsh"
 
 # source "$HOME/.config/zsh/fzf.zsh"
 
 source "$HOME/.config/zsh/functions/pass.zsh"
 source "$HOME/.config/zsh/functions/dock.zsh"
-source "$HOME/.config/zsh/functions/got.zsh"
 source "$HOME/.config/zsh/functions/gt.zsh"
+source "$HOME/.config/zsh/functions/goat.zsh"
 source "$HOME/.config/zsh/functions/gset.zsh"
 source "$HOME/.config/zsh/functions/mt.zsh"
 source "$HOME/.config/zsh/functions/ww.zsh"
@@ -61,15 +62,19 @@ nitrogen --restore > /dev/null 2>&1
 
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
 # $ grep -E "(ctrl|caps):" /usr/share/X11/xkb/rules/base.lst
-# caps
-# setxkbmap -option "caps:swapescape"
+
 setxkbmap -option "caps:escape"
 # setxkbmap -option "caps:ctrl_modifier"
-# setxkbmap -option "ctrl:swap_lalt_lctl"
+
+# setxkbmap -option "caps:swapescape"
 # setxkbmap -option "ctrl:hyper_capscontrol"
 # setxkbmap -option "ctrl:swapcaps"
 # setxkbmap -option "ctrl:nocaps"
 # xcape -e 'Control_L=Escape' -t 100
+
+# setxkbmap -option "caps:ctrl_modifier"
+# setxkbmap -option "ctrl:swap_lalt_lctl"
+# xcape -e 'Control_L=Escape'
 
 eval "$(zoxide init zsh)"
 . /usr/share/z/z.sh
@@ -87,8 +92,3 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 # export GOPATH="$GOPATH:$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-
-# password management
-export GITHUB_TOKEN=$(pass show github/token)
-export OPENAI_API_KEY=$(pass show open-ai/api-key)
-export PASS_PUB_KEY=$(pass show pass/pub-key)

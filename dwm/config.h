@@ -29,7 +29,6 @@ static const char *colors[][3]      = {
 static const char *const autostart[] = {
 	"setxkbmap", "-options", "'caps:escape'", NULL,
 	"picom", NULL,
-	"dunst", NULL,
 	"alacritty", NULL,
 	"firefox", NULL,
 	NULL /* terminate */
@@ -131,6 +130,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
+/* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
