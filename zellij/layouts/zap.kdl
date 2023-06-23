@@ -1,5 +1,5 @@
 layout {
-  cwd "/home/pheon/Documents/go/src/github.com/Pheon-Dev/zap"
+  cwd "/home/pheon-dev/Documents/go/src/github.com/Pheon-Dev/zap"
 
   default_tab_template {
       pane size=1 borderless=true {

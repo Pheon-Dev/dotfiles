@@ -1,5 +1,5 @@
 layout {
-  cwd "/home/pheon/Documents/Rust"
+  cwd "/home/pheon-dev/rust"
   default_tab_template {
       pane size=1 borderless=true {
           plugin location="zellij:compact-bar"
@@ -25,7 +25,7 @@ layout {
       }
     }
 
-  code_tab name="rustlings" cwd="/home/pheon/Documents/Rust/rustlings" {
+  code_tab name="rustlings" cwd="/home/pheon-dev/rust/rustlings" {
       dev split_direction="vertical" {
         pane command="nvim" borderless=true
         pane split_direction="horizontal" {
@@ -37,7 +37,7 @@ layout {
        }
     }
 
-  code_tab name="m-pesa (api)" cwd="/home/pheon/Documents/Rust/mpesa-api" {
+  code_tab name="m-pesa (api)" cwd="/home/pheon-dev/rust/mpesa-api" {
       dev split_direction="vertical" {
         pane command="nvim" borderless=true
         pane size="36%" split_direction="horizontal" {
@@ -48,7 +48,7 @@ layout {
          }
        }
     }
-  code_tab name="butterfly" cwd="/home/pheon/Documents/Rust/butterfly" {
+  code_tab name="butterfly" cwd="/home/pheon-dev/rust/butterfly" {
       dev split_direction="vertical" {
         pane command="nvim" borderless=true
         pane size="36%" split_direction="horizontal" {
@@ -60,7 +60,7 @@ layout {
          }
        }
     }
-  code_tab name="miscellaneous" cwd="/home/pheon/Documents/Rust" {
+  code_tab name="miscellaneous" cwd="/home/pheon-dev/rust" {
       dev split_direction="vertical" {
         pane borderless=true
       }

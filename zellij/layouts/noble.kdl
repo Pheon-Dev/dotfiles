@@ -1,5 +1,5 @@
 layout name="noble" {
-  cwd "/home/pheon"
+  cwd "/home/pheon-dev/"
 
   default_tab_template {
       pane size=1 borderless=true {

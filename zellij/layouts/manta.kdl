@@ -1,5 +1,5 @@
 layout name="manta" {
-  cwd "/home/pheon/Documents/Rust/manta"
+  cwd "/home/pheon-dev/rust/canvas/manta"
 
   default_tab_template {
       pane size=1 borderless=true {
@@ -33,13 +33,13 @@ layout name="manta" {
               }
            }
           pane split_direction="horizontal" {
-              pane name="ref" cwd="/home/pheon/Documents/Rust/rust-axum-course"
+              pane name="ref" cwd="/home/pheon-dev/rust/scene/rust-axum-course"
               pane size="40%"
            }
        }
     }
 
-  code_tab name="manta (wallet)" cwd="/home/pheon/Documents/Rust/manta-wallet" {
+  code_tab name="manta (wallet)" cwd="/home/pheon-dev/rust/canvas/manta-wallet" {
     dev split_direction="vertical" borderless=false {
           pane split_direction="horizontal" size="50%" {
               pane borderless=true

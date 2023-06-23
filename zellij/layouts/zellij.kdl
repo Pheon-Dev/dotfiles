@@ -1,5 +1,5 @@
 layout {
-  cwd "/home/pheon/.config/zellij"
+  cwd "/home/pheon-dev/.config/zellij"
 
   default_tab_template {
       pane size=1 borderless=true {

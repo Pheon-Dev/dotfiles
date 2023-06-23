@@ -19,7 +19,7 @@ layout {
 
   code_tab name="code (neovim)" focus=true {
       dev split_direction="vertical" {
-        pane borderless=true cwd="/home/pheon/.config/nvim"
+        pane borderless=true cwd="/home/pheon-dev/.config/nvim"
         pane
       }
     }

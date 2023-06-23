@@ -1,5 +1,5 @@
 layout name="manta-api" {
-  cwd "/home/pheon/Documents/Rust/manta-api"
+  cwd "/home/pheon-dev/rust/canvas/manta-api"
 
   default_tab_template {
       pane size=1 borderless=true {
@@ -33,7 +33,7 @@ layout name="manta-api" {
               }
            }
           pane split_direction="horizontal" {
-              pane name="ref" cwd="/home/pheon/Documents/Rust/rust-axum-base-preview"
+              pane name="ref" cwd="/home/pheon-dev/rust/scene/rust-axum-base-preview"
               pane size="40%"
            }
        }

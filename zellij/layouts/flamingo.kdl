@@ -1,5 +1,5 @@
 layout {
-  cwd "/home/pheon/Documents/go/src/github.com/Pheon-Dev/flamingo"
+  cwd "/home/pheon-dev/go/src/github.com/Pheon-Dev/flamingo"
 
   default_tab_template {
       pane size=1 borderless=true {
@@ -19,7 +19,7 @@ layout {
       dev split_direction="horizontal" {
         pane split_direction="vertical" {
           children
-          pane command="nvim" size="30%" cwd="/home/pheon/.config/flamingo" {
+          pane command="nvim" size="30%" cwd="/home/pheon-dev/.config/flamingo" {
                 args "./config.yaml"
             }
           }
