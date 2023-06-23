@@ -1,0 +1,37 @@
+---
+filtering: true
+projects:
+  - title:   nvim
+    description: ~/.config/nvim
+  - title:   zellij
+    description: ~/.config/zellij
+  - title:   alacritty
+    description: ~/.config/alacritty
+  - title:   dwm
+    description: ~/.config/dwm
+  - title:   manta-api
+    description: ~/rust/canvas/manta-api
+  - title:   joshuto
+    description: ~/.config/joshuto
+  - title:   flamingo (config)
+    description: ~/.config/flamingo
+  - title:   flamingo (dev)
+    description: ~/go/src/github.com/Pheon-Dev/flamingo
+  - title:   zsh
+    description: ~/.config/zsh
+  - title:   lazygit
+    description: ~/.config/lazygit
+  - title:   btop
+    description: ~/.config/btop
+  - title:   dotfiles
+    description: ~/dotfiles
+  - title:   rofi
+    description: ~/.config/rofi
+  - title:   picom
+    description: ~/.config/picom
+  - title:   .xinitrc
+    description: ~/.xinitrc
+  - title:   .zshrc
+    description: ~/.zshrc
+status-bar: true
+title: Flamingo
