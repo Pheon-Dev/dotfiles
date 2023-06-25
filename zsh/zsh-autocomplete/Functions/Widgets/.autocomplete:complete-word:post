@@ -1,0 +1,64 @@
+#autoload
+local -a match=() mbegin=() mend=()  # `zstyle` for some reason assigns these.
+
+unset MENUMODE MENUSELECT
+compstate[insert]=
+compstate[list]=
+compstate[restore]=
+if [[ $_completer == _prefix ]]; then
+  compstate[to_end]=
+else
+  compstate[to_end]='always'
+fi
+
+if _autocomplete__should_insert_unambiguous; then
+
+  [[ $WIDGETSTYLE == (|*-)menu(|-*) ]] &&
+      compstate[insert]='automenu-'
+
+  compstate[insert]+='unambiguous'
+
+  unset _autocomplete__unambiguous
+
+  return  # !
+fi
+
+local -Pa comptags=()
+local -Pi nmatches=0
+
+if [[ $compstate[old_list] == keep ]]; then
+  comptags=( $=_lastcomp[tags] )
+  nmatches=$_lastcomp[nmatches]
+else
+  comptags=( $=_comp_tags )
+  nmatches=$compstate[nmatches]
+fi
+
+if (( nmatches > 1 )); then
+  if [[ $WIDGETSTYLE == (|*-)menu(|-*) ]]; then
+    compstate[insert]='menu:'
+    if (( nmatches <= LINES - BUFFERLINES - 1 )); then
+      compstate[list]='list packed rows'
+    else
+      builtin zle -Rc
+    fi
+  fi
+  if [[ $WIDGET == (|*-)search(|-*) ]]; then
+    MENUMODE=search-forward
+  fi
+  if [[ $WIDGETSTYLE == (|*-)select(|-*) ]]; then
+    typeset -gi MENUSELECT=0
+  fi
+fi
+
+if [[ $WIDGET == (|.)reverse-* || $WIDGETSTYLE == (|.)reverse-menu-complete ]]; then
+  compstate[insert]+='0'
+else
+  compstate[insert]+='1'
+fi
+
+local -a spacetags=()
+builtin zstyle -a :autocomplete: add-space spacetags ||
+    spacetags=( executables aliases functions builtins reserved-words commands )
+[[ -n ${comptags:*spacetags} ]] &&
+    compstate[insert]+=' '

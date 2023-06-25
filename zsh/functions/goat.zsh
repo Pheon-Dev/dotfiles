@@ -1,5 +1,11 @@
 #!/bin/zsh sh
 
+export GOROOT="/usr/lib/go"
+export PATH="$PATH:$GOROOT/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$GOPATH/bin:$PATH"
+
 # GO
 alias gobi="go build . && go install"
 alias goi="go install"

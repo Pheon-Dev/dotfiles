@@ -1,5 +1,23 @@
 #!/bin/bash zsh
 
+source "$HOME/.config/zsh/functions/dock.zsh"
+source "$HOME/.config/zsh/functions/gt.zsh"
+source "$HOME/.config/zsh/functions/goat.zsh"
+source "$HOME/.config/zsh/functions/gset.zsh"
+source "$HOME/.config/zsh/functions/mt.zsh"
+source "$HOME/.config/zsh/functions/ww.zsh"
+source "$HOME/.config/zsh/functions/fl.zsh"
+source "$HOME/.config/zsh/functions/bl.zsh"
+source "$HOME/.config/zsh/functions/zz.zsh"
+source "$HOME/.config/zsh/functions/rust.zsh"
+# source "$HOME/.config/zsh/functions/web_search.zsh"
+
+time-zsh () {
+  for i in $(seq 1 10); do
+    time $SHELL -i -c exit;
+  done
+}
+
 v23 () {
   find . -type f -name "*.mkv" -exec bash -c 'FILE="$1"; ffmpeg -i "${FILE}" -vn -c:a libmp3lame -y "${FILE%.mkv}.mp3";rm -rf $FILE' _ '{}' \;
 }

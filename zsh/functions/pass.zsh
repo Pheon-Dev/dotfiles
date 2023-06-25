@@ -1,10 +1,11 @@
 #!/bin/bash zsh
-
-# password management
-export GITHUB_TOKEN=$(pass show github/token)
-export OPENAI_API_KEY=$(pass show open-ai/api-key)
-export PASS_PUB_KEY=$(pass show pass/pub-key)
-# export HUGGING_FACE_HUB_TOKEN=$(pass show hugging-face/token)
+pass-export () {
+  # password management
+  export GITHUB_TOKEN=$(pass show github/token)
+  export OPENAI_API_KEY=$(pass show open-ai/api-key)
+  export PASS_PUB_KEY=$(pass show pass/pub-key)
+  # export HUGGING_FACE_HUB_TOKEN=$(pass show hugging-face/token)
+}
 
 alias gpg-gen="gpg --gen-key" #generate new key
 alias gpg-pub-key="gpg -K" # show pub key
