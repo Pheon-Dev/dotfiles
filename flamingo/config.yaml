@@ -11,20 +11,24 @@ projects:
     description: ~/.config/dwm
   - title:   manta-api
     description: ~/rust/canvas/manta-api
+  - title:   zsh
+    description: ~/.config/zsh
+  - title:   lf
+    description: ~/.config/lf
   - title:   joshuto
     description: ~/.config/joshuto
   - title:   flamingo (config)
     description: ~/.config/flamingo
   - title:   flamingo (dev)
     description: ~/go/src/github.com/Pheon-Dev/flamingo
-  - title:   zsh
-    description: ~/.config/zsh
   - title:   lazygit
     description: ~/.config/lazygit
   - title:   btop
     description: ~/.config/btop
   - title:   dotfiles
     description: ~/dotfiles
+  - title:   bat
+    description: ~/.config/bat
   - title:   rofi
     description: ~/.config/rofi
   - title:   picom
