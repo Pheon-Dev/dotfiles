@@ -16,7 +16,8 @@ scrolling:
 font:
   normal:
     family: ComicMonoNF
-    style: Bold
+    # family: Iosevka Nerd Font
+    style: Regular
   bold:
     family: ComicMonoNF
     style: Bold
@@ -24,7 +25,8 @@ font:
     family: Iosevka Nerd Font
     style: Italic
   bold_italic:
-    family: ComicMonoNF
+    # family: ComicMonoNF
+    family: Iosevka Nerd Font
     style: Bold Italic
   size: 08.0
   offset:
