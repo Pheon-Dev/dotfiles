@@ -1,5 +1,6 @@
 #!/bin/bash zsh
 
+source "$HOME/.config/zsh/functions/pass.zsh"
 source "$HOME/.config/zsh/functions/dock.zsh"
 source "$HOME/.config/zsh/functions/gt.zsh"
 source "$HOME/.config/zsh/functions/goat.zsh"
