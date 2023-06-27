@@ -21,7 +21,7 @@ font:
     family: ComicMonoNF
     style: Bold
   italic:
-    family: ComicMonoNF
+    family: Iosevka Nerd Font
     style: Italic
   bold_italic:
     family: ComicMonoNF
@@ -109,10 +109,11 @@ key_bindings:
   - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
   - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
   - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+  - { key: H, mods: Control, chars: "\flf\n" }
   - { key: L, mods: Control, chars: "\f" }
-  - { key: G, mods: Control, chars: "\flg\n" }
-  - { key: I, mods: Control, chars: "\fv\n" }
-  - { key: Z, mods: Control, chars: "\fzz\n" }
-  - { key: F, mods: Control, chars: "\ff\n\f" }
-  - { key: W, mods: Control, chars: "\fww\n" }
+  - { key: G, mods: Control, chars: "\flg\n" } # lazygit
+  - { key: I, mods: Control, chars: "\fv\n" } # editor
+  - { key: Z, mods: Control, chars: "\fzz\n" } # zellij
+  - { key: F, mods: Control, chars: "\ff\n\f" } # flamingo
+  - { key: W, mods: Control, chars: "\fww\n" } # internet connection
 theme: 3024.dark
