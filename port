@@ -13,3 +13,5 @@ cp -r $HOME/.config/lazygit $HOME/dotfiles && cd $HOME/dotfiles/lazygit && rm -r
 cp -r $HOME/.config/zellij $HOME/dotfiles && cd $HOME/dotfiles/zellij && rm -rf .git* && cd -
 cp -r $HOME/.config/flamingo $HOME/dotfiles && cd $HOME/dotfiles/flamingo && rm -rf .git* && cd -
 cp -r $HOME/.config/joshuto $HOME/dotfiles && cd $HOME/dotfiles/joshuto && rm -rf .git* && cd -
+cp -r $HOME/.config/lf $HOME/dotfiles && cd $HOME/dotfiles/lf && rm -rf .git* && cd -
+cp -r $HOME/.config/bat $HOME/dotfiles && cd $HOME/dotfiles/bat && rm -rf .git* && cd -
