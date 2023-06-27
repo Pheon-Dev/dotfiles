@@ -32,6 +32,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PIP_BREAK_SYSTEM_PACKAGES=1
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
+
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
 # $ grep -E "(ctrl|caps):" /usr/share/X11/xkb/rules/base.lst
 
