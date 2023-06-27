@@ -15,6 +15,12 @@ zstyle ':autocomplete:*' delay 0.0  # seconds (float)
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1a --icons --color=always $realpath'
+# zstyle ':fzf-tab:complete:mpv:*' fzf-preview 'exa -1a --icons --color=always $realpath'
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --color=always ${(Q)realpath}'
+# zstyle ':fzf-tab:complete:vim:*' fzf-preview 'bat -pp --color=always $realpath'
+# zstyle ':fzf-tab:complete:cat:*' fzf-preview 'bat -pp --color=always $realpath'
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --color=always ${(Q)realpath} || bat -pp --color=always $realpath'
 # between quotation marks is the tool output for LS_COLORS
 # export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 # zstyle ':completion:*:approximate:'                 max-errors 'reply=( $((($#PREFIX+$#SUFFIX)/3 )) numeric )' # allow one error for every three characters typed in approximate completer

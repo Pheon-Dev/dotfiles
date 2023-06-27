@@ -18,10 +18,9 @@ unsetopt listbeep
 
   builtin autoload +X -Uz ~autocomplete/Functions/**/.autocomplete:*~*.zwc(D-:)
   .autocomplete:__main__ "$@"
-}
+} 
 
 source "$HOME/.config/zsh/functions/cmp.zsh"
-
 () {
    local -a prefix=( '\e'{\[,O} )
    local -a up=( ${^prefix}A ) down=( ${^prefix}B )

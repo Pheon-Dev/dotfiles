@@ -1,10 +1,8 @@
-#! /usr/bin/env sh
+#!/bin/bash zsh
+# 282a36
+# source "$HOME/.config/zsh/fzf-tab/fzf-tab.zsh"
+# source "$HOME/.config/zsh/fzf-tab-source/fzf-tab-source.plugin.zsh"
 
-export FZF_DEFAULT_OPTS="--height 64% --layout=reverse --color=fg:#d0d0d0,bg:#363636,hl:#5f87af --color=fg+:#d0d0d0,bg+:#363636,hl+:#648ce3 --color=info:#6d7d85,prompt:#b53c10,pointer:#5895db --color=marker:#87ff00,spinner:#2b751c,header:#87afaf --preview 'bat -pp --color=always'"
+export FZF_DEFAULT_OPTS='--color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4'
 
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1a --icons --color=always $realpath'
-zstyle ':fzf-tab:complete:mpv:*' fzf-preview 'exa -1a --icons --color=always $realpath'
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --color=always ${(Q)realpath}'
-zstyle ':fzf-tab:complete:vim:*' fzf-preview 'bat -pp --color=always $realpath'
-zstyle ':fzf-tab:complete:cat:*' fzf-preview 'bat -pp --color=always $realpath'
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --color=always ${(Q)realpath} || bat -pp --color=always $realpath'
+export FZF_DEFAULT_OPTS="--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (exa --icons -T --color=always --group-directories-first {} || tree -C {})) || echo {} 2> /dev/null | head -200' --preview-window=top"
