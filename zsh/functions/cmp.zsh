@@ -7,9 +7,16 @@ zstyle ':completion:*' file-list all
 
 zstyle ':completion:*' list-colors '=*=90'
 zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*:descriptions'                 format $'%{\e[0;32m%}↘ %B%d%b%{\e[0m%}'  # format on completion
 zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':autocomplete:*' delay 0.0  # seconds (float)
 
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+
+# between quotation marks is the tool output for LS_COLORS
+# export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 # zstyle ':completion:*:approximate:'                 max-errors 'reply=( $((($#PREFIX+$#SUFFIX)/3 )) numeric )' # allow one error for every three characters typed in approximate completer
 # zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~' # don't complete backup files as executables
 # zstyle ':completion:*:correct:*'                    insert-unambiguous true             # start menu completion only if it could find no unambiguous initial string
