@@ -224,8 +224,8 @@ default_shell "zsh"
 //   - true (default)
 //   - false
 //
-pane_frames true
-// auto_layout true
+pane_frames false
+auto_layout true
 
 ui {
     pane_frames {
