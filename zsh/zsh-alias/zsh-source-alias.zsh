@@ -1,0 +1,16 @@
+#!/bin/bash zsh
+
+source "$HOME/.config/zsh/zsh-alias/alias.zsh"
+source "$HOME/.config/zsh/zsh-alias/pass.zsh"
+source "$HOME/.config/zsh/zsh-alias/dock.zsh"
+source "$HOME/.config/zsh/zsh-alias/goat.zsh"
+source "$HOME/.config/zsh/zsh-alias/mt.zsh"
+source "$HOME/.config/zsh/zsh-alias/ww.zsh"
+source "$HOME/.config/zsh/zsh-alias/bl.zsh"
+source "$HOME/.config/zsh/zsh-alias/zz.zsh"
+source "$HOME/.config/zsh/zsh-alias/rust.zsh"
+source "$HOME/.config/zsh/zsh-alias/zsh-git/git.zsh"
+source "$HOME/.config/zsh/zsh-alias/zsh-git/gt.zsh"
+source "$HOME/.config/zsh/zsh-alias/zsh-git/gset.zsh"
+source "$HOME/.config/zsh/zsh-alias/others.zsh"
+source "$HOME/.config/zsh/zsh-alias/use.zsh"
