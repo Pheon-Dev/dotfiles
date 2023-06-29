@@ -27,6 +27,8 @@ projects:
     description: ~/.config/btop
   - title:   dotfiles
     description: ~/dotfiles
+  - title:   starship
+    description: ~/.config/starship
   - title:   bat
     description: ~/.config/bat
   - title:   rofi
