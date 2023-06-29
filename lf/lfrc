@@ -39,7 +39,7 @@ cmd delete ${{
     echo -n "$(tput setaf 1)  Are you sure you want to delete"
     echo -n "$(tput setaf 3) $del"
     echo -n "$(tput setaf 1) [y|n] : "
-  echo -n "$(tput setaf 4) "
+    echo -n "$(tput setaf 4) "
     read res
     if [[ $res == "y" || $res == "Y" || $res == "yes" || $res == "Yes" ]]; then
       rm -rf $del
@@ -51,9 +51,15 @@ cmd delete ${{
   done
 }}
 
+cmd edit ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  nvim --server ~/.cache/nvim/server.pipe --remote $files
+}}
+
     # cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
 cmd fzf_jump ${{
-    res="$(find . -maxdepth 1 | fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (exa --icons -T --color=always --group-directories-first {} || tree -C {})) || echo {} 2> /dev/null | head -200' --preview-window=top --header='Jump to location')"
+    FZF_DEFAULT_OPTS='--color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4'
+    res="$(find . -maxdepth 1 | fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (exa --icons -T --color=always --group-directories-first {} || tree -C {})) || echo {} 2> /dev/null | head -200' --preview-window=top --header='Jump to location' --prompt '  ' $FZF_DEFAULT_OPTS --preview-window 'up,60%,border-bottom,+{2}+3/3,~3')"
     if [ -n "$res" ]; then
         if [ -d "$res" ]; then
             cmd="cd"
@@ -66,6 +72,7 @@ cmd fzf_jump ${{
 }}
 
 cmd fzf_search ${{
+    FZF_DEFAULT_OPTS='--color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4'
     RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
     res="$(
         FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
@@ -73,8 +80,10 @@ cmd fzf_search ${{
             --ansi --header 'Search in files' \
             --disabled --query "$INITIAL_QUERY" \
             --delimiter : \
+            --prompt '  ' \
             --preview 'bat --color=always {1} --highlight-line {2}' \
-            --preview-window top \
+            --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+            ${FZF_DEFAULT_OPTS} \
           | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
     )"
     if [ -n "$res" ]; then
@@ -103,35 +112,16 @@ cmd unarchive ${{
   esac
 }}
 
-# Trash bindings
-cmd trash ${{
-  files=$(printf "$fx" | tr '\n' ';')
-  while [ "$files" ]; do
-    file=${files%%;*}
-
-    trash-put "$(basename "$file")"
-    if [ "$files" = "$file" ]; then
-      files=''
-    else
-      files="${files#*;}"
-    fi
-  done
-}}
-
-cmd restore_trash ${{
-  trash-restore
-}}
-
 # Bindings
 map d
 map m
 
 map u unarchive
 
+cmd paste $cp-p --lf-paste $id
+
 # Basic Functions
 map . set hidden!
-# map dd trash
-# map dr restore_trash
 map p paste
 map f fzf_jump
 map x cut
@@ -140,8 +130,9 @@ map <enter> open
 map R reload
 map a create_file
 map A create_dir
-map dd delete
+map d delete
 map C clear
+map e edit
 map S fzf_search
 
 # Movement
@@ -150,4 +141,5 @@ map go cd ~/go
 map gc cd ~/Documents
 map gw cd ~/Downloads
 map gf cd ~/.config
-map gt cd ~/.local/share/Trash/files
+map gz cd ~/.local/share/nvim/lazy
+map gw cd ~/.local/state/nvim/swap
