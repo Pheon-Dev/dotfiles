@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
-bats() {
+bat_preview() {
   bat --color=always --theme="Dracula" --style="numbers,changes,header" "$@"
 }
+
 preview() {
-	bats <<-EOF | paste -sd '' >"$LF_UEBERZUG_TEMPDIR/fifo"
+	bat_preview <<-EOF | paste -sd '' >"$LF_UEBERZUG_TEMPDIR/fifo"
 	{
 	"action": "add", "identifier": "lf-preview",
 	"path": "$1", "x": $4, "y": $5, "width": $2, "height": $3,
@@ -40,6 +41,7 @@ case "$(basename "$file" | tr '[:upper:]' '[:lower:]')" in
 	gm convert "$file[0]" "$thumbnail"
 	preview "$thumbnail" "$@"
 	;;
-*) bats "$file" ;;
+*) bat_preview "$file" ;;
 esac
+
 return 127 # nonzero retcode required for lf previews to reload
