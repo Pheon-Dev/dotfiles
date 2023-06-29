@@ -111,7 +111,7 @@ key_bindings:
   - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
   - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
   - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
-  - { key: H, mods: Control, chars: "\flf\n" }
+  - { key: Semicolon, mods: Control, chars: "\flf\n" }
   - { key: L, mods: Control, chars: "\f" }
   - { key: G, mods: Control, chars: "\flg\n" } # lazygit
   - { key: I, mods: Control, chars: "\fv\n" } # editor
