@@ -53,9 +53,8 @@ alias tk="tmux kill-server"
 alias ts="tmux source $HOME/.tmux.conf"
 
 # EDITOR
-# alias v="$EDITOR --listen ~/.cache/nvim/server.pipe"
-# alias vi="$EDITOR --listen ~/.cache/nvim/server.pipe"
-# alias vim="$EDITOR --listen ~/.cache/nvim/server.pipe"
+alias vl="$EDITOR --listen ~/.cache/nvim/server.pipe"
+alias vs="$EDITOR --server ~/.cache/nvim/server.pipe --remote"
 alias v="$EDITOR"
 alias vi="$EDITOR"
 alias vim="$EDITOR"
