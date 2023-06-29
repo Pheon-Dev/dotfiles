@@ -15,8 +15,8 @@ projects:
     description: ~/.config/zsh
   - title:   lf
     description: ~/.config/lf
-  - title:   joshuto
-    description: ~/.config/joshuto
+  # - title:   joshuto
+  #   description: ~/.config/joshuto
   - title:   flamingo (config)
     description: ~/.config/flamingo
   - title:   flamingo (dev)
