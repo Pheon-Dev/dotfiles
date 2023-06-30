@@ -15,3 +15,9 @@ cp -r $HOME/.config/flamingo $HOME/dotfiles && cd $HOME/dotfiles/flamingo && rm 
 cp -r $HOME/.config/joshuto $HOME/dotfiles && cd $HOME/dotfiles/joshuto && rm -rf .git* && cd -
 cp -r $HOME/.config/lf $HOME/dotfiles && cd $HOME/dotfiles/lf && rm -rf .git* && cd -
 cp -r $HOME/.config/bat $HOME/dotfiles && cd $HOME/dotfiles/bat && rm -rf .git* && cd -
+cp -r $HOME/.z $HOME/dotfiles
+cp -r $HOME/.zshrc $HOME/dotfiles
+cp -r $HOME/.zprofile $HOME/dotfiles
+cp -r $HOME/.xinitrc $HOME/dotfiles
+cp -r $HOME/.histfile $HOME/dotfiles
+cp -r $HOME/.zsh_history $HOME/dotfiles
