@@ -1,6 +1,5 @@
 #!/bin/bash
-cp $HOME/.zshrc $HOME/.config/zsh/.zshrc
-# cp $HOME/.z* $HOME/.config/dotfiles
+
 cp -r $HOME/.config/nvim $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/nvim && rm -rf .git* && cd -
 cp -r $HOME/.config/alacritty $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/alacritty && rm -rf .git* && cd -
 cp -r $HOME/.config/dwm $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/dwm && rm -rf .git* && cd -
@@ -21,3 +20,4 @@ cp -r $HOME/.zprofile $HOME/.config/dotfiles
 cp -r $HOME/.xinitrc $HOME/.config/dotfiles
 cp -r $HOME/.histfile $HOME/.config/dotfiles
 cp -r $HOME/.zsh_history $HOME/.config/dotfiles
+cp -r $HOME/.zshrc $HOME/.config/zsh/.zshrc
