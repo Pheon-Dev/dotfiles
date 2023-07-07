@@ -25,7 +25,7 @@ mt () {
   if [[ $continue == "q" || $continue == "Q" || $continue == "n" || $continue == "N" ]]; then
     echo ""
       echo "$(tput setaf 2) Good Bye! \n"
-    return 1
+    return 0
   fi
   clear
   echo ""
@@ -47,7 +47,7 @@ mt () {
       echo "$(tput setaf 1) No Mountpoint Found \n"
     fi
       echo "$(tput setaf 2) Good Bye! \n"
-    return 1
+    return 0
   fi
   echo ""
   echo -n "$(tput setaf 2) ● Enter mount point name : "
@@ -63,5 +63,5 @@ mt () {
   echo -e "$(tput setaf 7) $mount_point \n"
   echo -e "$(tput setaf 2) Mounted Successfully! \n"
   echo "$(tput setaf 2) Good Bye! \n"
-  return 1
+  return 0
 }

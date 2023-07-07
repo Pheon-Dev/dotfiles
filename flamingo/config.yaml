@@ -1,43 +1,54 @@
 ---
 filtering: true
+status-bar: true
+title: Flamingo
+editor: $EDITOR
+pre-run: "rm -rf ~/.cache/nvim/server.pipe 2>/dev/null && clear &&"
+flags: "--listen ~/.cache/nvim/server.pipe"
+quit-key: "h"
+select-key: "l"
 projects:
-  - title:   nvim
+  - title:   nvim
     description: ~/.config/nvim
-  - title:   zellij
+  - title:   zellij
     description: ~/.config/zellij
-  - title:   alacritty
+  - title:   alacritty
     description: ~/.config/alacritty
-  - title:   dwm
+  - title:   dwm
     description: ~/.config/dwm
-  - title:   manta-api
+  - title: 󱂛  manta-api
     description: ~/rust/canvas/manta-api
-  - title:   zsh
+  - title:   zsh
     description: ~/.config/zsh
-  - title:   lf
+  - title:   lf
     description: ~/.config/lf
-  # - title:   joshuto
-  #   description: ~/.config/joshuto
-  - title:   flamingo (config)
+  - title:   flamingo (config)
     description: ~/.config/flamingo
-  - title:   flamingo (dev)
+  - title:   flamingo (dev)
     description: ~/go/src/github.com/Pheon-Dev/flamingo
-  - title:   lazygit
+  - title:   lazygit
     description: ~/.config/lazygit
-  - title:   btop
+  - title:   btop
     description: ~/.config/btop
-  - title:   dotfiles
-    description: ~/dotfiles
-  - title:   starship
+  - title:   dotfiles
+    description: ~/.config/dotfiles
+  - title:   starship
     description: ~/.config/starship
-  - title:   bat
+  - title: 練  bat
     description: ~/.config/bat
-  - title:   rofi
+  - title:   antelope (git)
+    description: ~/Documents/neovim/antelope
+  - title:    antelope (dev)
+    description: ~/.local/share/nvim/lazy/antelope
+  - title:   pigeon (git)
+    description: ~/Documents/neovim/pigeon
+  - title:   pigeon (dev)
+    description: ~/.local/share/nvim/lazy/pigeon
+  - title:   rofi
     description: ~/.config/rofi
-  - title:   picom
+  - title:   picom
     description: ~/.config/picom
   - title:   .xinitrc
     description: ~/.xinitrc
-  - title:   .zshrc
+  - title:   .zshrc
     description: ~/.zshrc
-status-bar: true
-title: Flamingo

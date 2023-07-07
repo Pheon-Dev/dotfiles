@@ -40,35 +40,35 @@ ww () {
       echo -n "$(tput setaf 3)     -h, --help "
       echo -n "$(tput setaf 8) →"
       echo -e "$(tput setaf 6)        Show this help info \n"
-      return 1
+      return 0
   }
   if [[ $1 == "-t" || $1 == "--toggle" ]]; then
     wifi toggle
-    return 1
+    return 0
   fi
   if [[ $1 == "-r" || $1 == "--restart" ]]; then
     sudo systemctl restart NetworkManager
-    return 1
+    return 0
   fi
   if [[ $1 == "-d"  || $1 == "--disconnect" ]]; then
     nmcli dev disconnect $2
-    return 1
+    return 0
   fi
   if [[ $1 == "-s" || $1 == "--status"  ]]; then
     nmcli dev status
-    return 1
+    return 0
   fi
   if [[ $1 == "-n" || $1 == "--radio-on"  ]]; then
     nmcli dev radio on
-    return 1
+    return 0
   fi
   if [[ $1 == "-f" || $1 == "--radio-off"  ]]; then
     nmcli dev radio off
-    return 1
+    return 0
   fi
   if [[ $1 == "-i" || $1 == "--info"  ]]; then
     nmcli --show-secrets connection show
-    return 1
+    return 0
   fi
   if [[ $1 == "-e" || $1 == "--ethernet"  ]]; then
     if [[ $2 == "-s" || $2 == "--show"  ]]; then
@@ -78,19 +78,19 @@ ww () {
     if [[ $2 == "-c" || $2 == "--connect"  ]]; then
         nmcli connection up "$3"
     fi
-    return 1
+    return 0
   fi
   if [[ $1 == "-h" || $1 == "--help"  ]]; then
     help
-    return 1
+    return 0
   fi
   if [[ $1 == "-g" || $1 == "--gui"  ]]; then
     nm-connection-editor
-    return 1
+    return 0
   fi
   if [[ $1 == "-u" || $1 == "--nmtui"  ]]; then
     nmtui
-    return 1
+    return 0
   fi
   clear
   search="h";
@@ -113,5 +113,5 @@ ww () {
 }
 
 we () {
- nmcli connection add con-name new-enp1s0 ifname enp1s0 type ethernet ip4 192.168.7.31/24 gw4 192.168.7.1                                       12:30:13
+ nmcli connection add con-name new-enp1s0 ifname enp1s0 type ethernet ip4 192.168.7.31/24 gw4 192.168.7.1
 }

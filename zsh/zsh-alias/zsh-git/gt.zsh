@@ -1,5 +1,6 @@
 #!/bin/bash zsh
 
+# TODO: add branch option
 _gt_help () {
   echo "$(tput setaf 1) ** Missing Flag Option ** \n"
   echo -n "$(tput setaf 2) gt"
@@ -30,7 +31,7 @@ glb () {
     echo " "
     if [[ $1 == "" ]]; then
       _gt_help
-        return 1
+        return 0
     fi
 
     repo_name=""
@@ -44,7 +45,7 @@ glb () {
     if [[ $1 == "--init" || $1 == "-i" ]]; then
       if [[ $2 == "" ]]; then
         _gt_repo
-          return 1
+          return 0
       fi
 
       repo_name=$2
@@ -67,7 +68,7 @@ gt () {
     echo " "
     if [[ $1 == "" ]]; then
       _gt_help
-        return 1
+        return 0
     fi
 
     repo_name=""
@@ -75,19 +76,19 @@ gt () {
       repo_name=$(git remote -v | grep -E "fetch" | cut -d " " -f 1 | awk 'BEGIN { FS = " " } { print $2 }' | awk 'BEGIN { FS = "/" } { print $5 }' | awk 'BEGIN { FS = "." } { print $1 }')
       echo -n "$(tput setaf 3)  GitHub"
       echo -e "$(tput setaf 6) Remote URL Successfully Set : \n"
-      git remote set-url origin https://$GITHUB_TOKEN@github.com/Pheon-Dev/$repo_name.git
+      pass-export && git remote set-url origin https://$GITHUB_TOKEN@github.com/Pheon-Dev/$repo_name.git
     fi
 
     if [[ $1 == "--init" || $1 == "-i" ]]; then
       if [[ $2 == "" ]]; then
         _gt_repo
-          return 1
+          return 0
       fi
 
       repo_name=$2
       echo -n "$(tput setaf 3)  GitHub"
       echo -e "$(tput setaf 6) Repository Successfully Initialised : \n"
-      git init > /dev/null 2>&1 && git remote add origin https://github.com/Pheon-Dev/$repo_name.git && git branch -M main && git remote set-url origin https://$GITHUB_TOKEN@github.com/Pheon-Dev/$repo_name.git && touch .gitignore README.md
+      pass-export && git init > /dev/null 2>&1 && git remote add origin https://github.com/Pheon-Dev/$repo_name.git && git branch -M main && git remote set-url origin https://$GITHUB_TOKEN@github.com/Pheon-Dev/$repo_name.git && touch .gitignore README.md
     fi
 
     

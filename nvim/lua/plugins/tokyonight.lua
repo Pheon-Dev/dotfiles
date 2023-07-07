@@ -56,12 +56,13 @@ return {
 			local normal_hl = vim.api.nvim_get_hl_by_name("Normal", true)
 
 			-- Alpha
-			vim.api.nvim_set_hl(0, "AlphaKeys", { fg = theme.color43, bg = theme.color0 })
-			vim.api.nvim_set_hl(0, "AlphaDesc", { fg = theme.color20, bg = theme.color0 })
-			vim.api.nvim_set_hl(0, "AlphaIcon", { fg = theme.color100, bg = theme.color0 })
+			vim.api.nvim_set_hl(0, "AlphaKeys", { fg = theme.color2, bg = theme.color0 })
+			vim.api.nvim_set_hl(0, "AlphaDesc", { fg = theme.color5, bg = theme.color0 })
+			vim.api.nvim_set_hl(0, "AlphaIcon", { fg = theme.color5, bg = theme.color0 })
 			vim.api.nvim_set_hl(0, "AlphaQuit", { fg = theme.color16, bg = theme.color0 })
 			vim.api.nvim_set_hl(0, "AlphaFoot", { fg = theme.color3, bg = theme.color0 })
 			vim.api.nvim_set_hl(0, "AlphaInfo", { fg = theme.color68, bg = theme.color0 })
+			vim.api.nvim_set_hl(0, "AlphaLine", { fg = theme.color1, bg = theme.color0 })
 
 			vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { bg = theme.color1 })
 			vim.api.nvim_set_hl(0, "CodeiumSuggestion", { fg = theme.color3 })
@@ -73,14 +74,10 @@ return {
 			vim.api.nvim_set_hl(0, "CursorLineNR", { fg = theme.color100 })
 			vim.api.nvim_set_hl(0, "RustToolsInlayHints", { fg = theme.color24 })
 
-			-- Hlslens
-			vim.api.nvim_set_hl(0, "HlSearchNear", { fg = theme.color89, bg = theme.color1 })
-			vim.api.nvim_set_hl(0, "HlSearchLens", { fg = theme.color89, bg = theme.color0 })
-			vim.api.nvim_set_hl(0, "HlSearchLensNear", { fg = theme.color0, bg = theme.color89 })
 
       -- Flash
 			vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = theme.color3, bg = theme.color0 })
-			vim.api.nvim_set_hl(0, "FlashMatch", { fg = theme.color89, bg = theme.color1 })
+			vim.api.nvim_set_hl(0, "FlashMatch", { fg = theme.color3, bg = theme.color0 })
 			vim.api.nvim_set_hl(0, "FlashCurrent", { fg = theme.color100, bg = theme.color1 })
 			vim.api.nvim_set_hl(0, "FlashLabel", { fg = theme.color99, bg = theme.color1 })
 

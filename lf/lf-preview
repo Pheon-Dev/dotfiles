@@ -1,47 +1,53 @@
-#!/usr/bin/env sh
-bat_preview() {
-  bat --color=always --theme="Dracula" --style="numbers,changes,header" "$@"
+#!/bin/sh
+
+batorcat() {
+	file="$1"
+	shift
+	if command -v bat > /dev/null 2>&1
+	then
+    bat --color=always --theme="Dracula" --style="numbers,changes,header" --pager=never "$file" "$@" # --style=plain
+	else
+		cat "$file"
+	fi
 }
 
+# install `perl-image-exiftool`
 preview() {
-	bat_preview <<-EOF | paste -sd '' >"$LF_UEBERZUG_TEMPDIR/fifo"
-	{
-	"action": "add", "identifier": "lf-preview",
-	"path": "$1", "x": $4, "y": $5, "width": $2, "height": $3,
-	"scaler": "contain"
-	}
-	EOF
+  file="$1"
+  exiftool "$file" | bat -A --color=always --theme="Dracula" --style=plain --pager=never
 }
 
-file="$1"; shift
-case "$(basename "$file" | tr '[:upper:]' '[:lower:]')" in
-*.tar*) tar tf "$file" ;;
-*.zip) unzip -l "$file" ;;
-*.rar) unrar l "$file" ;;
-*.7z) 7z l "$file" ;;
-*.avi|*.mp4|*.mkv)
-	thumbnail="$LF_UEBERZUG_TEMPDIR/thumbnail.png"
-	ffmpeg -y -i "$file" -vframes 1 "$thumbnail"
-	preview "$thumbnail" "$@"
-	;;
-*.pdf)
-	thumbnail="$LF_UEBERZUG_TEMPDIR/thumbnail.png"
-	gs -o "$thumbnail" -sDEVICE=pngalpha -dLastPage=1 "$file" >/dev/null
-	preview "$thumbnail" "$@"
-	;;
-*.jpg|*.jpeg|*.png|*.bmp)
-	preview "$file" "$@" ;;
-*.svg)
-	thumbnail="$LF_UEBERZUG_TEMPDIR/thumbnail.png"
-	gm convert "$file" "$thumbnail"
-	preview "$thumbnail" "$@"
-	;;
-*.gif)
-	thumbnail="$LF_UEBERZUG_TEMPDIR/thumbnail.png"
-	gm convert "$file[0]" "$thumbnail"
-	preview "$thumbnail" "$@"
-	;;
-*) bat_preview "$file" ;;
+# install `glow`
+glows() {
+  file="$1"
+  "$file" | glow
+}
+
+case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
+	*.tgz|*.tar.gz) tar tzf "$1" ;;
+	*.tar.bz2|*.tbz2) tar tjf "$1" ;;
+	*.tar.txz|*.txz) xz --list "$1" ;;
+	*.tar) tar tf "$1" ;;
+	*.zip|*.jar|*.war|*.ear|*.oxt) unzip -l "$1" ;;
+	*.rar) unrar l "$1" ;;
+	*.7z) 7z l "$1" ;;
+	*.[1-8]) man "$1" | col -b ;;
+	*.o) nm "$1";;
+	*.torrent) transmission-show "$1" ;;
+	*.iso) iso-info --no-header -l "$1" ;;
+	*.odt|*.ods|*.odp|*.sxw) odt2txt "$1" ;;
+	*.doc) catdoc "$1" ;;
+	*.md) glows "$1" ;;
+	*.docx) docx2txt "$1" - ;;
+	*.xls|*.xlsx)
+		ssconvert --export-type=Gnumeric_stf:stf_csv "$1" "fd://1" | batorcat --language=csv
+		;;
+	*.wav|*.mp3|*.flac|*.m4a|*.wma|*.ape|*.ac3|*.og[agx]|*.spx|*.opus|*.as[fx]|*.mka|*.pdf|*.avi|*.mp4|*.wmv|*.dat|*.3gp|*.ogv|*.mkv|*.mpg|*.mpeg|*.vob|*.fl[icv]|*.m2v|*.mov|*.webm|*.ts|*.mts|*.m4v|*.r[am]|*.qt|*.divx|*.bmp|*.jpg|*.jpeg|*.png|*.xpm|*.webp|*.gif|*.jfif|*.svg)
+		preview "$1"
+    		;;
+	*)
+		batorcat "$1"
+		;;
 esac
 
 return 127 # nonzero retcode required for lf previews to reload

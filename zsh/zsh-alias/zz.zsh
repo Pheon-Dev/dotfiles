@@ -38,7 +38,7 @@ zz () {
     echo ""
     echo -n "$(tput setaf 3) Good Bye! \n"
     echo ""
-    return 1
+    return 0
   fi
   fi
   if [[ $1 == "-h" || $1 == "--help" || $option == "h" ]]; then
@@ -61,7 +61,7 @@ zz () {
     echo -n "$(tput setaf 3)    -h, --help"
     echo -n "$(tput setaf 6)      show this help \n"
     echo " "
-    return 1
+    return 0
   fi
   if [[ $1 == "-a" || $1 == "--attach" || $option == "a" ]]; then
     clear
@@ -73,7 +73,7 @@ zz () {
     clear
     zellij attach $attach_session
     echo " "
-    return 1
+    return 0
   fi
   if [[ $1 == "-l" || $1 == "--layout" || $option == "l" ]]; then
     clear
@@ -82,7 +82,7 @@ zz () {
     echo -n "$(tput setaf 6)$layouts"
     echo " "
     echo " "
-    return 1
+    return 0
   fi
   if [[ $1 == "-s" || $1 == "--active" || $option == "s" ]]; then
     clear
@@ -91,17 +91,17 @@ zz () {
     for a in $sessions; do
       echo -e "$(tput setaf 2) - $a"
     done
-    return 1
+    return 0
   fi
   if [[ $1 == "-z" || $1 == "--zellij-compact" || $option == "z" ]]; then
     clear
     zellij -l compact
-    return 1
+    return 0
   fi
   if [[ $1 == "-d" || $1 == "--default" || $option == "d" ]]; then
     clear
     zellij
-    return 1
+    return 0
   fi
   if [[ $1 == "" || $option == "" ]]; then
     clear

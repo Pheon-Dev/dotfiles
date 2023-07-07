@@ -2,38 +2,38 @@ zstyle ':completion:*' file-list all
 
 zstyle ':completion:*' list-colors '=*=90'
 
-zstyle ':completion:*:director*' format $'%{\e[0;34m%} %d'
-zstyle ':completion:*:descriptions' format $'%{\e[0;32m%} %d'
-zstyle ':completion:*:options' format $'%{\e[0;36m%} %d'
-zstyle ':completion:*:warnings' format $'%{\e[0;31m%}  no matches for a %d'
+zstyle ':completion:*:director*' format $'%{\e[0;34m%}--  %d --'
+zstyle ':completion:*:descriptions' format $'%{\e[0;32m%}--  %d --'
+zstyle ':completion:*:options' format $'%{\e[0;36m%}--  %d --'
+zstyle ':completion:*:warnings' format $'%{\e[0;31m%}--   no matches found --'
 
-zstyle ':completion:*:file*' format $'%{\e[0;33m%} %f'
-zstyle ':completion:*:corrections' format $'%{\e[0;35m%} %e'
-zstyle ':completion:*:messages' format $'%{\e[0;37m%} %d'
+zstyle ':completion:*:file*' format $'%{\e[0;33m%}--  %f --'
+zstyle ':completion:*:corrections' format $'%{\e[0;35m%}--  %e --'
+zstyle ':completion:*:messages' format $'%{\e[0;37m%}--  %d --'
 
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 zstyle ':completion:*:approximate:'                 max-errors 'reply=( $((($#PREFIX+$#SUFFIX)/3 )) numeric )' # allow one error for every three characters typed in approximate completer
 zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~' # don't complete backup files as executables
-zstyle ':completion:*:corrections'                  format $'%{\e[0;31m%}%d (errors: %e)%{\e[0m%}' #
+# zstyle ':completion:*:corrections'                  format $'%{\e[0;31m%}%d (errors: %e)%{\e[0m%}' #
 zstyle ':completion:*:*:cd:*:directory-stack'       menu yes select              # complete 'cd -<tab>' with menu
 zstyle ':completion:*:expand:*'                     tag-order all-expansions            # insert all expansions for expand completer
 zstyle ':completion:*:history-words'                list false                          #
 zstyle ':completion:*:history-words'                menu yes                            # activate menu
 zstyle ':completion:*:history-words'                remove-all-dups yes                 # ignore duplicate entries
 zstyle ':completion:*:history-words'                stop yes                            #
-zstyle ':completion:*'                              matcher-list 'm:{a-z}={A-Z}'        # match uppercase from lowercase
-zstyle ':completion:*:matches'                      group 'yes'                         # separate matches into groups
+# zstyle ':completion:*'                              matcher-list 'm:{a-z}={A-Z}'        # match uppercase from lowercase
+# zstyle ':completion:*:matches'                      group 'yes'                         # separate matches into groups
 zstyle ':completion:*'                              group-name ''
 if [[ -z "$NOMENU" ]] ; then
   zstyle ':completion:*'                            menu select=2                       # if there are more than 5 options allow selecting from a menu
 else
   setopt no_auto_menu # don't use any menus at all
 fi
-zstyle -e ':completion:*'                           special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
+# zstyle -e ':completion:*'                           special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
 zstyle ':completion:*:processes'                    command 'ps -au$USER'               # on processes completion complete all user processes
 zstyle ':completion:*:*:-subscript-:*'              tag-order indexes parameters        # offer indexes before parameters in subscripts
 zstyle ':completion:*'                              verbose true                        # provide verbose completion information

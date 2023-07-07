@@ -3,13 +3,13 @@ local map = vim.api.nvim_set_keymap
 
 -- Saving and  ESC on insert Mode
 map("i", "jj", "<esc>", { noremap = true, silent = true })
-map("n", "'", "<esc>:lua vim.lsp.buf.format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
+map("n", ",", "<esc>:lua vim.lsp.buf.format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
 
 -- Windows
-map("n", "Wj", ":vsplit<cr>", { noremap = true, silent = true })
-map("n", "Wk", ":split<cr>", { noremap = true, silent = true })
-map("n", "Wh", "<C-w>t<C-w>K", { noremap = true, silent = true })
-map("n", "Wl", "<C-w>t<C-w>H", { noremap = true, silent = true })
+map("n", "wv", ":vsplit<cr>", { noremap = true, silent = true })
+map("n", "wb", ":split<cr>", { noremap = true, silent = true })
+map("n", "Wv", "<C-w>t<C-w>K", { noremap = true, silent = true })
+map("n", "Wb", "<C-w>t<C-w>H", { noremap = true, silent = true })
 
 map("n", "<C-h>", "<C-w>h", { noremap = true, silent = false })
 map("n", "<C-j>", "<C-w>j", { noremap = true, silent = false })
@@ -45,8 +45,7 @@ map("n", "tn", ":tabNext<cr>", { noremap = true, silent = true })
 map("n", "tp", ":tabprevious<cr>", { noremap = true, silent = true })
 map("n", "tl", ":tablast<cr>", { noremap = true, silent = true })
 
-map("n", "zl", "za", { noremap = true, silent = true })
-
+-- remap
 map("n", "cc", "0D", { noremap = true, silent = true })
 map("n", "gi", "<C-i>", { noremap = true, silent = true })
 map("n", "go", "<C-o>", { noremap = true, silent = true })
@@ -104,9 +103,9 @@ local keymap = vim.keymap.set
 
 -- keymap({ "o", "x" }, "q", ':normal vi"<cr>', {noremap = true, silent = true})
 
-keymap({ "o", "x" }, "c", ":normal vac<cr>", {noremap = true, silent = true})
-keymap({ "o", "x" }, "f", ":normal vafo0<cr>", {noremap = true, silent = true})
-keymap({ "o", "x" }, "B", ":normal vaBo0<cr>", {noremap = true, silent = true})
+-- keymap({ "o", "x" }, "c", ":normal vac<cr>", { noremap = true, silent = true })
+keymap({ "o", "x" }, "f", ":normal vafo0<cr>", { noremap = true, silent = true })
+keymap({ "o", "x" }, "B", ":normal vaBo0<cr>", { noremap = true, silent = true })
 -- keymap({ "o", "x" }, "2q", ':normal f"dlvi"<cr>', {noremap = true, silent = true})
 
 -- TEXT OBJECTS
@@ -152,18 +151,6 @@ keymap({ "o", "x" }, "am", "<cmd>lua require('various-textobjs').chainMember(fal
 keymap({ "o", "x" }, "gw", "<cmd>lua require('various-textobjs').visibleInWindow()<CR>")
 keymap({ "o", "x" }, "gW", "<cmd>lua require('various-textobjs').restOfWindow()<CR>")
 
--- fold
-keymap("n", "zj", require("ufo").openAllFolds, { desc = "Open all folds" })
-keymap("n", "zk", require("ufo").closeAllFolds, { desc = "Close all folds" })
-keymap("n", "zh", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
-keymap("n", "zg", require("ufo").closeFoldsWith, { desc = "Close folds with" }) -- closeAllFolds == closeFoldsWith(0)
-keymap("n", "zi", function()
-  local winid = require("ufo").peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
-  end
-end, { desc = "Hover" })
-
 -- todo-comments
 vim.keymap.set("n", "]t", function()
   require("todo-comments").jump_next()
@@ -173,25 +160,9 @@ vim.keymap.set("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 
-local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-
--- Repeat movement with ; and ,
--- ensure ; goes forward and , goes backward, regardless of the last direction
-vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
-vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
-
-local gs = require("gitsigns")
-
--- make sure forward function comes first
-local next_hunk_repeat, prev_hunk_repeat = ts_repeat_move.make_repeatable_move_pair(gs.next_hunk, gs.prev_hunk)
--- Or, use `make_repeatable_move` or `set_last_move` functions for more control. See the code for instructions.
-
-vim.keymap.set({ "n", "x", "o" }, "]h", next_hunk_repeat)
-vim.keymap.set({ "n", "x", "o" }, "[h", prev_hunk_repeat)
-
 -- Buffer Navigation
-map("n", "<TAB>", ":BufferLineCycleNext<cr>", { noremap = true, silent = true })
-map("n", "<S-TAB>", ":BufferLineCyclePrev<cr>", { noremap = true, silent = true })
+map("n", "<TAB>", ":bnext<cr>", { noremap = true, silent = true })
+map("n", "<S-TAB>", ":bprevious<cr>", { noremap = true, silent = true })
 
 -- Gitsigns
 map("v", "<leader>hs", ":Gitsigns stage_hunk<cr>", { noremap = true, silent = true })
@@ -205,15 +176,6 @@ map("n", "]c", "&diff ? ']c' : ':Gitsigns next_hunk<cr>'", { expr = true, norema
 map("i", "<C-h>", ":Telescope find_files hidden=true<cr>", { noremap = true, silent = true })
 map("i", "<C-n>", ":Telescope buffers<cr>", { noremap = true, silent = true })
 
--- hlslens
-local kopts = { noremap = true, silent = true }
-map("n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
-map("n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
-map("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-map("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-map("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-map("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-
 -- Move
 -- map("n", "<C-x>", "<Plug>GoNSMLeft", {})
 -- map("n", "<S-x>", "<Plug>GoNSMRight", {})
@@ -224,23 +186,5 @@ map("x", "J", "<Plug>GoVSMDown", {})
 map("x", "K", "<Plug>GoVSMUp", {})
 map("x", "L", "<Plug>GoVSMRight", {})
 
--- Codeium
-vim.keymap.set("i", "<C-l>", function()
-  return vim.fn["codeium#Accept"]()
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-n>", function()
-  return vim.fn["codeium#CycleCompletions"](1)
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-p>", function()
-  return vim.fn["codeium#CycleCompletions"](-1)
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-u>", function()
-  return vim.fn["codeium#Clear"]()
-end, { expr = true, silent = true })
-
 -- Split Join
 vim.keymap.set("n", "gs", ":TSJToggle<cr>", { noremap = true, silent = true })
-
-vim.keymap.set("n", "<leader>rn", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true })

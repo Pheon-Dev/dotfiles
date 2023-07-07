@@ -78,12 +78,18 @@ return {
           },
         },
         wifi = {
-          -- install wireless_tools
-          enabled = true,
-          icons = {
+          status = {
             connected = "󰤪",
             disconnected = "󰤫",
+            enabled = true,
           },
+          essid = {
+            enabled = true,
+          },
+          bit_rate = {
+            enabled = true,
+            unit = "mbps",
+          }
         },
       },
       volume = {
@@ -103,7 +109,7 @@ return {
       },
       ram = {
         enabled = true,
-        show_percentage = false,
+        show_percentage = true,
         icon = "󰍛",
       },
       cpu = {

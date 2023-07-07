@@ -4,7 +4,6 @@ return {
   config = function()
     -- vim.o.timeout = true
     -- vim.o.timeoutlen = 300
-    local gs = require("gitsigns")
     local rt = require("rust-tools")
     local wk = require("which-key")
 
@@ -82,19 +81,10 @@ return {
       return lazygit:toggle()
     end
 
-    local toggle_lf = function()
-      local lf = Terminal:new({ cmd = "lf", direction = "float" })
-      return lf:toggle()
-    end
-
-    local blame_line = function()
-      gs.blame_line({ full = true })
-    end
-
     local crates = require("crates")
 
     local mappings = {
-      [";"] = { toggle_lf, "lf" },
+      ["'"] = { ":Alpha<cr>", "Dashboard" },
       a = { ":ASToggle<cr>", "Auto Save Toggle" },
       b = { ":Antelope buffers<cr>", "Buffers" },
       c = {
@@ -122,25 +112,8 @@ return {
           r = { crates.open_repository, "Repository" },
         },
       },
-      d = { ":Alpha<cr>", "Dashboard" },
       e = { ":MurenToggle<cr>", "Muren" },
       f = { ":Telescope find_files initial_mode=insert<cr>", "Find Files" },
-      g = {
-        name = "Gitsigns",
-        a = { gs.stage_buffer, "Stage Buffer" },
-        b = { blame_line, "Blame Line" },
-        d = { gs.diff_this, "Diff This" },
-        g = { gs.toggle_current_line_blame, "Toggle Current Line Blame" },
-        j = { gs.next_hunk, "Next Hunk" },
-        k = { gs.prev_hunk, "Previous Hunk" },
-        u = { gs.undo_stage_hunk, "Undo Stage Hunk" },
-        p = { gs.preview_hunk, "Preview Hunk" },
-        r = { gs.reset_buffer, "Reset Buffer" },
-        s = { gs.stage_hunk, "Stage Hunk" },
-        t = { gs.reset_hunk, "Reset Hunk" },
-        v = { gs.select_hunk, "Select Hunk" },
-        x = { gs.toggle_deleted, "Toggle Deleted" },
-      },
       h = { ":lua require('harpoon.mark').add_file()<cr>", "Harpoon Mark File" },
       j = { ":NvimTreeToggle<cr>", "Nvim-Tree" },
       k = { ":lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon" },

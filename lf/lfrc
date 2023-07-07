@@ -5,8 +5,8 @@ set cleaner ~/.config/lf/lf-clean
 set hidden true
 set ignorecase true
 set icons true
-
-# set nodrawbox
+set cursorpreviewfmt "\033[7;90m"
+set drawbox false
 # set nohidden
 set info size
 set scrolloff 99
@@ -14,7 +14,20 @@ set ifs "\n"
 set filesep "\n"
 set errorfmt "\033[31m%s\033[0m"
 
+${{
+    w=$(tput cols)
+    if [ $w -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
+    # elif [ $w -le 160 ]; then
+        # lf -remote "send $id set ratios 1:2:3"
+    else
+    #     lf -remote "send $id set ratios 1:2:3:4"
+        lf -remote "send $id set ratios 1:2:3"
+    fi
+}}
+
 cmd create_dir ${{
+  clear
   echo -e ""
   echo -n "$(tput setaf 3) Enter Directory Name  :"
   echo -n "$(tput setaf 4) "
@@ -26,6 +39,7 @@ cmd create_dir ${{
 }}
 
 cmd create_file ${{
+  clear
   echo -e ""
   echo -n "$(tput setaf 3) Enter File Name  :"
   echo -n "$(tput setaf 4) "
@@ -37,6 +51,7 @@ cmd create_file ${{
 }}
 
 cmd delete ${{
+  clear
   files=$(printf "$fx" | tr '\n' ';')
   while [[ "$files" ]]; do
     file=${files%%;*}
@@ -59,41 +74,67 @@ cmd delete ${{
 }}
 
 cmd edit ${{
+  clear
   files=$(printf "$fx" | tr '\n' ';')
   nvim --server ~/.cache/nvim/server.pipe --remote $files
 }}
 
 cmd fzf_jump ${{
-    FZF_DEFAULT_OPTS='--color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4'
-    res="$(find . -maxdepth 1 | fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (exa --icons -T --color=always --group-directories-first {} || tree -C {})) || echo {} 2> /dev/null | head -200' --preview-window=top --header='Jump to location' --prompt '  ' --preview-window 'up,60%,border-bottom,+{2}+3/3,~3')"
-    if [ -n "$res" ]; then
-        if [ -d "$res" ]; then
-            cmd="cd"
-        else
-            cmd="select"
-        fi
-        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
-        lf -remote "send $id $cmd \"$res\""
-    fi
+  res="$(
+    fd -H --strip-cwd-prefix --follow --exclude '.git*'| fzf \
+      --preview '( \
+        [[ -f {} ]] && \
+          (bat --style=plain --color=always {} || cat {})) || \
+          ([[ -d {} ]] && \
+            (exa --icons -T --color=always --group-directories-first {} || tree -C {}) \
+          ) || \
+          echo {} 2> /dev/null | head -200' \
+      --preview-window 'up,60%,border,+{2}+3/3,~3' \
+      --ansi --header 'Search for a file or folder' \
+      --delimiter : \
+      --prompt '  ' \
+      --bind 'alt-i:execute(cd {} && nvim || nvim {})' \
+      --bind 'ctrl-h:change-prompt( )+reload(fd --type directory --hidden --follow --exclude .git)' \
+      --bind 'ctrl-l:change-prompt( )+reload(fd --type file --hidden --follow --exclude .git)'\
+      --color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a \
+      --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 \
+      --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 \
+      --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4
+    )"
+  if [ -n "$res" ]; then
+      if [ -d "$res" ]; then
+          cmd="cd"
+      else
+          cmd="select"
+      fi
+      res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+      lf -remote "send $id $cmd \"$res\""
+  fi
 }}
 
 cmd fzf_search ${{
-    FZF_DEFAULT_OPTS='--color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4'
-    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
-    res="$(
-        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
-          fzf --bind "change:reload:$RG_PREFIX {q} || true" \
-            --ansi --header 'Search in files' \
-            --disabled --query "$INITIAL_QUERY" \
-            --delimiter : \
-            --prompt '  ' \
-            --preview 'bat --color=always {1} --highlight-line {2}' \
-            --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-          | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
-    )"
-    if [ -n "$res" ]; then
-      [ -n "$res" ] && lf -remote "send $id select \"$res\""
-    fi
+  RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+  res="$(
+    FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+      fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+        --disabled --query "$INITIAL_QUERY" \
+        --preview 'bat style=plain --color=always {1} --highlight-line {2}' \
+        --ansi --header 'Search for a matching text' \
+        --preview-window 'up,60%,border,+{2}+3/3,~3' \
+        --delimiter : \
+        --prompt '  ' \
+        --bind 'alt-i:execute(cd {} && nvim || nvim {})' \
+        --bind 'ctrl-h:change-prompt( )+reload(fd --type directory --hidden --follow --exclude .git)' \
+        --bind 'ctrl-l:change-prompt( )+reload(fd --type file --hidden --follow --exclude .git)'\
+        --color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a \
+        --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 \
+        --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 \
+        --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4 \
+      | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+  )"
+  if [ -n "$res" ]; then
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
+  fi
 }}
 
 # Archive bindings
@@ -117,32 +158,58 @@ cmd unarchive ${{
   esac
 }}
 
+cmd edit-config ${{
+  clear
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+cmd paste-async &{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    case "$mode" in
+        copy) cp -rn -- "$@" .;;
+        move) mv -n -- "$@" .;;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
+
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+
 # Bindings
+map J :updir; set dironly true; down; set dironly false; open
+map K :updir; set dironly true; up; set dironly false; open
 map d
 map m
-
 map u unarchive
 
 # Basic Functions
 map . set hidden!
 map p paste
+map P paste-async
 map f fzf_jump
 map x cut
 map y copy
+map Y :yank-path
 map <enter> open
 map R reload
 map a create_file
 map A create_dir
 map d delete
-map C clear
+map C edit-config
 map e edit
 map S fzf_search
+map Z $lazygit
+map i $~/.config/lf/lf-preview $f | less -R
 
 # Movement
 map gr cd ~/rust
 map go cd ~/go
 map gc cd ~/Documents
 map gw cd ~/Downloads
+map gfm cd ~/rust/scene/manta-api
 map gfg cd ~/.config
 map gfj cd ~/.config/zellij
 map gff cd ~/.config/flamingo
@@ -151,5 +218,7 @@ map gfd cd ~/.config/dwm
 map gfh cd ~/.config/zsh
 map gfl cd ~/.config/lf
 map gfn cd ~/.config/nvim
+map gfo cd ~/.config/dotfiles
 map gz cd ~/.local/share/nvim/lazy
 map gw cd ~/.local/state/nvim/swap
+map gh cd ~/.cache/nvim

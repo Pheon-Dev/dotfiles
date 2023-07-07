@@ -21,7 +21,7 @@ goat () {
         echo -n "$(tput setaf 2) got"
         echo -n "$(tput setaf 3) <app-name> \n"
         echo " "
-        return 1
+        return 0
     fi
     pwd=$(pwd)
     mkdir -p $HOME/go/src/github.com/Pheon-Dev/$1
@@ -52,7 +52,7 @@ goat () {
     if [[ $edit == "y" ]]; then
         echo " "
         $EDITOR
-        return 1
+        return 0
     fi
     echo " "
     echo -n "$(tput setaf 6)Return to previous"
@@ -69,7 +69,7 @@ goat () {
         echo -e "$(tput setaf 6)Good bye and thank you!"
         echo " "
         cd $pwd
-        return 1
+        return 0
     fi
     echo " "
     echo -e "$(tput setaf 6)Files Created :\n"
