@@ -13,12 +13,13 @@ gset () {
   cd $HOME/.config/lazygit && gt -s
   cd $HOME/.config/picom && gt -s
   cd $HOME/.config/rofi && gt -s
-  cd $HOME/.config/joshuto && gt -s
+  # cd $HOME/.config/joshuto && gt -s
   cd $HOME/.config/btop && gt -s
+  cd $HOME/.config/lf && gt -s
   # cd $HOME/.config/dwmbar && gt -s
   
-  cd $HOME/dotfiles && gt -s
-  cd $HOME/.nb/home && gt -s
+  cd $HOME/.config/dotfiles && gt -s
+  # cd $HOME/.nb/home && gt -s
   cd $HOME/.password-store && gt -s
   cd $pwd
 }

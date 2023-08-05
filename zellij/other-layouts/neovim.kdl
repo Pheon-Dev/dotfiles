@@ -1,0 +1,52 @@
+layout {
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="dev" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="code_tab" {
+      children
+    }
+
+  code_tab name="code (neovim)" focus=true {
+      dev split_direction="vertical" {
+        pane borderless=true cwd="/home/pheon-dev/.config/nvim"
+        pane
+      }
+    }
+  // code_tab name="lir (contrib)" {
+  //     dev split_direction="vertical" {
+  //       pane command="nvim" name="running ..." borderless=true cwd="/home/pheon/.local/share/nvim/lazy/lir.nvim"
+  //       pane name="reference" cwd="/home/pheon/.local/share/nvim/lazy"
+  //       pane split_direction="horizontal" {
+  //           pane command="nvim" name="PR" cwd="/home/pheon/Documents/Neovim/lir.nvim"
+  //           pane size="36%" name="test" cwd="/home/pheon/Documents/Neovim/nvim-3.2"
+  //          }
+  //       }
+  //   }
+  // code_tab name="antelope (contrib)" {
+  //     dev split_direction="vertical" {
+  //       pane command="nvim" name="running ..." borderless=true cwd="/home/pheon/.local/share/nvim/lazy/antelope"
+  //       pane name="reference" cwd="/home/pheon/.local/share/nvim/lazy"
+  //       pane split_direction="horizontal" {
+  //           pane command="nvim" name="PR" cwd="/home/pheon/Documents/Neovim/antelope"
+  //           pane size="36%" name="test" cwd="/home/pheon/Documents/Neovim/nvim-3.2"
+  //          }
+  //       }
+  //   }
+  code_tab name="micellaneous" {
+      dev split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+}

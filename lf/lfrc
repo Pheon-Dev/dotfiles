@@ -80,27 +80,15 @@ cmd edit ${{
 }}
 
 cmd fzf_jump ${{
-  res="$(
-    fd -H --strip-cwd-prefix --follow --exclude '.git*'| fzf \
-      --preview '( \
-        [[ -f {} ]] && \
-          (bat --style=plain --color=always {} || cat {})) || \
-          ([[ -d {} ]] && \
-            (exa --icons -T --color=always --group-directories-first {} || tree -C {}) \
-          ) || \
-          echo {} 2> /dev/null | head -200' \
-      --preview-window 'up,60%,border,+{2}+3/3,~3' \
-      --ansi --header 'Search for a file or folder' \
-      --delimiter : \
-      --prompt '  ' \
-      --bind 'alt-i:execute(cd {} && nvim || nvim {})' \
-      --bind 'ctrl-h:change-prompt( )+reload(fd --type directory --hidden --follow --exclude .git)' \
-      --bind 'ctrl-l:change-prompt( )+reload(fd --type file --hidden --follow --exclude .git)'\
-      --color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a \
-      --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 \
-      --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 \
-      --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4
-    )"
+  res="$(\
+    fd -H \
+      --strip-cwd-prefix \
+      --follow \
+      --exclude {$IGNORE} \
+        | fzf \
+          --bind 'ctrl-l:accept' \
+          --border 'none'
+  )"
   if [ -n "$res" ]; then
       if [ -d "$res" ]; then
           cmd="cd"
@@ -118,18 +106,9 @@ cmd fzf_search ${{
     FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
       fzf --bind "change:reload:$RG_PREFIX {q} || true" \
         --disabled --query "$INITIAL_QUERY" \
+        --bind 'ctrl-l:accept' \
+        --border 'none' \
         --preview 'bat style=plain --color=always {1} --highlight-line {2}' \
-        --ansi --header 'Search for a matching text' \
-        --preview-window 'up,60%,border,+{2}+3/3,~3' \
-        --delimiter : \
-        --prompt '  ' \
-        --bind 'alt-i:execute(cd {} && nvim || nvim {})' \
-        --bind 'ctrl-h:change-prompt( )+reload(fd --type directory --hidden --follow --exclude .git)' \
-        --bind 'ctrl-l:change-prompt( )+reload(fd --type file --hidden --follow --exclude .git)'\
-        --color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a \
-        --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 \
-        --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 \
-        --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4 \
       | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
   )"
   if [ -n "$res" ]; then
@@ -176,6 +155,31 @@ cmd paste-async &{{
     lf -remote "send clear"
 }}
 
+cmd broot_jump ${{
+  f=$(mktemp)
+  res="$(broot --outcmd $f && cat $f | sed 's/cd //')"
+  rm -f "$f"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+map B broot_jump
+
+# Dragon
+cmd dragon %~/Documents/dragon/dragon -a -x $fx
+cmd dragon-stay %~/Documents/dragon/dragon -a $fx
+cmd dragon-individual %~/Documents/dragon/dragon $fx
+# cmd cpdragon %cpdragon
+# cmd mvdragon %mvdragon
+# cmd dlfile %dlfile
+map drr dragon
+map drs dragon
+map dri dragon
+
 cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
 
 # Bindings
@@ -197,7 +201,7 @@ map <enter> open
 map R reload
 map a create_file
 map A create_dir
-map d delete
+map dd delete
 map C edit-config
 map e edit
 map S fzf_search
@@ -205,11 +209,16 @@ map Z $lazygit
 map i $~/.config/lf/lf-preview $f | less -R
 
 # Movement
-map gr cd ~/rust
-map go cd ~/go
-map gc cd ~/Documents
-map gw cd ~/Downloads
-map gfm cd ~/rust/scene/manta-api
+map grr cd ~/rust
+map grm cd ~/rust/canvas/manta-api
+
+map goo cd ~/go
+map gof cd ~/go/src/github.com/Pheon-Dev/flamingo
+map goz cd ~/go/src/github.com/Pheon-Dev/zebra
+
+map gdc cd ~/Documents
+map gdw cd ~/Downloads
+
 map gfg cd ~/.config
 map gfj cd ~/.config/zellij
 map gff cd ~/.config/flamingo
@@ -218,7 +227,12 @@ map gfd cd ~/.config/dwm
 map gfh cd ~/.config/zsh
 map gfl cd ~/.config/lf
 map gfn cd ~/.config/nvim
+map gfb cd ~/.config/broot
 map gfo cd ~/.config/dotfiles
-map gz cd ~/.local/share/nvim/lazy
-map gw cd ~/.local/state/nvim/swap
-map gh cd ~/.cache/nvim
+map gfs cd ~/.config/starship
+
+map glz cd ~/.local/share/nvim/lazy
+map gls cd ~/.local/state/nvim/swap
+
+map gcn cd ~/.cache/nvim
+

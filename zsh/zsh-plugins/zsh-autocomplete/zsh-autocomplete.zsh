@@ -31,5 +31,3 @@ unsetopt listbeep
       bindkey "$key" down-line-or-history
    done
 }
-
-source "$HOME/.config/zsh/zsh-plugins/zsh-autocomplete/cmp.zsh"

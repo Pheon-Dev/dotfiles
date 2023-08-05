@@ -1,0 +1,69 @@
+layout name="entertainment" {
+  cwd "/home/pheon-dev/"
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="dev" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="code_tab" {
+      children
+    }
+
+  code_tab name="watch" focus=true {
+      dev split_direction="horizontal" {
+        pane borderless=true
+        pane
+      }
+    }
+  code_tab name="listen" {
+      dev split_direction="vertical" {
+        pane borderless=true
+        pane
+      }
+    }
+  code_tab name="download" {
+      dev split_direction="vertical" {
+        pane borderless=true
+        pane split_direction="horizontal" {
+          pane
+          pane size="36%"
+         }
+      }
+    }
+    // swap_tiled_layout name="h2v" {
+    //     tab max_panes=2 {
+    //         pane
+    //         pane
+    //     }
+    //     tab {
+    //         pane split_direction="vertical" {
+    //             pane
+    //             pane
+    //             pane
+    //         }
+    //     }
+    // }
+    // swap_floating_layout {
+    //     floating_panes max_panes=1 {
+    //         pane
+    //     }
+    //     floating_panes max_panes=2 {
+    //         pane x=0
+    //         pane x="50%"
+    //     }
+    //     floating_panes max_panes=3 {
+    //         pane x=0 width="25%"
+    //         pane x="25%" width="25%"
+    //         pane x="50%"
+    //     }
+    // }
+}

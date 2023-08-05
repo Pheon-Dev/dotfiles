@@ -1,10 +1,12 @@
 return {
   "folke/which-key.nvim",
-  event = "BufReadPre",
+  enabled = true,
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     -- vim.o.timeout = true
     -- vim.o.timeoutlen = 300
-    local rt = require("rust-tools")
+    local ok, rt = pcall(require, "rust-tools")
+    if not ok then return end
     local wk = require("which-key")
 
     wk.setup({
@@ -74,17 +76,13 @@ return {
       },
     })
 
-    local Terminal = require("toggleterm.terminal").Terminal
+    local oc, crates = pcall(require, "crates")
+    if not oc then return end
 
-    local toggle_lazygit = function()
-      local lazygit = Terminal:new({ cmd = "lazygit", direction = "float" })
-      return lazygit:toggle()
-    end
-
-    local crates = require("crates")
+    local dap, dapui = require("dap"), require("dapui")
 
     local mappings = {
-      ["'"] = { ":Alpha<cr>", "Dashboard" },
+      -- ["'"] = { ":Alpha<cr>", "Dashboard" },
       a = { ":ASToggle<cr>", "Auto Save Toggle" },
       b = { ":Antelope buffers<cr>", "Buffers" },
       c = {
@@ -112,14 +110,20 @@ return {
           r = { crates.open_repository, "Repository" },
         },
       },
-      e = { ":MurenToggle<cr>", "Muren" },
-      f = { ":Telescope find_files initial_mode=insert<cr>", "Find Files" },
+      d = {
+        name = "DAP",
+        b = { dap.toggle_breakpoint, "Toggle Breakpoint" },
+        c = { dap.continue, "Launch debug and resume execution" },
+        i = { dap.step_into, "Step Into Code" },
+        o = { dap.step_over, "Step Over Code" },
+        r = { dap.repl.open, "Step Over Code" },
+        d = { dapui.toggle, "Toggle UI" },
+      },
       h = { ":lua require('harpoon.mark').add_file()<cr>", "Harpoon Mark File" },
       j = { ":NvimTreeToggle<cr>", "Nvim-Tree" },
       k = { ":lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon" },
-      l = { toggle_lazygit, "LazyGit" },
       m = { ":Antelope marks<cr>", "Marks" },
-      n = { ":Telescope notify<cr>", "Notifications" },
+      n = { ":Telescope notify initial_mode=normal<cr>", "Notifications" },
       o = {
         name = "Others",
         c = {
@@ -127,7 +131,6 @@ return {
           "Command History",
         },
         m = { ":Mason<cr>", "Mason" },
-        i = { ":lua require('lsp-inlayhints').toggle()<cr>", "Inlayhints" },
         t = { ":Telescope help_tags previewer=false initial_mode=insert<cr>", "Help Tags" },
         h = { ":Telescope harpoon marks initial_mode=normal previewer=false<cr>", "Harpoon" },
         x = { ":lua require('harpoon.mark').clear_all()<cr>", "Clear All Marks" },
@@ -140,6 +143,7 @@ return {
         i = { ":PigeonToggleInternet<cr>", "Toggle Internet Module" },
         y = { ":PigeonToggleDay<cr>", "Toggle Day Submodule" },
         e = { ":PigeonToggleDate<cr>", "Toggle Date Submodule" },
+        r = { ":PigeonToggleRam<cr>", "Toggle RAM Submodule" },
         t = { ":PigeonToggleTime<cr>", "Toggle Time Submodule" },
       },
       q = { ":bd<cr>", "Close Buffer" },
@@ -160,35 +164,23 @@ return {
         p = { ":RustParentModule<cr>", "Parent Module" },
         r = { ":RustRunnables<cr>", "Runnables" },
       },
-      s = { ":Telescope live_grep<cr>", "Live Grep" },
       t = {
-        name = "TODO | Typescript",
+        name = "TODO | Trouble | Tabs | TST",
         q = { ":TodoQuickFix<cr>", "TODO QuickFix" },
-        s = { ":TodoTelescope<cr>", "TODO Telescope" },
-        t = { ":TodoTrouble<cr>", "TODO Trouble" },
-        a = { ":TypescriptAddMissingImports<cr>", "Add Missing Imports" },
-        o = { ":TypescriptOrganizeImports<cr>", "Organise Imports" },
-        r = { ":TypescriptRemoveUnused<cr>", "Remove Unused" },
-        p = { ":Antelope tabpages<cr>", "tabs" },
-        f = { ":TypescriptFixAll<cr>", "Fix All" },
+        l = { ":TodoTelescope<cr>", "TODO Telescope" },
+        r = { ":TodoTrouble<cr>", "TODO Trouble" },
+        t = {
+          name = "Typescript",
+          o = { ":TSToolsOrganizeImports<cr>", "Organize Imports" },
+          s = { ":TSToolsSortImports<cr>", "Sort Imports" },
+          r = { ":TSToolsRemoveUnusedImports<cr>", "Remove Unused Imports" },
+          x = { ":TSToolsRemoveUnused<cr>", "Remove Unused Statements" },
+          a = { ":TSToolsAddMissingImports<cr>", "Add Missing Imports" },
+          f = { ":TSToolsFixAll<cr>", "Fix All" },
+          d = { ":TSToolsGoToSourceDefinition<cr>", "Go To Source Definition" },
+        }
       },
-      w = {
-        name = "Windows",
-        e = { ":WinShift<cr><esc>:WindowsEqualize<cr>", "Window Shift" },
-        h = { ":WinShift left<cr><esc>:WindowsEqualize<cr>", "Shift Left" },
-        j = { ":WinShift down<cr><esc>:WindowsEqualize<cr>", "Shift Down" },
-        k = { ":WinShift up<cr><esc>:WindowsEqualize<cr>", "Shift Up" },
-        l = { ":WinShift right<cr><esc>:WindowsEqualize<cr>", "Shift Right" },
-      },
-      x = {
-        name = "Trouble",
-        x = { ":TroubleToggle<cr>", "Toggle" },
-        w = { ":TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
-        d = { ":TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
-        q = { ":TroubleToggle quickfix<cr>", "Quick Fix" },
-        s = { ":TroubleToggle lsp_references<cr>", "LSP References" },
-        l = { ":TroubleToggle loclist<cr>", "Loclist" },
-      },
+      x = { "<cmd>lua require('diaglist').open_all_diagnostics()<cr>", "Quickfix All Diagnostics" },
       y = { ":Telescope yank_history previewer=false initial_mode=normal<cr>", "Yank History" },
       z = { ":Lazy<cr>", "Lazy" },
     }

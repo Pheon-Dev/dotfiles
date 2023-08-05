@@ -106,3 +106,6 @@ ${0}:precmd() {
   unset -m '_autocomplete__key_*'
   unfunction ${0}:{{,re,un}bind,bound}
 }
+
+bindkey "^p" up-line-or-history
+bindkey "^n" down-line-or-history

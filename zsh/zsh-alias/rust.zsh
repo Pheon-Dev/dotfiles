@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+alias ru="rustup update"
+
+alias cin="cargo init"
 alias co="cargo"
 alias cx="cargo remove"
 alias cn="cargo new"

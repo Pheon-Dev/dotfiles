@@ -18,13 +18,15 @@ font:
     family: ComicMonoNF
     # family: Iosevka Nerd Font
     style: Regular
+    # style: Bold
   bold:
     family: ComicMonoNF
     # family: Iosevka Nerd Font
     style: Bold
   italic:
     family: Iosevka Nerd Font
-    style: Italic
+    # style: Italic
+    style: Bold Italic
   bold_italic:
     # family: ComicMonoNF
     family: Iosevka Nerd Font
@@ -98,7 +100,7 @@ key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: N, mods: Control|Shift, action: CreateNewWindow }
-  - { key: Return, mods: Alt, action: CreateNewWindow }
+  # - { key: Return, mods: Alt, action: CreateNewWindow }
   - { key: Insert, mods: Shift, action: PasteSelection }
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
@@ -114,11 +116,14 @@ key_bindings:
   - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
   - { key: Semicolon, mods: Control, chars: "\flf\n" }
   - { key: L, mods: Control, chars: "\f" }
-  - { key: S, mods: Control, chars: "\fff\n" } # fd | fzf (nvim)
+  - { key: S, mods: Control|Shift, chars: "\fff -c\n" } # fd | fzf (cd)
+  - { key: S, mods: Control, chars: "\fff -e\n" } # fd | fzf (nvim)
   - { key: R, mods: Control, chars: "\fff -g\n" } # fd | fzf (rg)
   - { key: G, mods: Control, chars: "\flg\n" } # lazygit
+  - { key: W, mods: Control|Shift, chars: "\fww -b r\n" }
   - { key: I, mods: Control, chars: "\fv\n" } # editor
   - { key: Z, mods: Control, chars: "\fzz\n" } # zellij
+  # - { key: B, mods: Control, chars: "\fbr\n" } # broot
   - { key: F, mods: Control|Shift, chars: "\ff\n" } # flamingo
   - { key: W, mods: Control, chars: "\fww\n" } # internet connection
 theme: 3024.dark

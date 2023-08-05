@@ -118,6 +118,7 @@ alias paci="sudo pacman -S"
 alias pacu="sudo pacman -Syyu"
 alias pacs="sudo pacman -Syu --noconfirm"
 
+alias sx="startx"
 alias alis="alias | grep"
 alias icat="kitty +kitten icat --align=left"
 alias lis="live-server" # cargo install live-server
@@ -157,12 +158,12 @@ alias fsg="flameshot gui -p ~/Downloads/Picture"
 alias psc="pscale"
 
 # PRISMA
-alias pft="prisma format"
-alias psh="prisma db push"
-alias pll="prisma pull"
-alias pnt="prisma init"
-alias pgn="prisma generate"
-alias pst="prisma studio"
+alias pft="yarn prisma format"
+alias psh="yarn prisma db push"
+alias pll="yarn prisma pull"
+alias pnt="yarn prisma init"
+alias pgn="yarn prisma generate"
+alias pst="yarn prisma studio"
 
 alias smk="sudo make clean install"
 
@@ -184,3 +185,5 @@ alias notes="cd $HOME/.nb/home && nvim"
 
 alias lout="sudo systemctl restart ly.service"
 alias nitro="nitrogen --restore > /dev/null 2>&1"
+
+alias anime="$HOME/.local/bin/anime dl"

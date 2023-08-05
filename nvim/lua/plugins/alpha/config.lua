@@ -46,19 +46,22 @@ function M.buttons()
 	vim.api.nvim_create_autocmd({ "User" }, {
 		pattern = { "AlphaReady" },
 		callback = function(_)
-			vim.api.nvim_buf_set_keymap(0, "n", "j", ":NvimTreeToggle<CR>", keybind_opts)
+      -- Harpoon
 			vim.api.nvim_buf_set_keymap(0, "n", "k", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", keybind_opts)
-			vim.api.nvim_buf_set_keymap(0, "n", "f", ":Telescope find_files initial_mode=insert<cr>", keybind_opts)
-			vim.api.nvim_buf_set_keymap(0, "n", "s", ":Telescope live_grep<cr>", keybind_opts)
+
+      -- NvimTree
+			vim.api.nvim_buf_set_keymap(0, "n", "j", ":NvimTreeToggle<CR>", keybind_opts)
+
+      -- Lazy
 			vim.api.nvim_buf_set_keymap(0, "n", "z", ":Lazy<CR>", keybind_opts)
-			vim.api.nvim_buf_set_keymap(
-				0,
-				"n",
-				"l",
-				":lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit', direction = 'float'}):toggle()<cr>",
-				keybind_opts
-			)
-			-- vim.api.nvim_buf_set_keymap(0, "n", "m", ":Mason<CR>", keybind_opts)
+
+      -- Floaterm
+			vim.api.nvim_buf_set_keymap(0, "n", ";", ":FloatermNew lf<CR>", keybind_opts)
+			vim.api.nvim_buf_set_keymap(0, "n", "f", ":FloatermNew fzf<CR>", keybind_opts)
+			vim.api.nvim_buf_set_keymap(0, "n", "s", ":FloatermNew rg<CR>", keybind_opts)
+			vim.api.nvim_buf_set_keymap(0, "n", "l", ":FloatermNew lazygit<CR>", keybind_opts)
+			vim.api.nvim_buf_set_keymap(0, "n", "b", ":FloatermNew broot<CR>", keybind_opts)
+			vim.api.nvim_buf_set_keymap(0, "n", "t", ":FloatermNew<CR>", keybind_opts)
 
 			-- Quit
 			vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>q<CR>", keybind_opts)
@@ -66,31 +69,34 @@ function M.buttons()
 		end,
 	})
 
-
-	local button_hl = {
-					{ "AlphaQuit", 1, 60 },
-	}
-
 	local buttons_hl = {
-					{ "AlphaIcon", 1, 5 },
-					{ "Keyword", 6, 18 },
+					{ "AlphaIcon", 1, 4 },
+					{ "Keyword", 5, 18 },
 					{ "AlphaKeys", 19, 25 },
-          { "AlphaLine", 25, 30 },
-					{ "AlphaIcon", 31, 37 },
-					{ "Keyword", 38, 48 },
-					{ "AlphaKeys", 49, 55 },
-          { "AlphaQuit", 56, 60 },
+          { "AlphaLine", 25, 32 },
+					{ "AlphaIcon", 32, 38 },
+					{ "Keyword", 38, 50 },
+					{ "AlphaKeys", 51, 55 },
+          { "AlphaKeys", 56, 60 },
+	}
+	local quit_hl = {
+					{ "AlphaIcon", 1, 4 },
+					{ "Keyword", 5, 18 },
+					{ "AlphaKeys", 19, 24 },
+          { "AlphaQuit", 25, 63 },
 	}
 	return {
 		{
 			type = "text",
 			val = {
 				"                        │                       ",
-				"ﯠ   Harpoon        k    │    פּ   Nvim Tree     j",
-        "󰈞   Find File      f    │       Search        s",
-        "   Lazygit        t    │    鈴  Lazy          z",
+				"   fzf            f    │       terminal      t",
+        "   lazygit        l    │       lf            ;",
+        "鈴  lazy           z    │       search        s",
+				"ﯠ   harpoon        k    │    פּ   broot         b",
+				"   nvim-tree      j    │                       ",
 				"                        │                       ",
-        "                        │       Quit          h",
+				"                        ▊       Quit          h",
 				"                        │                       ",
 			},
 			opts = {
@@ -101,7 +107,9 @@ function M.buttons()
 					buttons_hl,
 					buttons_hl,
 					buttons_hl,
-					button_hl,
+					buttons_hl,
+					buttons_hl,
+					quit_hl,
 					buttons_hl,
 				},
 			},
@@ -113,7 +121,7 @@ M.section_buttons = { type = "group", val = M.buttons }
 
 function M.info_text()
 	---@diagnostic disable-next-line:undefined-field
-	local datetime = os.date(" %Y-%m-%d   %A")
+	local datetime = os.date(" %A, %d %B %Y")
 	local lazy_stats = require("lazy").stats()
 	local ms = (math.floor(lazy_stats.startuptime * 100 + 0.5) / 100)
 	local total_plugins = "  " .. lazy_stats.loaded .. "/" .. lazy_stats.count .. " in " .. ms .. " ms"
@@ -141,16 +149,17 @@ M.section_info = {
 
 vim.b.miniindentscope_disable = true
 
--- -- close Lazy and re-open when the dashboard is ready
--- if vim.o.filetype == "lazy" then
--- 	vim.cmd.close()
--- 	vim.api.nvim_create_autocmd("User", {
--- 		pattern = "AlphaReady",
--- 		callback = function()
--- 			require("lazy").show()
--- 		end,
--- 	})
--- end
+-- close Lazy and re-open when the dashboard is ready
+if vim.o.filetype == "lazy" then
+	vim.cmd.close()
+	vim.api.nvim_create_autocmd("User", {
+		pattern = "AlphaReady",
+		callback = function()
+      print("alpha ready")
+			-- require("lazy").show()
+		end,
+	})
+end
 
 M.config = {
 	layout = {

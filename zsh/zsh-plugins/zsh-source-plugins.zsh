@@ -6,3 +6,5 @@ source "$HOME/.config/zsh/zsh-plugins/zsh-vim/vim-mode.zsh"
 source "$HOME/.config/zsh/zsh-plugins/zsh-autopair/zsh-autopair.zsh"
 source "$HOME/.config/zsh/zsh-plugins/zsh-fzf/fzf.zsh"
 source "$HOME/.config/zsh/zsh-plugins/zsh-autocomplete/zsh-autocomplete.zsh"
+source "$HOME/.config/broot/launcher/bash/br"
+

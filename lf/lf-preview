@@ -5,7 +5,7 @@ batorcat() {
 	shift
 	if command -v bat > /dev/null 2>&1
 	then
-    bat --color=always --theme="Dracula" --style="numbers,changes,header" --pager=never "$file" "$@" # --style=plain
+    bat --color=always --theme="Dracula" --style=plain --pager=never "$file" "$@" # --style=plain
 	else
 		cat "$file"
 	fi
@@ -37,7 +37,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 	*.iso) iso-info --no-header -l "$1" ;;
 	*.odt|*.ods|*.odp|*.sxw) odt2txt "$1" ;;
 	*.doc) catdoc "$1" ;;
-	*.md) glows "$1" ;;
+	*.md) glow -s dark "$1" ;;
 	*.docx) docx2txt "$1" - ;;
 	*.xls|*.xlsx)
 		ssconvert --export-type=Gnumeric_stf:stf_csv "$1" "fd://1" | batorcat --language=csv

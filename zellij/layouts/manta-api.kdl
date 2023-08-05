@@ -1,48 +1,111 @@
 layout name="manta-api" {
-  cwd "/home/pheon-dev/rust/canvas/manta-api"
+  cwd "/home/pheon-dev/rust/manta-api"
+  
+  // default_tab_template {
+  //     pane borderless=true
+  //     pane size=1 borderless=true {
+  //         plugin location="zellij:compact-bar"
+  //       }
+  //   }
 
-  default_tab_template {
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
+  tab name="manta-api" focus=true {
+    pane split_direction="vertical" {
+        pane borderless=true command="nvim"
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane name="SERVER"
+            pane name="TEST"
+            // pane command="bash" name="SERVER" {
+            //   args "-c" "cargo-watch -q -c -w src/ -x run"
+            // }
+            // pane command="bash" name="TEST" {
+            //   args "-c" "cargo-watch -q -c -w examples/ -x 'run --example quick_dev'"
+            // }
+            pane name="REF"
+            pane name="CMD"
+          }
         }
-      pane borderless=true
-    }
-
-  pane_template name="child" {
-      children
-    }
-
-  pane_template name="dev" {
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
-      children
-    }
-
-  tab_template name="code_tab" {
-      children
-    }
-
-  code_tab name="manta (api)" focus=true {
-      dev split_direction="vertical" {
-          pane split_direction="horizontal" size="60%" {
-              pane borderless=true
-              pane size="28%" split_direction="vertical" {
-                  pane
-                  pane
-              }
-           }
-          pane split_direction="horizontal" {
-              pane name="ref" cwd="/home/pheon-dev/rust/scene/rust-axum-base-preview"
-              pane size="40%"
-           }
-       }
-    }
-
-  code_tab name="reference" {
-      dev split_direction="vertical" {
-        pane borderless=true
-        pane
       }
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+    }
+  
+  // tab name="wallet-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/wallet-app" {
+  //   pane split_direction="vertical" {
+  //       pane borderless=true command="nvim"
+  //       pane split_direction="horizontal" {
+  //         pane stacked=true {
+  //           pane name="SERVER"
+  //           // pane expanded=true command="bash" name="SERVER" {
+  //           //   args "-c" "yarn tauri dev"
+  //           // }
+  //           pane name="REF"
+  //           pane name="CMD"
+  //         }
+  //       }
+  //     }
+  //     pane size=1 borderless=true {
+  //         plugin location="zellij:compact-bar"
+  //       }
+  //   }
+  // 
+  // tab name="kplc-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/kplc-app" {
+  //   pane split_direction="vertical" {
+  //       pane borderless=true command="nvim"
+  //       pane split_direction="horizontal" {
+  //         pane stacked=true {
+  //           pane name="SERVER"
+  //           // pane expanded=true command="bash" name="SERVER" {
+  //           //   args "-c" "yarn tauri dev"
+  //           // }
+  //           pane name="REF"
+  //           pane name="CMD"
+  //         }
+  //       }
+  //     }
+  //     pane size=1 borderless=true {
+  //         plugin location="zellij:compact-bar"
+  //       }
+  //   }
+  
+  tab name="wallet-web-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/wallet-web-app" {
+    pane split_direction="vertical" {
+        pane borderless=true command="nvim"
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane name="SERVER" 
+            // pane expanded=true command="bash" name="SERVER" {
+            //   args "-c" "yarn dev"
+            // }
+            pane name="REF"
+            pane name="CMD"
+          }
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+    }
+  
+  tab name="manta-api (ref)" cwd="/home/pheon-dev/rust/rust-ref/manta-api" {
+    pane split_direction="vertical" {
+        pane borderless=true command="nvim"
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane name="DOCKER"
+            pane name="SERVER" 
+            pane name="TEST" 
+            // pane expanded=true command="bash" name="SERVER" {
+            //   args "-c" "yarn dev"
+            // }
+            pane name="REF"
+            pane name="CMD"
+          }
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
     }
 }

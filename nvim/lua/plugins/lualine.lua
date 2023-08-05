@@ -1,9 +1,11 @@
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = true,
   dependencies = {
-    "Pheon-Dev/pigeon"
+    "Pheon-Dev/pigeon",
+    "Exafunction/codeium.vim",
   },
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     local ok, lualine = pcall(require, "lualine")
     local on, noice = pcall(require, "noice")
@@ -54,7 +56,7 @@ return {
     local config = {
       options = {
         icons_enabled = false,
-        disabled_filetypes = { statusline = { "alpha", "toggleterm" }, tabline = { "alpha" } },
+        disabled_filetypes = { tabline = { "alpha" }, statusline = { "alpha" } },
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
 
@@ -125,12 +127,12 @@ return {
 
     local theme = require("core.colors")
     local my_colors = {
-      n = theme.color37, -- "#7aa2f7",
-      i = theme.color89, -- "#bd93f9",
-      c = theme.color50, -- "#10e070",
-      v = theme.color43, -- "#c66bfe",
-      V = theme.color43, -- "#966bfe",
-      R = theme.color99, -- "#f62bfe"
+      n = theme.color37,
+      i = theme.color16,
+      c = theme.color89,
+      v = theme.color27,
+      V = theme.color27,
+      R = theme.color99,
     }
 
     local mode = {
@@ -181,42 +183,37 @@ return {
       gui = "bold",
     }
 
-    -- tabline
-    -- tabs
+    -- Tabline
+    local tab_color = "Keyword"
+
+    -- mode
     tab_left({
-      'tabs',
-      max_length = vim.o.columns / 3, -- Maximum width of tabs component.
-      -- Note:
-      -- It can also be a function that returns
-      -- the value of `max_length` dynamically.
-      mode = 0, -- 0: Shows tab_nr
-      -- 1: Shows tab_name
-      -- 2: Shows tab_nr + tab_name
-
-      -- Automatically updates active tab color to match color of other components (will be overidden if buffers_color is set)
-      use_mode_colors = false,
-
-      tabs_color = {
-        -- Same values as the general color option can be used here.
-        active = { fg = colors.purple, bg = colors.bg }, -- Color for active tab.
-        inactive = { fg = colors.bg2, bg = colors.bg },  -- Color for inactive tab.
-      },
-
-      fmt = function(name, context)
-        -- Show + if buffer is modified in tab
-        local buflist = vim.fn.tabpagebuflist(context.tabnr)
-        local winnr = vim.fn.tabpagewinnr(context.tabnr)
-        local bufnr = buflist[winnr]
-        local mod = vim.fn.getbufvar(bufnr, '&mod')
-
-        return name .. (mod == 1 and ' +' or '')
-      end
+      -- "mode",
+      function()
+        return mode[vim.fn.mode()]
+      end,
+      -- "mode",
+      color = function()
+        return { fg = mode_color[vim.fn.mode()], bg = colors.bg }
+      end,
+      -- padding = { right = 1, left = 3 },
     })
 
-    -- datetime
+    -- -- datetime
+    -- tab_left({
+    --   function()
+    --     local enabled = require("pigeon.config").options.datetime.time.enabled
+    --     return enabled and require("pigeon.datetime").current_time() or ""
+    --   end,
+    --   color = tab_color
+    -- })
+    --
     tab_left({
-      "datetime",
-      color = "Keyword"
+      function()
+        local enabled = require("pigeon.config").options.datetime.day.enabled
+        return enabled and require("pigeon.datetime").current_day() or ""
+      end,
+      color = tab_color
     })
 
     -- sep
@@ -232,33 +229,11 @@ return {
       show_filename_only = false,     -- Shows shortened relative path when set to false.
       hide_filename_extension = true, -- Hide filename extension when set to true.
       show_modified_status = true,    -- Shows indicator when the buffer is modified.
-      --
       mode = 1,                       -- 0: Shows buffer name
-      --   -- 1: Shows buffer index
-      --   -- 2: Shows buffer name + buffer index
-      --   -- 3: Shows buffer number
-      --   -- 4: Shows buffer name + buffer number
-      --
-      --   max_length = vim.o.columns * 2 / 3, -- Maximum width of buffers component,
-      --   -- it can also be a function that returns
-      --   -- the value of `max_length` dynamically.
-      --   filetype_names = {
-      --     TelescopePrompt = 'Telescope',
-      --     dashboard = 'Dashboard',
-      --     packer = 'Packer',
-      --     fzf = 'FZF',
-      --     alpha = 'Alpha'
-      --   }, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
-      --
-      --   -- Automatically updates active buffer color to match color of other components (will be overidden if buffers_color is set)
-      --   use_mode_colors = false,
-      --
       buffers_color = {
-        -- Same values as the general color option can be used here.
-        active = { fg = colors.purple, bg = colors.bg }, -- Color for active buffer.
-        inactive = { fg = colors.bg2, bg = colors.bg },  -- Color for inactive buffer.
+        active = "Keyword",           -- Color for active buffer.
+        inactive = "Comment",         -- Color for inactive buffer.
       },
-      --
       symbols = {
         modified = '',       -- Text to show when the buffer is modified
         alternate_file = '', -- Text to show to identify the alternate file
@@ -266,62 +241,100 @@ return {
       },
     })
 
+    -- sep
+    tab_left({
+      function()
+        return "["
+      end,
+      color = "Comment"
+    })
+
+    -- tabs
+    tab_left({
+      'tabs',
+      max_length = vim.o.columns / 3, -- Maximum width of tabs component.
+      mode = 0,                       -- 0: Shows tab_nr
+      use_mode_colors = false,
+      tabs_color = {
+        -- Same values as the general color option can be used here.
+        active = "Keyword",   -- Color for active tab.
+        inactive = "Comment", -- Color for inactive tab.
+      },
+      fmt = function(name, context)
+        local buflist = vim.fn.tabpagebuflist(context.tabnr)
+        local winnr = vim.fn.tabpagewinnr(context.tabnr)
+        local bufnr = buflist[winnr]
+        local mod = vim.fn.getbufvar(bufnr, '&mod')
+
+        return name .. (mod == 1 and ' +' or '')
+      end
+    })
+
+    -- sep
+    tab_left({
+      function()
+        return "]"
+      end,
+      color = "Comment"
+    })
+
     -- lazy updates
     tab_right({
       require("lazy.status").updates,
       cond = require("lazy.status").has_updates,
-      color = { fg = "#ff9e64" },
+      -- color = { fg = "#ff9e64" },
+      color = tab_color
     })
 
     -- wifi
     tab_right({
       function()
-        return require("pigeon.internet").wifi()
+        local enabled = require("pigeon.config").options.internet.enabled
+        return enabled and require("pigeon.internet").wifi() or ""
       end,
-      color = { fg = theme.color89 },
+      color = tab_color
+      -- color = { fg = theme.color89 },
     })
 
     -- ram
     tab_right({
       function()
-        return require("pigeon.ram").ram()
+        local enabled = require("pigeon.config").options.ram.enabled
+        return enabled and require("pigeon.ram").ram() or ""
       end,
-      color = { fg = theme.color26 },
+      color = tab_color
+      -- color = { fg = theme.color26 },
     })
 
     -- battery
     tab_right({
       function()
-        return require("pigeon.battery").battery()
+        local enabled = require("pigeon.config").options.battery.enabled
+        return enabled and require("pigeon.battery").battery() or ""
       end,
-      color = { fg = colors.orange3 },
+      -- color = { fg = colors.orange3 },
+      color = tab_color
     })
 
     -- Statusline
-    -- mode
     sec_left({
-      -- "mode",
       function()
-        return mode[vim.fn.mode()]
+        local enabled = require("pigeon.config").options.datetime.time.enabled
+        return enabled and require("pigeon.datetime").current_time() or ""
       end,
-      -- "mode",
       color = function()
-        return { bg = mode_color[vim.fn.mode()], fg = colors.bg }
+        return "Title"
       end,
-      -- padding = { right = 1, left = 3 },
     })
-
-    -- filetype
-    sec_left({
-      "filetype",
-      icon_only = false,
-      icon = { align = "left" },
-      color = function()
-        return { bg = mode_color[vim.fn.mode()], fg = colors.bg }
-      end,
-      -- padding = { right = 1, left = 3 },
-    })
-
+    -- -- filetype
+    -- sec_left({
+    --   "filetype",
+    --   color = function()
+    --     return { bg = mode_color[vim.fn.mode()], fg = colors.bg }
+    --   end,
+    --   -- padding = { right = 1, left = 3 },
+    -- })
+    --
     -- filename
     sec_left({
       "filename",
@@ -335,10 +348,10 @@ return {
       -- 3: Absolute path, with tilde as the home directory
 
       shorting_target = 40, -- Shortens path to leave 40 spaces in the window
-      -- for other components. (terrible name, any suggestions?)
       symbols = {
-        modified = "", -- Text to show when the file is modified.
+        -- for other components. (terrible name, any suggestions?)
         readonly = "", -- Text to show when the file is non-modifiable or readonly.
+        modified = "", -- Text to show when the file is modified.
         unnamed = "ﲃ", -- Text to show for unnamed buffers.
         newfile = "", -- Text to show for newly created file before first write
       },
@@ -348,14 +361,6 @@ return {
     sec_left({
       "searchcount",
       color = { fg = colors.green1 },
-    })
-
-    -- toggleterm
-    sec_left({
-      function()
-        return '%{&ft == "toggleterm" ? " ".b:toggle_number."" : ""}'
-      end,
-      color = { fg = colors.green },
     })
 
     -- sep
@@ -379,7 +384,13 @@ return {
     sec_right({
       "diagnostics",
       sources = { "nvim_diagnostic" },
-      symbols = { error = " ", warn = " ", info = " " },
+      symbols = {
+        error = " ",
+        warn = " ",
+        info = " ",
+        question = " ",
+        hint = " ",
+      },
       diagnostics_color = {
         color_error = { fg = colors.red },
         color_warn = { fg = colors.yellow },
@@ -401,25 +412,36 @@ return {
       padding = { right = 1, left = 1 },
     })
 
-    -- sec_right({
-    --   function()
-    --     return "﯑ %3{codeium#GetStatusString()}"
-    --   end,
-    --   color = { fg = colors.grey },
-    -- })
+    sec_right({
+      function()
+        return "﯑ %3{codeium#GetStatusString()}"
+      end,
+      color = { fg = colors.grey },
+    })
+    sec_right({
+      "filesize",
+      cond = conditions.buffer_not_empty,
+      color = { fg = colors.bg3 },
+    })
 
+    sec_right({
+      "location",
+      color = { fg = colors.bg3 },
+    })
     sec_right({
       function()
         return ""
       end,
-      color = { bg = colors.yellow, fg = colors.bg },
+      color = "Comment"
+      -- color = { fg = colors.yellow, bg = colors.bg },
     })
 
     -- branch
     sec_right({
       "branch",
       -- icon = { "", align = "left" },
-      color = { bg = colors.yellow, fg = colors.bg },
+      -- color = { fg = colors.yellow, ng = colors.bg },
+      color = "Comment",
       padding = { right = 1, left = 0 },
     })
 

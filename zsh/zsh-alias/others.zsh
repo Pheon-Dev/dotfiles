@@ -1,5 +1,17 @@
 #!/bin/bash zsh
 
+kb () {
+  # for i in $(seq 1 10); do
+  #   echo $i
+  # done
+  # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
+  # $ grep -E "(ctrl|caps):" /usr/share/X11/xkb/rules/base.lst
+  setxkbmap -option "caps:escape"
+  # setxkbmap -option "caps:ctrl_modifier"
+  # setxkbmap -option "ctrl:swap_lalt_lctl"
+  # xcape -e 'Control_L=Escape'
+}
+
 time-zsh () {
   for i in $(seq 1 10); do
     time $SHELL -i -c exit;

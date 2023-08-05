@@ -1,0 +1,94 @@
+layout {
+  cwd "/home/pheon-dev/rust"
+  default_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      pane borderless=true
+    }
+
+  pane_template name="dev" {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+      children
+    }
+
+  tab_template name="code_tab" {
+      children
+    }
+
+  code_tab name="code (dev)" focus=true {
+      dev split_direction="vertical" {
+          pane borderless=true
+          pane
+      }
+    }
+
+  code_tab name="rustlings" cwd="/home/pheon-dev/rust/rustlings" {
+      dev split_direction="vertical" {
+        pane command="nvim" borderless=true
+        pane split_direction="horizontal" {
+          pane command="rustlings" borderless=false {
+              args "watch"
+            }
+          pane size="36%"
+         }
+       }
+    }
+
+  code_tab name="m-pesa (api)" cwd="/home/pheon-dev/rust/mpesa-api" {
+      dev split_direction="vertical" {
+        pane command="nvim" borderless=true
+        pane size="36%" split_direction="horizontal" {
+          pane command="cargo-watch" borderless=false {
+              args "-x" "run"
+            }
+          pane size="36%"
+         }
+       }
+    }
+  code_tab name="butterfly" cwd="/home/pheon-dev/rust/butterfly" {
+      dev split_direction="vertical" {
+        pane command="nvim" borderless=true
+        pane size="36%" split_direction="horizontal" {
+          // pane command="cargo-watch" borderless=false {
+            //   args "-x" "run"
+            // }
+          pane
+          pane size="36%"
+         }
+       }
+    }
+  code_tab name="miscellaneous" cwd="/home/pheon-dev/rust" {
+      dev split_direction="vertical" {
+        pane borderless=true
+      }
+    }
+  // code_tab name="book (cli)" cwd="/home/pheon/Documents/Rust/book" {
+  //     dev split_direction="vertical" {
+  //       pane split_direction="horizontal" {
+  //         pane command="nvim" borderless=true cwd="/home/pheon/Documents/Rust/book-cli"
+  //         pane borderless=false size="25%" cwd="/home/pheon/Documents/Rust/book-cli"
+  //         }
+  //       pane split_direction="horizontal" {
+  //         pane command="glow" borderless=false size="25%" {
+  //             args "./src/SUMMARY.md"
+  //           }
+  //         pane cwd="/home/pheon/Documents/Rust/book/src" name="References"
+  //        }
+  //      }
+  //   }
+  // code_tab name="book (cli)" cwd="/home/pheon/Documents/Rust/book-cli" {
+  //     dev split_direction="vertical" {
+  //         pane command="nvim" borderless=true
+  //         pane size="36%" split_direction="horizontal" {
+  //             pane size="36%"
+  //             pane name="References"
+  //             // pane command="cargo-watch" borderless=false {
+  //             //     args "-x" "run"
+  //             //   }
+  //          }
+  //      }
+  //   }
+}

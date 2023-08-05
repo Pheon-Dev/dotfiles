@@ -103,9 +103,9 @@ style = 'bold red'
 threshold = 50
 style = 'bold yellow'
 
-# [[battery.display]]
-# threshold = 100
-# style = 'bold green'
+[[battery.display]]
+threshold = 100
+style = 'bold green'
 
 [time]
 disabled = false

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# BLUETOOTH
 # alias blf='systemctl stop bluetooth'
 # alias bln='systemctl start bluetooth'
 alias blf='bluetooth off'
