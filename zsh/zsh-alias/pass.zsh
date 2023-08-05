@@ -2,6 +2,7 @@
 pass-export () {
   # password management
   export GITHUB_TOKEN=$(pass show github/token)
+  export GITLAB_TOKEN=$(pass show gitlab/token)
   export OPENAI_API_KEY=$(pass show api-key/bb-token)
   export PASS_PUB_KEY=$(pass show pass/pub-key)
   # export HUGGING_FACE_HUB_TOKEN=$(pass show hugging-face/token)

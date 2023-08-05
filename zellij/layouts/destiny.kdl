@@ -1,54 +1,27 @@
-layout name="destiny" {
-  cwd "/home/pheon/Documents/NextJS/App/destiny-credit"
+layout name="destiny-credit" {
+  cwd "/home/pheon-dev/Documents/next/destiny-credit"
 
-  default_tab_template {
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
-      pane borderless=true
-    }
-
-  pane_template name="dev" {
-      pane split_direction="vertical" {
-          children
-        }
-    }
-
-  tab_template name="serve_tab" cwd="/home/pheon/Documents/NextJS/App/destiny-credit" {
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
-      pane split_direction="vertical" {
-          children
-        }
-    }
-
-  tab_template name="code_tab" cwd="/home/pheon/Documents/NextJS/App/destiny-credit" {
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
-      pane split_direction="vertical" {
-          children
-        }
-    }
-
-  code_tab name="code (destiny-credit)" focus=true {
-      pane command="nvim" name="neovim" borderless=true
-    }
-
-  serve_tab name="serve (yarn|pscale|prisma)" {
-    dev split_direction="vertical" borderless=false {
-      pane name="yarn dev" command="yarn" {
-          args "dev"
-        }
-      pane split_direction="horizontal" {
-        pane name="planet scale" command="pscale" {
-            args "connect" "destiny-credit" "dev"
+  tab name="dev-tab" focus=true {
+    pane split_direction="vertical" {
+        pane borderless=true command="nvim"
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane command="bash" name="SERVER [yarn dev]" {
+              args "-c" "yarn dev"
+            }
+            pane command="bash" name="SERVER [planet scale]" {
+              args "-c" "pscale connect destiny-credit dev"
+            }
+            // pane command="bash" name="SERVER [prisma studio]" {
+            //   args "-c" "yarn prisma studio"
+            // }
+            pane name="REF"
+            pane name="CMD"
           }
-        pane name="prisma studio" size="30%" command="yarn" {
-            args "prisma" "studio"
-          }
-       }
-     }
-   }
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+    }
 }

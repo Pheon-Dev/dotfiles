@@ -69,7 +69,7 @@ layout name="manta-api" {
   //       }
   //   }
   
-  tab name="wallet-web-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/wallet-web-app" {
+  tab name="wallet-web-app" cwd="/home/pheon-dev/Documents/next/manta-wallet" {
     pane split_direction="vertical" {
         pane borderless=true command="nvim"
         pane split_direction="horizontal" {

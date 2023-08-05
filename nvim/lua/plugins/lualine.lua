@@ -2,7 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   enabled = true,
   dependencies = {
-    "Pheon-Dev/pigeon",
+    -- "Pheon-Dev/pigeon",
     "Exafunction/codeium.vim",
   },
   event = { "BufReadPost", "BufNewFile" },
@@ -184,20 +184,7 @@ return {
     }
 
     -- Tabline
-    local tab_color = "Keyword"
-
-    -- mode
-    tab_left({
-      -- "mode",
-      function()
-        return mode[vim.fn.mode()]
-      end,
-      -- "mode",
-      color = function()
-        return { fg = mode_color[vim.fn.mode()], bg = colors.bg }
-      end,
-      -- padding = { right = 1, left = 3 },
-    })
+    -- local tab_color = "Keyword"
 
     -- -- datetime
     -- tab_left({
@@ -208,13 +195,13 @@ return {
     --   color = tab_color
     -- })
     --
-    tab_left({
-      function()
-        local enabled = require("pigeon.config").options.datetime.day.enabled
-        return enabled and require("pigeon.datetime").current_day() or ""
-      end,
-      color = tab_color
-    })
+    -- tab_left({
+    --   function()
+    --     local enabled = require("pigeon.config").options.datetime.day.enabled
+    --     return enabled and require("pigeon.datetime").current_day() or ""
+    --   end,
+    --   color = tab_color
+    -- })
 
     -- sep
     tab_left({
@@ -278,54 +265,59 @@ return {
       color = "Comment"
     })
 
-    -- lazy updates
-    tab_right({
-      require("lazy.status").updates,
-      cond = require("lazy.status").has_updates,
-      -- color = { fg = "#ff9e64" },
-      color = tab_color
-    })
+    -- -- wifi
+    -- tab_right({
+    --   function()
+    --     local enabled = require("pigeon.config").options.internet.enabled
+    --     return enabled and require("pigeon.internet").wifi() or ""
+    --   end,
+    --   color = tab_color
+    --   -- color = { fg = theme.color89 },
+    -- })
+    --
+    -- -- ram
+    -- tab_right({
+    --   function()
+    --     local enabled = require("pigeon.config").options.ram.enabled
+    --     return enabled and require("pigeon.ram").ram() or ""
+    --   end,
+    --   color = tab_color
+    --   -- color = { fg = theme.color26 },
+    -- })
+    --
+    -- -- battery
+    -- tab_right({
+    --   function()
+    --     local enabled = require("pigeon.config").options.battery.enabled
+    --     return enabled and require("pigeon.battery").battery() or ""
+    --   end,
+    --   -- color = { fg = colors.orange3 },
+    --   color = tab_color
+    -- })
 
-    -- wifi
-    tab_right({
-      function()
-        local enabled = require("pigeon.config").options.internet.enabled
-        return enabled and require("pigeon.internet").wifi() or ""
-      end,
-      color = tab_color
-      -- color = { fg = theme.color89 },
-    })
-
-    -- ram
-    tab_right({
-      function()
-        local enabled = require("pigeon.config").options.ram.enabled
-        return enabled and require("pigeon.ram").ram() or ""
-      end,
-      color = tab_color
-      -- color = { fg = theme.color26 },
-    })
-
-    -- battery
-    tab_right({
-      function()
-        local enabled = require("pigeon.config").options.battery.enabled
-        return enabled and require("pigeon.battery").battery() or ""
-      end,
-      -- color = { fg = colors.orange3 },
-      color = tab_color
-    })
-
-    -- Statusline
+    -- -- Statusline
+    -- mode
     sec_left({
+      -- "mode",
       function()
-        local enabled = require("pigeon.config").options.datetime.time.enabled
-        return enabled and require("pigeon.datetime").current_time() or ""
+        return mode[vim.fn.mode()]
       end,
+      -- "mode",
       color = function()
-        return "Title"
+        return { fg = mode_color[vim.fn.mode()], bg = colors.bg }
       end,
+      -- padding = { right = 1, left = 3 },
     })
+
+    -- sec_left({
+    --   function()
+    --     local enabled = require("pigeon.config").options.datetime.time.enabled
+    --     return enabled and require("pigeon.datetime").current_time() or ""
+    --   end,
+    --   color = function()
+    --     return "Title"
+    --   end,
+    -- })
     -- -- filetype
     -- sec_left({
     --   "filetype",
@@ -379,6 +371,13 @@ return {
         padding = { right = 1, left = 1 },
       })
     end
+
+    -- lazy updates
+    sec_right({
+      require("lazy.status").updates,
+      cond = require("lazy.status").has_updates,
+      color = { fg = "#ff9e64" },
+    })
 
     -- diagnosticcs
     sec_right({

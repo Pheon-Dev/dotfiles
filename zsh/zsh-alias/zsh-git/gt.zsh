@@ -39,7 +39,7 @@ glb () {
       repo_name=$(git remote -v | grep -E "fetch" | cut -d " " -f 1 | awk 'BEGIN { FS = " " } { print $2 }' | awk 'BEGIN { FS = "/" } { print $5 }' | awk 'BEGIN { FS = "." } { print $1 }')
       echo -n "$(tput setaf 3)  GitLab"
       echo -e "$(tput setaf 6) Remote URL Successfully Set : \n"
-      git remote set-url origin https://oauth2:$GITLAB_TOKEN@gitlab.com/devpheon/$2.git
+      pass-export && git remote set-url origin https://oauth2:$GITLAB_TOKEN@gitlab.com/devpheon/$2.git
     fi
 
     if [[ $1 == "--init" || $1 == "-i" ]]; then
@@ -51,7 +51,7 @@ glb () {
       repo_name=$2
       echo -n "$(tput setaf 3)  GitLab"
       echo -e "$(tput setaf 6) Repository Successfully Initialised : \n"
-      git init > /dev/null 2>&1 && git remote add origin https://githlab.com/devpheon/$repo_name.git && git branch -M main && git remote set-url origin https://oauth2:$GITLAB_TOKEN@gitlab.com/devpheon/$repo_name.git && touch .gitignore README.md
+      pass-export && git init > /dev/null 2>&1 && git remote add origin https://githlab.com/devpheon/$repo_name.git && git branch -M main && git remote set-url origin https://oauth2:$GITLAB_TOKEN@gitlab.com/devpheon/$repo_name.git && touch .gitignore README.md
     fi
 
     echo -n "$(tput setaf 2)      "

@@ -1,0 +1,53 @@
+* {
+  border: none;
+  font-family: 'IosevkaNF', 'Symbols Nerd Font Mono';
+  /* font-style: italic; */
+  font-weight: bold;
+  /* font-size: 16px; */
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  min-height: 15px;
+}
+
+window#waybar {
+  /* background: transparent; */
+  background-color: #21222c;
+}
+
+#custom-arch, #workspaces {
+  /* border-radius: 10px; */
+  background-color: #21222c;
+  color: #b4befe;
+  /* margin-top: 1px; */
+	/* margin-right: 15px; */
+  /* padding-top: 1px; */
+  /* padding-bottom: 1px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+}
+
+#custom-arch {
+  /* font-size: 20px; */
+	/* margin-left: 15px; */
+  color: #51afef;
+}
+
+#workspaces button {
+  background: #21222c;
+  color: #b4befe;
+}
+
+#pulseaudio, #bluetooth, #network, #battery, #memory, #cpu, #backlight, #bluetooth {
+  /* border-radius: 10px; */
+  background-color: #21222c;
+  color: #b4befe;
+  /* margin-top: 1px; */
+  padding-left: 10px;
+  padding-right: 10px;
+  /* margin-right: 15px; */
+}
+
+#clock {
+  /* margin-right: 0; */
+	padding-left: 10px;
+  color: #b4befe;
+}

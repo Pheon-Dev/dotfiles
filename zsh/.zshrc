@@ -5,6 +5,8 @@ export STARSHIP_CACHE=~/.starship/cache
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
+# export EDITOR='$HOME/.config/neovim/build/bin/nvim'
+# export VISUAL='$HOME/.config/neovim/build/bin/nvim'
 export EDITOR='nvim'
 export VISUAL='nvim'
 

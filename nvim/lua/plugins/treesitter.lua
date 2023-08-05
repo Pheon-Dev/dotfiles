@@ -32,6 +32,7 @@ local M = {
           "bash",
           "go",
           "html",
+          "prisma",
           "http",
           "javascript",
           "kdl",
