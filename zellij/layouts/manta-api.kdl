@@ -1,14 +1,14 @@
 layout name="manta-api" {
   cwd "/home/pheon-dev/rust/manta-api"
   
-  // default_tab_template {
-  //     pane borderless=true
-  //     pane size=1 borderless=true {
-  //         plugin location="zellij:compact-bar"
-  //       }
-  //   }
+  tab_template name="manta_tab" {
+    children
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+      }
+  }
 
-  tab name="manta-api" focus=true {
+  manta_tab name="manta-api" focus=true {
     pane split_direction="vertical" {
         pane borderless=true command="nvim"
         pane split_direction="horizontal" {
@@ -26,12 +26,9 @@ layout name="manta-api" {
           }
         }
       }
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
     }
   
-  // tab name="wallet-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/wallet-app" {
+  // manta_tab name="wallet-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/wallet-app" {
   //   pane split_direction="vertical" {
   //       pane borderless=true command="nvim"
   //       pane split_direction="horizontal" {
@@ -45,12 +42,9 @@ layout name="manta-api" {
   //         }
   //       }
   //     }
-  //     pane size=1 borderless=true {
-  //         plugin location="zellij:compact-bar"
-  //       }
   //   }
   // 
-  // tab name="kplc-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/kplc-app" {
+  // manta_tab name="kplc-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/kplc-app" {
   //   pane split_direction="vertical" {
   //       pane borderless=true command="nvim"
   //       pane split_direction="horizontal" {
@@ -64,12 +58,9 @@ layout name="manta-api" {
   //         }
   //       }
   //     }
-  //     pane size=1 borderless=true {
-  //         plugin location="zellij:compact-bar"
-  //       }
   //   }
   
-  tab name="wallet-web-app" cwd="/home/pheon-dev/Documents/next/manta-wallet" {
+  manta_tab name="wallet-web-app" cwd="/home/pheon-dev/Documents/next/manta-wallet" {
     pane split_direction="vertical" {
         pane borderless=true command="nvim"
         pane split_direction="horizontal" {
@@ -83,12 +74,9 @@ layout name="manta-api" {
           }
         }
       }
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
     }
   
-  tab name="manta-api (ref)" cwd="/home/pheon-dev/rust/rust-ref/manta-api" {
+  manta_tab name="manta-api (ref)" cwd="/home/pheon-dev/rust/rust-ref/manta-api" {
     pane split_direction="vertical" {
         pane borderless=true command="nvim"
         pane split_direction="horizontal" {
@@ -104,8 +92,5 @@ layout name="manta-api" {
           }
         }
       }
-      pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
     }
 }

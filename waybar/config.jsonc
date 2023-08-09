@@ -1,0 +1,187 @@
+[{
+    "layer": "top",
+    "output": ["eDP-1"],
+    "modules-left": ["custom/arch", "clock"],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "disk", "network", "backlight", "battery"],
+    "custom/arch": {
+      "format": "  ",
+      "tooltip": false,
+      // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+    },
+    "wlr/workspaces": {
+      // "format": "{name}",
+      "format": "{icon}",
+      "tooltip": false,
+      "active-only": false,
+      "all-outputs": true,
+      "sort-by-number": true,
+      "format-icons": {
+        "urgent": "",
+        "active": "",
+        "default": "󰧞"
+      }
+    },
+    "clock": {
+      "format": "{:%H:%M    %A, %d %B %Y}",
+    },
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "pulseaudio": {
+      // "format": "<span color='#b4befe'>{icon}</span> {volume}%",
+      "format": "VOL {volume}%",
+      "format-muted": "",
+      "tooltip": false,
+      "format-icons": {
+        "headphone": "",
+        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
+      },
+      "scroll-step": 1,
+    },
+    "bluetooth": {
+      "format": "<span color='#b4befe'></span> {status}",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": "<span color='#b4befe'></span> {num_connections}",
+      "tooltip-format": "{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
+    },
+    "network": {
+      // "format-wifi": "󰤨",
+      // "format-ethernet": " {ifname}: Aesthetic",
+      // "format-linked": " {ifname} (No IP)",
+      // "format-disconnected": "󰤭",
+      // "format-alt": " {ifname}: {ipaddr}/{cidr}",
+      // "tooltip-format": "{essid}",
+      // "on-click-right": "nm-connection-editor"
+
+      "format": "{ifname}",
+      "format-wifi": "<span color='#b4befe'>󰤨</span> {essid} {signalStrength}%",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-disconnected": "<span color='#b4befe'>󰤭</span>",
+      "tooltip": false,
+      "states": {
+          // "good": 95,
+          "warning": 30,
+          "critical": 15
+      },
+    },
+    "battery": {
+      "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
+      "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "format-charging": "<span color='#b4befe'>󱐋 {icon}</span> {capacity}%",
+      "format-discharging": "<span color='#b4befe'>󱐌 {icon}</span> {capacity}%",
+      "tooltip": false,
+    },
+    "cpu": {
+        // "format": "CPU {avg_frequency} GHz",
+        "format": "CPU {}%",
+        "format-alt": "󰻠 {}%",
+        "interval": 5
+    },
+    "memory": {
+        // "format": "RAM {used}/{total} GB",
+        "format": "RAM {}%",
+        "format-alt": "󰍛 {}%",
+        "interval": 5,
+    },
+    "disk": {
+        // "format": "STO {used}/{total} GB",
+        "format": "STO {percentage_used}%",
+        "format-alt": "󰋊 {}%",
+        "interval": 5,
+        // "path": "/mnt/Datos"
+    },
+},
+{
+    "layer": "top",
+    "output": ["HDMI-A-1"],
+    "modules-left": ["custom/arch", "clock"],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right": ["cpu", "memory", "disk", "pulseaudio", "bluetooth", "network", "backlight", "battery"],
+    "custom/arch": {
+      "format": "  ",
+      "tooltip": false,
+      // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+    },
+    "wlr/workspaces": {
+      // "format": "{name}",
+      "format": "{icon}",
+      "tooltip": false,
+      "active-only": false,
+      "all-outputs": true,
+      "sort-by-number": true,
+      "format-icons": {
+        "urgent": "",
+        "active": "",
+        "default": "󰧞"
+      }
+    },
+    "clock": {
+      "format": "{:%H:%M    %A, %d %B %Y}",
+    },
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "bluetooth": {
+      "format": "<span color='#b4befe'></span> {status}",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": "<span color='#b4befe'></span> {num_connections}",
+      "tooltip-format": "{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
+    },
+    "network": {
+      // "format-wifi": "󰤨",
+      // "format-ethernet": " {ifname}: Aesthetic",
+      // "format-linked": " {ifname} (No IP)",
+      // "format-disconnected": "󰤭",
+      // "format-alt": " {ifname}: {ipaddr}/{cidr}",
+      // "tooltip-format": "{essid}",
+      // "on-click-right": "nm-connection-editor"
+
+      "format": "{ifname}",
+      "format-wifi": "<span color='#b4befe'>󰤨</span> {essid} {signalStrength}%",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-disconnected": "<span color='#b4befe'>󰤭</span>",
+      "tooltip": false,
+      "states": {
+          // "good": 95,
+          "warning": 30,
+          "critical": 15
+      },
+    },
+    "pulseaudio": {
+      // "format": "<span color='#b4befe'>{icon}</span> {volume}%",
+      "format": "VOL {volume}%",
+      "format-muted": "",
+      "tooltip": false,
+      "format-icons": {
+        "headphone": "",
+        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
+      },
+      "scroll-step": 1,
+    },
+    "cpu": {
+        "format": "CPU {avg_frequency} GHz [ {}% ]",
+        "format-alt": "CPU {}%",
+        // "format-alt": "󰻠 {}%",
+        "interval": 5
+    },
+    "memory": {
+        "format": "RAM {used}/{total} GB [ {}% ]",
+        "format-alt": "RAM {}%",
+        // "format-alt": "󰍛 {}%",
+        "interval": 5,
+    },
+    "disk": {
+        "format": "STO {used}/{total} GB [ {percentage_used}% ]",
+        "format-alt": "󰋊 {}%",
+        "interval": 5,
+        // "path": "/mnt/Datos"
+    },
+}
+]

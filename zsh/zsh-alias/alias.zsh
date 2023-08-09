@@ -157,13 +157,16 @@ alias f="fuck"
 alias fsg="flameshot gui -p ~/Downloads/Picture"
 alias psc="pscale"
 
+alias vercel="$HOME/.yarn/bin/vercel"
+
 # PRISMA
-alias pft="yarn prisma format"
-alias psh="yarn prisma db push"
-alias pll="yarn prisma pull"
-alias pnt="yarn prisma init"
-alias pgn="yarn prisma generate"
-alias pst="yarn prisma studio"
+alias prisma="$HOME/.yarn/bin/prisma"
+alias pft="prisma format"
+alias psh="prisma db push"
+alias pll="prisma pull"
+alias pnt="prisma init"
+alias pgn="prisma generate"
+alias pst="prisma studio"
 
 alias smk="sudo make clean install"
 

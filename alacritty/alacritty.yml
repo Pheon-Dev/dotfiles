@@ -1,7 +1,6 @@
 ---
 env:
   TERM: xterm-256color
-  WINIT_X11_SCALE_FACTOR: "1"
 window:
   padding:
     x: 0
@@ -16,25 +15,21 @@ scrolling:
   history: 5000
 font:
   normal:
-    family: ComicMonoNF
-    # family: Iosevka Nerd Font
+    # family: ComicMonoNF
+    family: JetBrainsMono Nerd Font
     style: Regular
-    # style: Bold
   bold:
-    family: ComicMonoNF
-    # family: Iosevka Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
     family: Iosevka Nerd Font
-    # style: Italic
-    style: Bold Italic
+    style: Italic
   bold_italic:
-    # family: ComicMonoNF
     family: Iosevka Nerd Font
     style: Bold Italic
   size: 10.0
   offset:
-    x: 1
+    x: 0
     y: 0
 
   glyph_offset:
@@ -119,7 +114,7 @@ key_bindings:
   - { key: L, mods: Control, chars: "\f" }
   - { key: S, mods: Control|Shift, chars: "\fff -c\n" } # fd | fzf (cd)
   - { key: S, mods: Control, chars: "\fff -e\n" } # fd | fzf (nvim)
-  - { key: R, mods: Control, chars: "\fff -g\n" } # fd | fzf (rg)
+  # - { key: R, mods: Control, chars: "\fff -g\n" } # fd | fzf (rg)
   - { key: G, mods: Control, chars: "\flg\n" } # lazygit
   - { key: W, mods: Control|Shift, chars: "\fww -b r\n" }
   - { key: I, mods: Control, chars: "\fv\n" } # editor

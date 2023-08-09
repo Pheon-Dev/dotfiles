@@ -3,7 +3,7 @@
 # https://thevaluable.dev/practical-guide-fzf-example/
 # --bind 'alt-w:unbind(change,alt-w)+change-prompt(2. fzf> )+enable-search+clear-query' \
 
-export IGNORE=.git*,.yarn,.rustup,go/pkg/mod/*,.cargo/*,.cache,/home/linuxbrew,node_modules/*,targets,Downloads/pouch,wallet-app/node_modules,kplc-app/node_modules
+export IGNORE=.git*,.yarn,.rustup,go/pkg/mod/*,.cargo/*,.cache,/home/linuxbrew,node_modules/*,targets,Downloads/pouch,wallet-app/node_modules,kplc-app/node_modules,.cache/*
 
 fdir() {
   fd --type directory -HE="{$IGNORE}" --strip-cwd-prefix --follow
