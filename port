@@ -17,6 +17,7 @@ cp -r $HOME/.config/bat $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/bat 
 cp -r $HOME/.config/broot $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/broot && rm -rf .git* && cd -
 cp -r $HOME/.config/waybar $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/waybar && rm -rf .git* && cd -
 cp -r $HOME/.config/hypr $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/hypr && rm -rf .git* && cd -
+cp -r $HOME/.config/kitty $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/kitty && rm -rf .git* && cd -
 cp -r $HOME/.z $HOME/.config/dotfiles
 cp -r $HOME/.zshrc $HOME/.config/dotfiles
 cp -r $HOME/.zprofile $HOME/.config/dotfiles
