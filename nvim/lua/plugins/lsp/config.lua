@@ -1,11 +1,13 @@
 local M = {}
 
 function M.lsp_config(plugin)
+  local nvim_lsp = require('lspconfig')
   local capabilities =
       require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+  local ih = require("inlay-hints")
+
   local on_attach = require("util").on_attach(function(client, buffer)
-    require("plugins.lsp.format").on_attach(client, buffer)
     require("plugins.lsp.keymaps").on_attach(client, buffer)
   end)
   local lsp_flags = {
@@ -46,12 +48,8 @@ function M.lsp_config(plugin)
   end
   -- setup formatting and keymaps
   require("util").on_attach(function(client, buffer)
-    require("plugins.lsp.format").on_attach(client, buffer)
     require("plugins.lsp.keymaps").on_attach(client, buffer)
   end)
-
-  local nvim_lsp = require('lspconfig')
-  local util = require("lspconfig.util")
 
   -- GoLang
   nvim_lsp['gopls'].setup {
@@ -66,6 +64,14 @@ function M.lsp_config(plugin)
           shadow = true,
         },
         staticcheck = true,
+        hints = {
+          rassignVariableTypes = true,
+          compositeLiteralFields = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true
+        }
       },
     },
     init_options = {
@@ -73,7 +79,38 @@ function M.lsp_config(plugin)
     }
   }
   capabilities.offsetEncoding = { "utf-16" }
-  require("lspconfig").clangd.setup({ capabilities = capabilities })
+
+  nvim_lsp.clangd.setup({ capabilities = capabilities })
+
+  nvim_lsp.tsserver.setup({
+    on_attach = function(c, b)
+      ih.on_attach(c, b)
+    end,
+    settings = {
+      javascript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+        },
+      },
+      typescript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+        },
+      },
+    },
+  })
 end
 
 return M

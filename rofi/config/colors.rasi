@@ -1,0 +1,21 @@
+* {
+    BG:    #21222C;
+    BGA:   #737AA2;
+    FG:    #737AA2;
+    FGA:   #b4befe;
+    BDR:   #b4befe;
+    SEL:   #282a36;
+    UGT:   #F28FADff;
+    IMG:   #21222C;
+    OFF:   #575268ff;
+    ON:    #ABE9B3ff;
+    background:     #21222C;
+    background-alt: #21222C;
+    foreground:     #737AA2;
+    selected:       #545C7E;
+    active:         #B8BB26;
+    urgent:         #FB4934;
+    accent:         #00BC04;
+	background-selection:#e34039; 		//Selection_bg
+	transparent:					#ffffff00;
+}

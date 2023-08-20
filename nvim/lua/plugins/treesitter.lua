@@ -37,6 +37,8 @@ local M = {
           "javascript",
           "kdl",
           "json",
+          "rasi",
+          "yuck",
           "lua",
           "markdown",
           "markdown_inline",

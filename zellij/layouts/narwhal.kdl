@@ -1,0 +1,34 @@
+layout name="royal-diadems" {
+  cwd "/home/pheon-dev/rust/narwhal"
+
+  tab name="dev-tab" focus=true {
+    pane split_direction="vertical" {
+        pane borderless=true command="nvim"
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane name="SERVER"
+            // pane command="bash" name="SERVER" {
+            //   args "-c" "cargo-watch -q -c -w src/ -x run"
+            // }
+            // pane command="bash" name="TEST" {
+            //   args "-c" "cargo-watch -q -c -w examples/ -x 'run --example quick_dev'"
+            // }
+            pane command="bash" name="git" {
+              args "-c" "lazygit"
+            }
+            pane command="bash" name="File Manager" {
+              args "-c" "lf"
+            }
+            pane name="REF"
+            pane name="CMD"
+          }
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+    }
+}
+
+
+

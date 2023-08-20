@@ -4,5 +4,5 @@
     foreground:     #737AA2;
     selected:       #545C7E;
     active:         #B8BB26;
-    urgent:         #FB4934;
+    urgent:         #F28FAD;
 }

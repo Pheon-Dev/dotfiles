@@ -2,8 +2,8 @@
 local util = require("lspconfig.util")
 ---@type lspconfig.options
 local servers = {
-	gopls = {},
-	clangd = {},
+  gopls = {},
+  clangd = {},
   -- lua_ls = {
   --   settings = {
   --     lua = {
@@ -13,33 +13,34 @@ local servers = {
   --     }
   --   }
   -- },
-	-- codelldb = {},
-	-- bashls = {},
-	-- cssls = {},
-	-- tsserver = {},
-	html = {},
-	-- jsonls = {},
-	-- pyright = {},
-	-- yamlls = {},
-	-- remark_ls = {},
-	rust_analyzer = { -- rustup component add rust-analyzer
-		cmd = { "rustup", "run", "stable", "rust-analyzer" },
-	},
-	sumneko_lua = {
-		settings = {
-			Lua = {
-				workspace = {
-					checkThirdParty = false,
-				},
-				completion = {
-					callSnippet = "Replace",
-				},
-				diagnostics = {
-					globals = { "vim" },
-				},
-			},
-		},
-	},
+  -- codelldb = {},
+  -- bashls = {},
+  -- cssls = {},
+  tsserver = {},
+  html = {},
+  -- jsonls = {},
+  -- pyright = {},
+  -- yamlls = {},
+  -- remark_ls = {},
+  rust_analyzer = { -- rustup component add rust-analyzer
+    cmd = { "rustup", "run", "stable", "rust-analyzer" },
+  },
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        workspace = {
+          checkThirdParty = false,
+        },
+        completion = {
+          callSnippet = "Replace",
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        enable = true,
+      },
+    },
+  },
 }
 
 return servers

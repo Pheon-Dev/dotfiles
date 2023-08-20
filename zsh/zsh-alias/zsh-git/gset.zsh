@@ -19,6 +19,7 @@ gset () {
   # cd $HOME/.config/dwmbar && gt -s
   
   cd $HOME/.config/dotfiles && gt -s
+  cd $HOME/.config/hypr && gt -s
   # cd $HOME/.nb/home && gt -s
   cd $HOME/.password-store && gt -s
   cd $pwd

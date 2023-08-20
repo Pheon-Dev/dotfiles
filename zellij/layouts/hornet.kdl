@@ -1,0 +1,29 @@
+layout name="royal-diadems" {
+  cwd "/home/pheon-dev/go/src/github.com/Pheon-Dev/hornet"
+
+  tab name="dev-tab" focus=true {
+    pane split_direction="vertical" {
+        pane borderless=true command="nvim"
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane command="bash" name="Server [go run .]" {
+              args "-c" "go run ."
+            }
+            pane command="bash" name="git" {
+              args "-c" "lazygit"
+            }
+            pane command="bash" name="File Manager" {
+              args "-c" "lf"
+            }
+            pane name="REF"
+            pane name="CMD"
+          }
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+        }
+    }
+}
+
+

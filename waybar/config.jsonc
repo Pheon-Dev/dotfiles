@@ -1,37 +1,51 @@
-[{
+[
+  {
     "layer": "top",
     "output": ["eDP-1"],
     "modules-left": ["custom/arch", "clock"],
     "modules-center": ["wlr/workspaces"],
-    "modules-right": ["cpu", "memory", "pulseaudio", "disk", "network", "backlight", "battery"],
+    "modules-right": [
+      "cpu",
+      "memory",
+      "pulseaudio",
+      "disk",
+      "network",
+      "backlight",
+      "battery"
+    ],
     "custom/arch": {
-      "format": "  ",
+      "format": "  ",
       "tooltip": false,
-      // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+      "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
     "wlr/workspaces": {
-      // "format": "{name}",
-      "format": "{icon}",
+      "format": "{name}",
+      // "format": "{icon}",
+      "on-click": "activate",
       "tooltip": false,
       "active-only": false,
-      "all-outputs": true,
-      "sort-by-number": true,
-      "format-icons": {
-        "urgent": "",
-        "active": "",
-        "default": "󰧞"
-      }
+      "all-outputs": false,
+      "sort-by-number": true
+      // "persistent_workspaces": {
+      //   "10": [],
+      // },
+      // "format-icons": {
+      //   "urgent": "",
+      //   "active": "",
+      //   "special": "󰈩",
+      //   // "default": "󰧞"
+      // }
     },
     "clock": {
-      "format": "{:%H:%M    %A, %d %B %Y}",
+      "format": "{:%H:%M  %a  %d|%m|%y}"
     },
     "backlight": {
       "device": "intel_backlight",
-      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
+      "format": "{icon} {percent}%",
       "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "pulseaudio": {
-      // "format": "<span color='#b4befe'>{icon}</span> {volume}%",
+      // "format": "{icon} {volume}%",
       "format": "VOL {volume}%",
       "format-muted": "",
       "tooltip": false,
@@ -39,12 +53,12 @@
         "headphone": "",
         "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
       },
-      "scroll-step": 1,
+      "scroll-step": 1
     },
     "bluetooth": {
-      "format": "<span color='#b4befe'></span> {status}",
+      "format": " {status}",
       "format-disabled": "", // an empty format will hide the module
-      "format-connected": "<span color='#b4befe'></span> {num_connections}",
+      "format-connected": " {num_connections}",
       "tooltip-format": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
     },
@@ -58,52 +72,62 @@
       // "on-click-right": "nm-connection-editor"
 
       "format": "{ifname}",
-      "format-wifi": "<span color='#b4befe'>󰤨</span> {essid} {signalStrength}%",
-      "format-ethernet": "{ipaddr}/{cidr} ",
-      "format-disconnected": "<span color='#b4befe'>󰤭</span>",
+      "format-wifi": "󰤨  {essid} {signalStrength}%",
+      "format-ethernet": "{ipaddr}/{cidr}  ",
+      "format-disconnected": "󰤭",
       "tooltip": false,
+      "on-click": "sh $HOME/.config/rofi/bin/net",
       "states": {
-          // "good": 95,
-          "warning": 30,
-          "critical": 15
-      },
+        // "good": 95,
+        "warning": 30,
+        "critical": 15
+      }
     },
     "battery": {
-      "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
+      "format": "{icon} {capacity}%",
       "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-      "format-charging": "<span color='#b4befe'>󱐋 {icon}</span> {capacity}%",
-      "format-discharging": "<span color='#b4befe'>󱐌 {icon}</span> {capacity}%",
-      "tooltip": false,
+      "format-charging": "󱐋 {icon} {capacity}%",
+      "format-discharging": "󱐌 {icon} {capacity}%",
+      "tooltip": false
     },
     "cpu": {
-        // "format": "CPU {avg_frequency} GHz",
-        "format": "CPU {}%",
-        "format-alt": "󰻠 {}%",
-        "interval": 5
+      // "format": "CPU {avg_frequency} GHz",
+      "format": "CPU {}%",
+      "format-alt": "󰻠 {}%",
+      "interval": 5
     },
     "memory": {
-        // "format": "RAM {used}/{total} GB",
-        "format": "RAM {}%",
-        "format-alt": "󰍛 {}%",
-        "interval": 5,
+      // "format": "RAM {used}/{total} GB",
+      "format": "RAM {}%",
+      "format-alt": "󰍛 {}%",
+      "interval": 5
     },
     "disk": {
-        // "format": "STO {used}/{total} GB",
-        "format": "STO {percentage_used}%",
-        "format-alt": "󰋊 {}%",
-        "interval": 5,
-        // "path": "/mnt/Datos"
-    },
-},
-{
+      // "format": "STO {used}/{total} GB",
+      "format": "STO {percentage_used}%",
+      "format-alt": "󰋊 {}%",
+      "interval": 5
+      // "path": "/mnt/Datos"
+    }
+  },
+  {
     "layer": "top",
     "output": ["HDMI-A-1"],
     "modules-left": ["custom/arch", "clock"],
     "modules-center": ["wlr/workspaces"],
-    "modules-right": ["cpu", "memory", "disk", "pulseaudio", "bluetooth", "network", "backlight", "battery"],
+    "modules-right": [
+      "cpu",
+      "memory",
+      "disk",
+      "pulseaudio",
+      "bluetooth",
+      "network",
+      "backlight",
+      "battery"
+    ],
     "custom/arch": {
-      "format": "  ",
-      "tooltip": false,
+      "format": "  ",
+      "tooltip": false
       // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
     "wlr/workspaces": {
@@ -111,26 +135,27 @@
       "format": "{icon}",
       "tooltip": false,
       "active-only": false,
-      "all-outputs": true,
+      "all-outputs": false,
       "sort-by-number": true,
       "format-icons": {
         "urgent": "",
-        "active": "",
-        "default": "󰧞"
+        "active": " ",
+        "default": "󰧞",
+        "special": "󰈩"
       }
     },
     "clock": {
-      "format": "{:%H:%M    %A, %d %B %Y}",
+      "format": "{:%H:%M    %A, %d %B %Y}"
     },
     "backlight": {
       "device": "intel_backlight",
-      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
+      "format": "{icon} {percent}%",
       "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "bluetooth": {
-      "format": "<span color='#b4befe'></span> {status}",
+      "format": " {status}",
       "format-disabled": "", // an empty format will hide the module
-      "format-connected": "<span color='#b4befe'></span> {num_connections}",
+      "format-connected": " {num_connections}",
       "tooltip-format": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
     },
@@ -141,21 +166,21 @@
       // "format-disconnected": "󰤭",
       // "format-alt": " {ifname}: {ipaddr}/{cidr}",
       // "tooltip-format": "{essid}",
-      // "on-click-right": "nm-connection-editor"
+      // "on-click-right": "nm-connection-editor",
 
       "format": "{ifname}",
-      "format-wifi": "<span color='#b4befe'>󰤨</span> {essid} {signalStrength}%",
-      "format-ethernet": "{ipaddr}/{cidr} ",
-      "format-disconnected": "<span color='#b4befe'>󰤭</span>",
+      "format-wifi": "󰤨  {essid} {signalStrength}%",
+      "format-ethernet": "{ipaddr}/{cidr}  ",
+      "format-disconnected": "󰤭 ",
       "tooltip": false,
       "states": {
-          // "good": 95,
-          "warning": 30,
-          "critical": 15
-      },
+        // "good": 95,
+        "warning": 30,
+        "critical": 15
+      }
     },
     "pulseaudio": {
-      // "format": "<span color='#b4befe'>{icon}</span> {volume}%",
+      // "format": "{icon} {volume}%",
       "format": "VOL {volume}%",
       "format-muted": "",
       "tooltip": false,
@@ -163,25 +188,32 @@
         "headphone": "",
         "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
       },
-      "scroll-step": 1,
+      "scroll-step": 1
     },
     "cpu": {
-        "format": "CPU {avg_frequency} GHz [ {}% ]",
-        "format-alt": "CPU {}%",
-        // "format-alt": "󰻠 {}%",
-        "interval": 5
+      "format": "CPU {avg_frequency} GHz [ {}% ]",
+      "format-alt": "CPU {}%",
+      // "format-alt": "󰻠 {}%",
+      "interval": 5
     },
     "memory": {
-        "format": "RAM {used}/{total} GB [ {}% ]",
-        "format-alt": "RAM {}%",
-        // "format-alt": "󰍛 {}%",
-        "interval": 5,
+      "format": "RAM {used}/{total} GB [ {}% ]",
+      "format-alt": "RAM {}%",
+      // "format-alt": "󰍛 {}%",
+      "interval": 5
     },
     "disk": {
-        "format": "STO {used}/{total} GB [ {percentage_used}% ]",
-        "format-alt": "󰋊 {}%",
-        "interval": 5,
-        // "path": "/mnt/Datos"
+      "format": "STO {used}/{total} GB [ {percentage_used}% ]",
+      "format-alt": "󰋊 {}%",
+      "interval": 5
+      // "path": "/mnt/Datos"
     },
-}
+    "battery": {
+      "format": "{icon} {capacity}%",
+      "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "format-charging": "󱐋 {icon} {capacity}%",
+      "format-discharging": "󱐌 {icon} {capacity}%",
+      "tooltip": false
+    }
+  }
 ]
