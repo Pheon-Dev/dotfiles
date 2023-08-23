@@ -1,7 +1,9 @@
-:root {
-    --address-bar-height: 40px;
-    --browser-offset: calc(-1 * (var(--address-bar-height) + 1px));
-}
+/* Go to about:config and find browser.urlbar.resultMenu.keyboardAccessible. Make it false. */
+/* https://github.com/MrOtherGuy/firefox-csshacks/blob/7daa9b45e31fb1821a62546b9d513613d01aa1e9/chrome/autohide_tabstoolbar.css */
+/* :root { */
+/*     --address-bar-height: 40px; */
+/*     --browser-offset: calc(-1 * (var(--address-bar-height) + 1px)); */
+/* } */
 #navigator-toolbox-background {
     position: absolute !important;;
 }
