@@ -51,55 +51,13 @@ window#waybar {
 }
 
 #pulseaudio, #bluetooth, #network, #battery, #memory, #cpu, #backlight, #bluetooth, #disk, #clock {
-  background: #21222c;
-  /* border-radius: 5px; */
-  /* background-color: #282a36; */
-  /* color: #b4befe; */
+  /* background: #21222c; */
+  background-color: #282a36;
+  color: #b4befe;
+  border-radius: 5px;
   /* margin-top: 1px; */
-  /* margin-left: 10px; */
+  margin-left: 10px;
   margin-right: 10px;
-  /* padding-left: 10px; */
-  /* padding-right: 10px; */
-  /* margin-right: 15px; */
+  padding-left: 10px;
+  padding-right: 10px;
 }
-
-#battery {
-  color: #ffd4a6;
-}
-
-#memory {
-  color: #8de9fd;
-}
-
-#network {
-  color: #51afef;
-}
-
-#disk {
-  color: #f1fa8c;
-}
-
-#backlight {
-  color: #f8f8f2;
-}
-
-#cpu {
-  color: #fca7ea;
-}
-
-#clock {
-  color: #96faaf;
-}
-
-#cpu {
-    border-radius: 6px 0px 0px 6px;
-}
-
-/* #clock { */
-/*   margin-left: 10; */
-/*   padding-right: 10px; */
-/* 	padding-left: 10px; */
-/*   color: #b4befe; */
-/*   background-color: #282a36; */
-/*     border-radius: 6px 6px 6px 6px; */
-/* } */

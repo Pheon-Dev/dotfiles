@@ -25,3 +25,4 @@ cp -r $HOME/.xinitrc $HOME/.config/dotfiles
 cp -r $HOME/.histfile $HOME/.config/dotfiles
 cp -r $HOME/.zsh_history $HOME/.config/dotfiles
 cp -r $HOME/.zshrc $HOME/.config/zsh/.zshrc
+cp -r $HOME/.mozilla/firefox/4yw0z4lr.default-release/chrome $HOME/.config/dotfiles

@@ -8,6 +8,7 @@ local M = {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
+      'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function()
       local function starts_with(str, start)
@@ -73,6 +74,15 @@ local M = {
         autopairs = { enable = true },
         indent = { enable = true },
         textobjects = textobjects,
+        textsubjects = {
+          enable = false,
+          prev_selection = ',', -- (Optional) keymap to select the previous selection
+          keymaps = {
+            ['.'] = 'textsubjects-smart',
+            [';'] = 'textsubjects-container-outer',
+            ['i;'] = 'textsubjects-container-inner',
+          },
+        },
         refactor = {},
         endwise = {
           enable = false,

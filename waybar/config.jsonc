@@ -120,7 +120,6 @@
       "memory",
       "disk",
       "pulseaudio",
-      "bluetooth",
       "network",
       "backlight",
       "battery"
@@ -151,13 +150,6 @@
       "device": "intel_backlight",
       "format": "{icon} {percent}%",
       "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "bluetooth": {
-      "format": " {status}",
-      "format-disabled": "", // an empty format will hide the module
-      "format-connected": " {num_connections}",
-      "tooltip-format": "{device_enumerate}",
-      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
     },
     "network": {
       // "format-wifi": "󰤨",

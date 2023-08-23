@@ -79,7 +79,7 @@ return {
     local oc, crates = pcall(require, "crates")
     if not oc then return end
 
-    local dap, dapui = require("dap"), require("dapui")
+    -- local dap, dapui = require("dap"), require("dapui")
 
     local mappings = {
       -- ["'"] = { ":Alpha<cr>", "Dashboard" },
@@ -110,15 +110,15 @@ return {
           r = { crates.open_repository, "Repository" },
         },
       },
-      d = {
-        name = "DAP",
-        b = { dap.toggle_breakpoint, "Toggle Breakpoint" },
-        c = { dap.continue, "Launch debug and resume execution" },
-        i = { dap.step_into, "Step Into Code" },
-        o = { dap.step_over, "Step Over Code" },
-        r = { dap.repl.open, "Step Over Code" },
-        d = { dapui.toggle, "Toggle UI" },
-      },
+      -- d = {
+      --   name = "DAP",
+      --   b = { dap.toggle_breakpoint, "Toggle Breakpoint" },
+      --   c = { dap.continue, "Launch debug and resume execution" },
+      --   i = { dap.step_into, "Step Into Code" },
+      --   o = { dap.step_over, "Step Over Code" },
+      --   r = { dap.repl.open, "Step Over Code" },
+      --   d = { dapui.toggle, "Toggle UI" },
+      -- },
       h = { ":lua require('harpoon.mark').add_file()<cr>", "Harpoon Mark File" },
       j = { ":NvimTreeToggle<cr>", "Nvim-Tree" },
       k = { ":lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon" },
@@ -171,7 +171,7 @@ return {
         }
       },
       x = { "<cmd>lua require('diaglist').open_all_diagnostics()<cr>", "Quickfix All Diagnostics" },
-      y = { ":Telescope yank_history previewer=false initial_mode=normal<cr>", "Yank History" },
+      y = { ":Telescope yank_history theme=ivy previewer=false initial_mode=normal<cr>", "Yank History" },
       z = { ":Lazy<cr>", "Lazy" },
     }
 

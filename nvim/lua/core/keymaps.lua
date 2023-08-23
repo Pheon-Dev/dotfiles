@@ -4,8 +4,8 @@ local map = vim.api.nvim_set_keymap
 -- unused C-n, C-j, C-k, C-l, C-h, C-a, C-x, C-z, C-c, C-v
 -- Saving and  ESC on insert Mode
 map("i", "jj", "<esc>", { noremap = true, silent = true })
--- map("n", ",", "<esc>:lua vim.lsp.buf.format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
-map("n", ",", "<esc>:w! | noh<cr>", { noremap = true, silent = true })
+map("n", ",", "<esc>:lua vim.lsp.buf.format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
+-- map("n", ",", "<esc>:w! | noh<cr>", { noremap = true, silent = true })
 
 -- Windows
 -- map("n", "<C-l>", "<C-w>p", { noremap = true, silent = true })
@@ -32,6 +32,8 @@ map("n", ")", ":resize -3<cr>", { noremap = true, silent = true })
 map("n", "U", ":redo<cr>", { noremap = true, silent = true })
 
 -- Move to Start/End of Line
+map("n", "<C-k>", "-", { noremap = true, silent = true })
+map("n", "<C-j>", "+", { noremap = true, silent = true })
 map("n", "H", "^", { noremap = true, silent = true })
 map("n", "L", "$", { noremap = true, silent = true })
 
@@ -52,6 +54,8 @@ map("n", "go", "<C-o>", { noremap = true, silent = true })
 -- map("i", "<A-o>", "<C-o>", { noremap = true, silent = true })
 map("i", "<C-k>", "<C-o>O", { noremap = true, silent = true })
 map("i", "<C-j>", "<C-o>o", { noremap = true, silent = true })
+map("i", "<C-l>", "<C-o>A", { noremap = true, silent = true })
+map("i", "<C-h>", "<C-o>I", { noremap = true, silent = true })
 
 -- Dial
 map("n", "+", "<Plug>(dial-increment)", { noremap = true, silent = true })
@@ -147,7 +151,7 @@ vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>lua require("harpoon.ui")
 vim.api.nvim_set_keymap('n', 'gm', '<cmd>lua require("harpoon.ui").nav_next()<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gn', '<cmd>lua require("harpoon.ui").nav_prev()<cr>', { noremap = true, silent = true })
 
-vim.keymap.set("i", "<C-l>",
+vim.keymap.set("i", "<C-a>",
   function()
     return vim.fn["codeium#Accept"]()
   end

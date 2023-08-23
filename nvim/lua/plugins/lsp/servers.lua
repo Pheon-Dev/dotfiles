@@ -1,8 +1,29 @@
--- Add any servers here together with their settings
-local util = require("lspconfig.util")
 ---@type lspconfig.options
 local servers = {
-  gopls = {},
+  gopls = {
+    cmd = { 'gopls' },
+    settings = {
+      gopls = {
+        experimentalPostfixCompletions = true,
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+        hints = {
+          rassignVariableTypes = true,
+          compositeLiteralFields = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true
+        }
+      },
+    },
+    init_options = {
+      usePlaceholders = true,
+    }
+  },
   clangd = {},
   -- lua_ls = {
   --   settings = {
@@ -16,7 +37,32 @@ local servers = {
   -- codelldb = {},
   -- bashls = {},
   -- cssls = {},
-  tsserver = {},
+  tsserver = {
+    -- settings = {
+    --   javascript = {
+    --     inlayHints = {
+    --       includeInlayEnumMemberValueHints = true,
+    --       includeInlayFunctionLikeReturnTypeHints = true,
+    --       includeInlayFunctionParameterTypeHints = true,
+    --       includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+    --       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+    --       includeInlayPropertyDeclarationTypeHints = true,
+    --       includeInlayVariableTypeHints = true,
+    --     },
+    --   },
+    --   typescript = {
+    --     inlayHints = {
+    --       includeInlayEnumMemberValueHints = true,
+    --       includeInlayFunctionLikeReturnTypeHints = true,
+    --       includeInlayFunctionParameterTypeHints = true,
+    --       includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+    --       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+    --       includeInlayPropertyDeclarationTypeHints = true,
+    --       includeInlayVariableTypeHints = true,
+    --     },
+    --   },
+    -- },
+  },
   html = {},
   -- jsonls = {},
   -- pyright = {},
@@ -37,7 +83,9 @@ local servers = {
         diagnostics = {
           globals = { "vim" },
         },
-        enable = true,
+        hint = {
+          enable = false,
+        },
       },
     },
   },

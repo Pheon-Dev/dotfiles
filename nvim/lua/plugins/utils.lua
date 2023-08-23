@@ -39,9 +39,14 @@ return {
     end,
   },
   {
-    "tpope/vim-surround",
+    "kylechui/nvim-surround",
     event = { "BufReadPost", "BufNewFile" },
+    dependencies = { "roobert/surround-ui.nvim" },
     enabled = true,
+    config = function()
+      require("nvim-surround").setup({})
+      require("surround-ui").setup({ root_key = "S" })
+    end,
   },
   {
     "tpope/vim-repeat",
@@ -119,10 +124,28 @@ return {
   --     }
   --   end,
   -- },
+  {
+    "mg979/vim-visual-multi",
+    event = { "BufReadPost", "BufNewFile" },
+    enabled = true,
+  },
   -- {
-  --   "mg979/vim-visual-multi",
-  --   event = { "BufReadPost", "BufNewFile" },
-  --   enabled = false,
+  --   "smoka7/multicursors.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     'nvim-treesitter/nvim-treesitter',
+  --     'smoka7/hydra.nvim',
+  --   },
+  --   opts = {},
+  --   cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+  --   keys = {
+  --     {
+  --       mode = { 'v', 'n' },
+  --       '<C-n>',
+  --       '<cmd>MCstart<cr>',
+  --       desc = 'Create a selection for selected text or word under the cursor',
+  --     },
+  --   },
   -- },
   {
     "brenoprata10/nvim-highlight-colors",
