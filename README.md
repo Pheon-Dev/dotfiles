@@ -5,7 +5,7 @@ iwctl
  - device list show
  - station wlan0 scan
  - station wlan0 connect <essid>
- - quit 
+ - quit
 gdisk /dev/sdx
   - x
   - z
@@ -42,7 +42,7 @@ cp ~/.bash_profile ~/.zprofile # s/bashrc/zshrc/g
 
 others=$(nvim | zellij | starship | rofi | zsh | picom | alacritty | lazygit )
 git clone https://github.com/Pheon-Dev/$others.git
- 
+
 exit
 reboot
 
@@ -67,7 +67,7 @@ yay -Syu exa starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-meslo-nerd \
 zsh git neovim zellij picom rofi joshuto alacritty fzf flameshot \
 aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
 glow bat npm yarn unzip fd acpi toipe nitrogen neofetch btop \
-pass ripgrep docker docker-compose 
+pass ripgrep docker docker-compose
 
 sudo chsh -s $(which zsh)
 
@@ -92,6 +92,12 @@ mv TTF/* /usr/share/fonts
 cd $HOME/.mozilla/firefox/---.default-release
 git clone https://github.com/Pheon-Dev/userChrome.css.git
 mv userChrome.css chrome
+
+# install yay
+rfkill unblock bluetooth
+yay -Syu bluez-utils bluez
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
 
 # brew
 /bin/bash/ -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
