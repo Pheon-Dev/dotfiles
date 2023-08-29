@@ -17,7 +17,7 @@ gset () {
   cd $HOME/.config/btop && gt -s
   cd $HOME/.config/lf && gt -s
   # cd $HOME/.config/dwmbar && gt -s
-  
+
   cd $HOME/.config/dotfiles && gt -s
   cd $HOME/.config/hypr && gt -s
   # cd $HOME/.nb/home && gt -s

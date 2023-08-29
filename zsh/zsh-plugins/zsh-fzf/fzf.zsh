@@ -12,7 +12,7 @@ fdir() {
 export FZF_DEFAULT_OPTS="\
   --preview '( \
     [[ -f {} ]] && \
-      (bat --style=numbers --color=always --theme=Dracula --pager=never {} || cat {})) || \
+      (bat --style=numbers --color=always --theme=TwoDark --pager=never {} || cat {})) || \
       ([[ -d {} ]] && \
         (exa --icons -T --color=always --group-directories-first {} || tree -C {}) \
       ) || \
@@ -34,8 +34,8 @@ export FZF_DEFAULT_OPTS="\
   --cycle \
   --preview-label 'Results Preview' \
   --color=label:#ffff0f \
-  --color=fg:#c0caf5,bg:#21222c,hl:#bd93f9,border:#44475a \
-  --color=fg+:#c0caf5,bg+:#21222c,hl+:#bd93f9 \
+  --color=fg:#c0caf5,bg:#1E1E2E,hl:#bd93f9,border:#44475a \
+  --color=fg+:#c0caf5,bg+:#1E1E2E,hl+:#bd93f9 \
   --color=info:#f1fa8c,prompt:#50fa7b,pointer:#ff79c6 \
   --color=marker:#ff79c6,spinner:#f1fa8c,header:#6272a4
 "
@@ -47,7 +47,7 @@ frg() {
     --bind "start:reload:$RG_PREFIX {q}" \
     --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
     --delimiter : \
-    --preview 'bat --theme=Dracula --pager=never --style=plain --color=always {1} --highlight-line {2}' \
+    --preview 'bat --theme=TwoDark --pager=never --style=plain --color=always {1} --highlight-line {2}' \
     --bind 'enter:execute(nvim {1} +{2})' \
     --bind 'ctrl-l:execute(nvim {1} +{2})' \
     --preview-label '[ripgrep] Results Preview' \

@@ -158,6 +158,7 @@ alias fsg="flameshot gui -p ~/Downloads/Picture"
 alias psc="pscale"
 
 alias vercel="$HOME/.yarn/bin/vercel"
+alias firebase="$HOME/.yarn/bin/firebase"
 
 # PRISMA
 alias prisma="$HOME/.yarn/bin/prisma"

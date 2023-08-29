@@ -9,6 +9,7 @@
       "memory",
       "pulseaudio",
       "disk",
+      "bluetooth",
       "network",
       "backlight",
       "battery"
@@ -120,6 +121,7 @@
       "memory",
       "disk",
       "pulseaudio",
+      "bluetooth",
       "network",
       "backlight",
       "battery"

@@ -18,6 +18,8 @@ layout name="noble" {
             pane
             pane
             pane
+            pane
+            pane
           }
         }
       }
@@ -27,37 +29,31 @@ layout name="noble" {
     }
 
 
-  // tab name="krypton" focus=true {
-  //   pane split_direction="vertical" {
-  //       pane borderless=true
-  //       pane split_direction="horizontal" {
-  //         pane stacked=true {
-  //           pane
-  //           pane
-  //           pane
-  //         }
-  //       }
-  //     }
-  //     pane size=1 borderless=true {
-  //         plugin location="zellij:compact-bar"
-  //       }
-  //   }
+  noble_tab name="krypton" {
+    pane split_direction="vertical" {
+        pane borderless=true
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane
+            pane
+            pane
+          }
+        }
+      }
+    }
 
-  // tab name="radon" focus=true {
-  //   pane split_direction="vertical" {
-  //       pane borderless=true
-  //       pane split_direction="horizontal" {
-  //         pane stacked=true {
-  //           pane
-  //           pane
-  //           pane
-  //         }
-  //       }
-  //     }
-  //     pane size=1 borderless=true {
-  //         plugin location="zellij:compact-bar"
-  //       }
-  //   }
+  noble_tab name="radon" {
+    pane split_direction="vertical" {
+        pane borderless=true
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane
+            pane
+            pane
+          }
+        }
+      }
+    }
 
   // tab name="argon" focus=true {
   //   pane split_direction="vertical" {

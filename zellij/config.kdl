@@ -241,6 +241,7 @@ ui {
 // Default: default
 
 theme "custom"
+// theme "catppuccin-macchiato"
 // Define color themes for Zellij
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
@@ -248,8 +249,8 @@ theme "custom"
 themes {
   custom {
       fg "#44475a"
-      bg "#21222c"
-      black "#21222c"
+      bg "#1E1E2E"
+      black "#1E1E2E"
       red "#f7768e"
       green "#7aa2f7"
       yellow "#f1fa8c"

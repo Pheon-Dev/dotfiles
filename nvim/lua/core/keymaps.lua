@@ -23,10 +23,13 @@ map("n", "<A-B>", ":split<cr>", { noremap = true, silent = true })
 map("n", "<leader>wb", "<C-w>t<C-w>K", { noremap = true, silent = true })
 map("n", "<leader>wv", "<C-w>t<C-w>H", { noremap = true, silent = true })
 
-map("n", ">", ":vertical resize +3<cr>", { noremap = true, silent = true })
-map("n", "<", ":vertical resize -3<cr>", { noremap = true, silent = true })
-map("n", "(", ":resize +3<cr>", { noremap = true, silent = true })
-map("n", ")", ":resize -3<cr>", { noremap = true, silent = true })
+map("n", "<leader>wr", ":SudaRead<cr>", { noremap = true, silent = true })
+map("n", "<leader>ww", ":SudaWrite<cr>", { noremap = true, silent = true })
+
+-- map("n", ">", ":vertical resize +3<cr>", { noremap = true, silent = true })
+-- map("n", "<", ":vertical resize -3<cr>", { noremap = true, silent = true })
+-- map("n", "(", ":resize +3<cr>", { noremap = true, silent = true })
+-- map("n", ")", ":resize -3<cr>", { noremap = true, silent = true })
 
 -- Editing Keybindings
 map("n", "U", ":redo<cr>", { noremap = true, silent = true })
@@ -50,6 +53,9 @@ map("n", "tk", ":tabprevious<cr>", { noremap = true, silent = true })
 map("n", "X", "v0c", { noremap = true, silent = true })
 map("n", "gi", "<C-i>", { noremap = true, silent = true })
 map("n", "go", "<C-o>", { noremap = true, silent = true })
+
+-- Fold
+map("n", "zl", "za", { noremap = true, silent = true })
 
 -- map("i", "<A-o>", "<C-o>", { noremap = true, silent = true })
 map("i", "<C-k>", "<C-o>O", { noremap = true, silent = true })
@@ -181,8 +187,11 @@ map("n", "<leader>s", ":FloatermNew rg<CR>", keybind_opts)
 map("n", "<leader>f", ":FloatermNew fzf<CR>", keybind_opts)
 map("n", "<leader>;", ":FloatermNew lf<CR>", keybind_opts)
 map("n", "<leader>l", ":FloatermNew lazygit<CR>", keybind_opts)
-map("n", "<leader>'", ":FloatermNew broot<CR>", keybind_opts)
+-- map("n", "<leader>'", ":FloatermNew broot<CR>", keybind_opts)
+map("n", "<leader>'", ":FloatermNew --height=0.4 --width=0.6 --name=toipe --position=bottom --autoclose=2 toipe<CR>",
+  keybind_opts)
 -- map("n", "<C-n>", ":FloatermNew<CR>", keybind_opts)
 
 map("n", "<leader>e", ":MurenToggle<cr>", keybind_opts)
 map("v", "<leader>e", ":MurenToggle<cr>", keybind_opts)
+-- map("n", "<leader>n", ":lua require('notify')._print_history()<cr>", keybind_opts)

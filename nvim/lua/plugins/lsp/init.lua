@@ -18,30 +18,21 @@ return {
     end,
   },
   {
-    "simrat39/inlay-hints.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    enabled = false,
-    config = function()
-      require("inlay-hints").setup({
-        only_current_line = false,
-
-        eol = {
-          right_align = false,
-        }
-      })
-    end,
-  },
-  {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
         automatic_installation = true,
         ensure_installed = {
-          "rust_analyzer",
+          "rust-analyzer",
           "clangd",
+          "codelldb",
+          "prettierd",
+          "shfmt",
           "gopls",
+          "goimports-reviser",
           "bash-language-server",
           "lua-language-server",
+          "prisma-language-server",
           "typescript-language-server",
         },
       })
@@ -53,6 +44,7 @@ return {
     config = function()
       require("mason").setup({
         ui = {
+          border = "rounded",
           icons = {
             package_installed = "✔",
             package_pending = "➜",

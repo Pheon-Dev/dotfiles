@@ -1,3 +1,5 @@
+local theme = require("core.colors")
+require("core.fold")
 -- This file is automatically loaded by plugins.config
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -95,13 +97,6 @@ vim.o.showtabline = 0
 
 vim.g.move_map_keys = 0
 
-opt.exrc = true
-opt.foldenable = true
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-opt.foldcolumn = "0"  -- '1', '0' is not bad
-vim.o.foldnestmax = 1 -- '1', '0' is not bad
-
 vim.o.undofile = true
 
 opt.encoding = "utf-8"
@@ -159,7 +154,7 @@ vim.g.floaterm_titleposition = "left" -- options left, right, center
 vim.g.floaterm_position =
 "center"                              -- wintype 'split/vsplit': 'leftabove', 'aboveleft', 'rightbelow', 'belowright', 'topleft', 'botright' default 'botright'
 -- wintype 'float': 'top', 'bottom', 'left', 'right', 'topleft', 'topright', 'bottomleft', 'bottomright', 'center', 'auto'(at the cursor place) default 'center'
-vim.g.floaterm_keymap_toggle = '`'
+vim.g.floaterm_keymap_toggle = '<leader>`'
 -- vim.g.floaterm_keymap_new = '`n'
 -- vim.g.floaterm_keymap_next = '`j'
 -- vim.g.floaterm_keymap_prev = '`k'

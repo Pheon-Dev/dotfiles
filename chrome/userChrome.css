@@ -1,6 +1,5 @@
 /* Go to about:config and find browser.urlbar.resultMenu.keyboardAccessible. Make it false. */
 /* https://github.com/MrOtherGuy/firefox-csshacks/blob/7daa9b45e31fb1821a62546b9d513613d01aa1e9/chrome/autohide_tabstoolbar.css */
-
 /* :root { */
 /*     --address-bar-height: 40px; */
 /*     --browser-offset: calc(-1 * (var(--address-bar-height) + 1px)); */
@@ -17,7 +16,7 @@
 /* Base color for the theme, dependent on whether it's a light theme or not */
 @media (prefers-color-scheme: dark) {
     :root {
-        --lwt-accent-color: #21222c;
+        --lwt-accent-color: #24273a;
     }
 }
 @media (prefers-color-scheme: light) {

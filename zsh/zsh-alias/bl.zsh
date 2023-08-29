@@ -2,8 +2,8 @@
 
 # alias blf='systemctl stop bluetooth'
 # alias bln='systemctl start bluetooth'
-alias blf='bluetooth off'
-alias bln='bluetooth on'
+alias bln='sudo systemctl start bluetooth'
+alias blf='sudo systemctl stop bluetooth'
 alias bls="bluetoothctl scan on"
 alias blc="bluetoothctl connect CC:98:8B:A7:BB:38"
 alias blr="bluetoothctl connect"

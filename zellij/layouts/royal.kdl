@@ -1,5 +1,5 @@
 layout name="royal-diadems" {
-  cwd "/home/pheon-dev/Documents/next/royal-diadems"
+  cwd "/home/pheon-dev/Documents/next/royal-diadems-blog"
 
   tab name="dev-tab" focus=true {
     pane split_direction="vertical" {

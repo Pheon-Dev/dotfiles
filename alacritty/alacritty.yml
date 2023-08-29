@@ -1,4 +1,9 @@
 ---
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 env:
   TERM: xterm-256color
 window:
@@ -41,56 +46,6 @@ draw_bold_text_with_bright_colors: true
 mouse:
     hide_when_typing: true
 
-#######################################
-##      START OF COLOR SCHEMES       ##
-#######################################
-schemes:
-  ### Solarized Dark ###
-  TokyoNight: &TokyoNight
-    primary: # Default colors
-      background: "#21222c"
-      foreground: "#c0caf5"
-    # Normal colors
-    normal:
-      black: "#414868"
-      red: "#ff5555"
-      green: "#50fa7b"
-      yellow: "#f1fa8c"
-      blue: "#6790eb"
-      magenta: "#bb9af7"
-      cyan: "#7dcfff"
-      white: "#c0caf5"
-    # Bright colors
-    bright:
-      black: "#414868"
-      red: "#ff5555"
-      green: "#50fa7b"
-      yellow: "#f1fa8c"
-      blue: "#7aa2f7"
-      magenta: "#bb9af7"
-      cyan: "#7dcfff"
-      white: "#c0caf5"
-  Tokyo: &Tokyo
-    primary: # Default colors
-      background: "#303030"
-      foreground: "#c0caf5"
-    # Normal colors
-    normal:
-      black: "#363636"
-      red: "#ec5f67"
-      green: "#82cf00"
-      yellow: "#ffff0f"
-      blue: "#464646"
-      magenta: "#bb9af7"
-      cyan: "#7dcfff"
-      white: "#c0caf5"
-
-######################################################################
-## SET THEME: Choose ONE color scheme from those in the above list. ##
-## ###################################################################
-# colors: *Tokyo
-colors: *TokyoNight
-
 key_bindings:
   # (Windows, Linux, and BSD only)
   - { key: V, mods: Control|Shift, action: Paste }
@@ -114,7 +69,7 @@ key_bindings:
   - { key: L, mods: Control, chars: "\f" }
   - { key: S, mods: Control|Shift, chars: "\fff -c\n" } # fd | fzf (cd)
   - { key: S, mods: Control, chars: "\fff -e\n" } # fd | fzf (nvim)
-  - { key: R, mods: Control, chars: "\fff -g\n" } # fd | fzf (rg)
+  - { key: G, mods: Control|Shift, chars: "\fff -g\n" } # fd | fzf (rg)
   - { key: G, mods: Control, chars: "\flg\n" } # lazygit
   # - { key: W, mods: Control|Shift, chars: "\fww -b r\n" }
   - { key: I, mods: Control, chars: "\fv\n" } # editor

@@ -1,20 +1,19 @@
 #!/bin/sh
 
 batorcat() {
-	file="$1"
-	shift
-	if command -v bat > /dev/null 2>&1
-	then
-    bat --color=always --theme="Dracula" --style=plain --pager=never "$file" "$@" # --style=plain
-	else
-		cat "$file"
-	fi
+  file="$1"
+  shift
+  if command -v bat > /dev/null 2>&1; then
+    bat --color=always --theme="TwoDark" --style=plain --pager=never "$file" "$@" # --style=plain
+  else
+    cat "$file"
+  fi
 }
 
 # install `perl-image-exiftool`
 preview() {
   file="$1"
-  exiftool "$file" | bat -A --color=always --theme="Dracula" --style=plain --pager=never
+  exiftool "$file" | bat -A --color=always --theme="TwoDark" --style=plain --pager=never
 }
 
 # install `glow`
@@ -24,30 +23,30 @@ glows() {
 }
 
 case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
-	*.tgz|*.tar.gz) tar tzf "$1" ;;
-	*.tar.bz2|*.tbz2) tar tjf "$1" ;;
-	*.tar.txz|*.txz) xz --list "$1" ;;
-	*.tar) tar tf "$1" ;;
-	*.zip|*.jar|*.war|*.ear|*.oxt) unzip -l "$1" ;;
-	*.rar) unrar l "$1" ;;
-	*.7z) 7z l "$1" ;;
-	*.[1-8]) man "$1" | col -b ;;
-	*.o) nm "$1";;
-	*.torrent) transmission-show "$1" ;;
-	*.iso) iso-info --no-header -l "$1" ;;
-	*.odt|*.ods|*.odp|*.sxw) odt2txt "$1" ;;
-	*.doc) catdoc "$1" ;;
-	*.md) glow -s dark "$1" ;;
-	*.docx) docx2txt "$1" - ;;
-	*.xls|*.xlsx)
-		ssconvert --export-type=Gnumeric_stf:stf_csv "$1" "fd://1" | batorcat --language=csv
-		;;
-	*.wav|*.mp3|*.flac|*.m4a|*.wma|*.ape|*.ac3|*.og[agx]|*.spx|*.opus|*.as[fx]|*.mka|*.pdf|*.avi|*.mp4|*.wmv|*.dat|*.3gp|*.ogv|*.mkv|*.mpg|*.mpeg|*.vob|*.fl[icv]|*.m2v|*.mov|*.webm|*.ts|*.mts|*.m4v|*.r[am]|*.qt|*.divx|*.bmp|*.jpg|*.jpeg|*.png|*.xpm|*.webp|*.gif|*.jfif|*.svg)
-		preview "$1"
-    		;;
-	*)
-		batorcat "$1"
-		;;
+  *.tgz | *.tar.gz) tar tzf "$1" ;;
+  *.tar.bz2 | *.tbz2) tar tjf "$1" ;;
+  *.tar.txz | *.txz) xz --list "$1" ;;
+  *.tar) tar tf "$1" ;;
+  *.zip | *.jar | *.war | *.ear | *.oxt) unzip -l "$1" ;;
+  *.rar) unrar l "$1" ;;
+  *.7z) 7z l "$1" ;;
+  *.[1-8]) man "$1" | col -b ;;
+  *.o) nm "$1" ;;
+  *.torrent) transmission-show "$1" ;;
+  *.iso) iso-info --no-header -l "$1" ;;
+  *.odt | *.ods | *.odp | *.sxw) odt2txt "$1" ;;
+  *.doc) catdoc "$1" ;;
+  *.md) glow -s dark "$1" ;;
+  *.docx) docx2txt "$1" - ;;
+  *.xls | *.xlsx)
+    ssconvert --export-type=Gnumeric_stf:stf_csv "$1" "fd://1" | batorcat --language=csv
+    ;;
+  *.wav | *.mp3 | *.flac | *.m4a | *.wma | *.ape | *.ac3 | *.og[agx] | *.spx | *.opus | *.as[fx] | *.mka | *.pdf | *.avi | *.mp4 | *.wmv | *.dat | *.3gp | *.ogv | *.mkv | *.mpg | *.mpeg | *.vob | *.fl[icv] | *.m2v | *.mov | *.webm | *.ts | *.mts | *.m4v | *.r[am] | *.qt | *.divx | *.bmp | *.jpg | *.jpeg | *.png | *.xpm | *.webp | *.gif | *.jfif | *.svg)
+    preview "$1"
+    ;;
+  *)
+    batorcat "$1"
+    ;;
 esac
 
 return 127 # nonzero retcode required for lf previews to reload

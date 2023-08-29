@@ -73,7 +73,7 @@ gt () {
 
     repo_name=""
     if [[ $1 == "--set" || $1 == "-s" ]]; then
-      repo_name=$(git remote -v | grep -E "fetch" | cut -d " " -f 1 | awk 'BEGIN { FS = " " } { print $2 }' | awk 'BEGIN { FS = "/" } { print $5 }' | awk 'BEGIN { FS = "." } { print $1 }')
+    repo_name=$(git remote -v | grep -m 1 "origin" | awk -F '/' '{ print $5 }' | cut -d "." -f 1)
       echo -n "$(tput setaf 3)  GitHub"
       echo -e "$(tput setaf 6) Remote URL Successfully Set : \n"
       pass-export && git remote set-url origin https://$GITHUB_TOKEN@github.com/Pheon-Dev/$repo_name.git
@@ -91,11 +91,11 @@ gt () {
       pass-export && git init > /dev/null 2>&1 && git remote add origin https://github.com/Pheon-Dev/$repo_name.git && git branch -M main && git remote set-url origin https://$GITHUB_TOKEN@github.com/Pheon-Dev/$repo_name.git && touch .gitignore README.md
     fi
 
-    
+
     echo -n "$(tput setaf 4)      "
     echo -n "$(tput setaf 8) →"
     echo -e "$(tput setaf 4) $repo_name"
-    prev=$(git remote -v | grep -E "fetch" | cut -d " " -f 1 | awk 'BEGIN { FS = " " } { print $2 }')
+    prev=$(git remote -v | grep -m 1 "fetch" | cut -d " " -f 1 | awk 'BEGIN { FS = " " } { print $2 }')
     if [[ $1 == "--set" || $1 == "-s" ]]; then
       echo -n "$(tput setaf 1)      "
       echo -n "$(tput setaf 8) →"
@@ -104,6 +104,6 @@ gt () {
     echo -n "$(tput setaf 2)      "
     echo -n "$(tput setaf 8) →"
     echo -n "$(tput setaf 2) "
-    git remote -v | grep -E "fetch" | cut -d " " -f 1 | awk 'BEGIN { FS = " " } { print $2 }'
+    git remote -v | grep -m 1 "fetch" | cut -d " " -f 1 | awk 'BEGIN { FS = " " } { print $2 }'
     echo ""
 }
