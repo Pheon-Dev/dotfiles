@@ -124,13 +124,14 @@ return {
       k = { ":lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon" },
       m = { ":Antelope marks<cr>", "Marks" },
       -- n = { ":Telescope notify initial_mode=normal<cr>", "Notifications" },
-      n = { ":messages<cr>", "Messages" },
+      n = { ":Noice<cr>", "Messages" },
       o = {
         name = "Others",
         m = { ":Mason<cr>", "Mason" },
         x = { ":lua require('harpoon.mark').clear_all()<cr>", "Clear All Marks" },
       },
-      p = { ":Antelope tabpages<cr>", "Toggle Tabapages" },
+      -- p = { ":Antelope tabpages<cr>", "Toggle Tabapages" },
+      p = { ":lua require('buffalo.ui').toggle_tab_menu()<cr>", "Buffalo Tabapages" },
       q = { ":bd<cr>", "Close Buffer" },
       r = {
         name = "Rust",

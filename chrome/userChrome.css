@@ -16,7 +16,7 @@
 /* Base color for the theme, dependent on whether it's a light theme or not */
 @media (prefers-color-scheme: dark) {
     :root {
-        --lwt-accent-color: #24273a;
+        --lwt-accent-color: #1e1e2e;
     }
 }
 @media (prefers-color-scheme: light) {
@@ -61,7 +61,7 @@ toolbar#nav-bar {
 }
 
 /* If the window is wider than 1000px, use flex layout */
-@media (min-width: 1000px) {
+/* @media (min-width: 1000px) { */
     #navigator-toolbox {
         display: flex;
         flex-direction: row;
@@ -72,6 +72,7 @@ toolbar#nav-bar {
     #nav-bar {
         order: 1;
         width: 100%;
+        /* width: calc(119vw - var(--navbarWidth) - 1px); */
     }
 
     /* Tab bar */
@@ -94,7 +95,7 @@ toolbar#nav-bar {
     :root[uidensity="touch"] #urlbar {
         --urlbar-toolbar-height: 49.00px !important;
     }
-}
+/* } */
 
 /*====== Simplifying interface ======*/
 

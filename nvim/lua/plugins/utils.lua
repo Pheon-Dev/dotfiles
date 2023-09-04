@@ -38,6 +38,106 @@ return {
     "Pheon-Dev/harpoon",
     -- "ThePrimeagen/harpoon",
     enabled = true,
+    config = function()
+      local opts = { noremap = true }
+      local map = vim.keymap.set
+      -- Setup
+      -- Navigate buffers bypassing the menu
+      local harpoon = require("harpoon.ui")
+      local keys = 'hjklasdfgn'
+      for i = 1, #keys do
+        local key = keys:sub(i, i)
+        map(
+          'n',
+          string.format('<C-%s>', key),
+          function() harpoon.nav_file(i) end,
+          opts
+        )
+      end
+      -- Just the menu
+      -- map({ 't', 'n' }, '<C-Space>', harpoon.toggle_quick_menu, opts)
+      -- -- Open menu and search
+      -- map({ 't', 'n' }, '<C-M>', function()
+      --   harpoon.toggle_quick_menu()
+      --   -- wait for the menu to open
+      --   vim.defer_fn(function()
+      --     vim.fn.feedkeys('/')
+      --   end, 50)
+      -- end, opts)
+      -- Next/Prev
+      -- map('n', '<M-l>', harpoon.nav_next, opts)
+      -- map('n', '<M-h>', harpoon.nav_prev, opts)
+    end
+  },
+  {
+    "Pheon-Dev/buffalo-nvim",
+    enabled = true,
+    -- event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      local opts = { noremap = true }
+      local map = vim.keymap.set
+      -- Setup
+      require("buffalo").setup({
+        tab_commands = {
+          select = {
+            key = "l",
+            command = "tabnext"
+          },
+          accept = {
+            key = "<CR>",
+            command = "tabnext"
+          },
+          close = {
+            key = "x",
+            command = "tabclose"
+          },
+          new = {
+            key = "n",
+            command = "tabnew"
+          }
+        },
+        buffer_commands = {
+          enter = {
+            key = "<CR>",
+            command = "edit"
+          },
+          edit = {
+            key = "l",
+            command = "edit"
+          },
+          vsplit = {
+            key = "v",
+            command = "vsplit"
+          },
+          split = {
+            key = "b",
+            command = "split"
+          }
+        },
+        cycle_nav = true,
+        exit_menu = "h",
+        go_to = {
+          enabled = true,
+          go_to_tab = "<leader>%s",
+          go_to_buffer = "<M-%s>",
+        },
+        filter = {
+          enabled = true,
+          filter_tabs = "<M-t>",
+          filter_buffers = "<M-b>",
+        },
+      })
+
+      local buffalo = require("buffalo.ui")
+
+      map({ 't', 'n' }, '<M-Space>', buffalo.toggle_buf_menu, opts)
+      map({ 't', 'n' }, '<C-Space>', buffalo.toggle_tab_menu, opts)
+
+      map('n', '<C-j>', buffalo.nav_buf_next, opts)
+      map('n', '<C-k>', buffalo.nav_buf_prev, opts)
+      map('n', '<C-n>', buffalo.nav_tab_next, opts)
+      map('n', '<C-p>', buffalo.nav_tab_prev, opts)
+    end
   },
   {
     "utilyre/sentiment.nvim",
@@ -74,6 +174,13 @@ return {
     enabled = true,
     config = function()
       require('nvim-highlight-colors').setup {}
+    end,
+  },
+  {
+    "chaoren/vim-wordmotion",
+    event = { "BufReadPost", "BufNewFile" },
+    enabled = true,
+    config = function()
     end,
   },
   {

@@ -1,6 +1,7 @@
 return {
   "Pheon-Dev/pigeon",
-      enabled = false,
+  enabled = false,
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     require("pigeon").setup({
       enabled = true,
@@ -22,17 +23,17 @@ return {
           enabled = true,
           format = "%H:%M",
           posttext = "",
-          icon = "",
+          icon = " ",
         },
         day = {
-          enabled = true,
-          format = "%A, %d %B %Y",
-          icon = "",
+          enabled = false,
+          format = "%A",
+          icon = " ",
         },
         date = {
           enabled = true,
           format = "%Y-%m-%d",
-          icon = "",
+          icon = " ",
         },
       },
       battery = {
@@ -79,18 +80,11 @@ return {
           },
         },
         wifi = {
-          status = {
+          enabled = true,
+          icons = {
             connected = "󰤪",
             disconnected = "󰤫",
-            enabled = true,
           },
-          essid = {
-            enabled = true,
-          },
-          bit_rate = {
-            enabled = true,
-            unit = "mbps",
-          }
         },
       },
       volume = {
