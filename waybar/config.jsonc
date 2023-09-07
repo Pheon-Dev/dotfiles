@@ -132,8 +132,8 @@
       // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
     "wlr/workspaces": {
-      // "format": "{name}",
-      "format": "{icon}",
+      "format": "{name}",
+      // "format": "{icon}",
       "tooltip": false,
       "active-only": false,
       "all-outputs": false,

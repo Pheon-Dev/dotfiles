@@ -4,26 +4,26 @@
 /*     --address-bar-height: 40px; */
 /*     --browser-offset: calc(-1 * (var(--address-bar-height) + 1px)); */
 /* } */
-#navigator-toolbox-background {
-    position: absolute !important;;
-}
-#navigator-toolbox-background ~ #browser {
-    margin-top: var(--browser-offset) !important;
-}
-#navigator-toolbox-background:hover, #navigator-toolbox-background:focus-within {
-    z-index: 9001 !important;
-}
-/* Base color for the theme, dependent on whether it's a light theme or not */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --lwt-accent-color: #1e1e2e;
-    }
-}
-@media (prefers-color-scheme: light) {
-    :root {
-        --lwt-accent-color: #FAFAFC;
-    }
-}
+/* #navigator-toolbox-background { */
+/*     position: absolute !important;; */
+/* } */
+/* #navigator-toolbox-background ~ #browser { */
+/*     margin-top: var(--browser-offset) !important; */
+/* } */
+/* #navigator-toolbox-background:hover, #navigator-toolbox-background:focus-within { */
+/*     z-index: 9001 !important; */
+/* } */
+/* /* Base color for the theme, dependent on whether it's a light theme or not */ */
+/* @media (prefers-color-scheme: dark) { */
+/*     :root { */
+/*         --lwt-accent-color: #1e1e2e; */
+/*     } */
+/* } */
+/* @media (prefers-color-scheme: light) { */
+/*     :root { */
+/*         --lwt-accent-color: #FAFAFC; */
+/*     } */
+/* } */
 
 /*====== Aesthetics ======*/
 #navigator-toolbox {
