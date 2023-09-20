@@ -3,7 +3,7 @@
     "layer": "top",
     "output": ["eDP-1"],
     "modules-left": ["custom/arch", "clock"],
-    "modules-center": ["wlr/workspaces"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [
       "cpu",
       "memory",
@@ -19,9 +19,9 @@
       "tooltip": false,
       "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
       "format": "{name}",
-      // "format": "{icon}",
+      // // "format": "{icon}",
       "on-click": "activate",
       "tooltip": false,
       "active-only": false,
@@ -115,7 +115,7 @@
     "layer": "top",
     "output": ["HDMI-A-1"],
     "modules-left": ["custom/arch", "clock"],
-    "modules-center": ["wlr/workspaces"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [
       "cpu",
       "memory",
@@ -131,7 +131,7 @@
       "tooltip": false
       // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
       "format": "{name}",
       // "format": "{icon}",
       "tooltip": false,

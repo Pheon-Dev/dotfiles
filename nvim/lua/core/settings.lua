@@ -1,11 +1,10 @@
 local settings = {
 	icons = {
 		diagnostics = {
-      Error = "",
-      Warning = "",
-      Information = "",
-      Question = "",
-      Hint = "",
+			Error = " ",
+			Warn = " ",
+			Hint = " ",
+			Info = " ",
 		},
 		kinds = {
 			Class = " ",

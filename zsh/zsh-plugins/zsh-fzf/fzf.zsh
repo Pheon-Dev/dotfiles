@@ -3,7 +3,7 @@
 # https://thevaluable.dev/practical-guide-fzf-example/
 # --bind 'alt-w:unbind(change,alt-w)+change-prompt(2. fzf> )+enable-search+clear-query' \
 
-export IGNORE=.git*,.yarn,.rustup,go/pkg/mod/*,.cargo/*,.cache,/home/linuxbrew,node_modules/*,targets,Downloads/pouch,wallet-app/node_modules,kplc-app/node_modules,.cache/*,Music,Videos,Pictures,.cargo,Music/*
+export IGNORE=.git*,.yarn,.rustup,go/pkg/mod/*,.cargo/*,.cache,/home/linuxbrew,node_modules/*,targets,Downloads/pouch,wallet-app/node_modules,kplc-app/node_modules,.cache/*,Music,Videos,Pictures,.cargo,Music/*,.nvm,.vercel,.next,.gitmoji,.hyprland,.tmux,.vim/plugged,.vim/autoload,.vim/.git
 
 fdir() {
   fd --type directory -HE="{$IGNORE}" --strip-cwd-prefix --follow
@@ -14,7 +14,7 @@ export FZF_DEFAULT_OPTS="\
     [[ -f {} ]] && \
       (bat --style=numbers --color=always --theme=TwoDark --pager=never {} || cat {})) || \
       ([[ -d {} ]] && \
-        (exa --icons -T --color=always --group-directories-first {} || tree -C {}) \
+        (eza --icons -T --color=always --group-directories-first {} || tree -C {}) \
       ) || \
       echo {} 2> /dev/null | head -200' \
   --preview-window 'up,60%,border,+{2}+3/3,~3' \

@@ -1,1 +1,5 @@
 zsh/env.zsh
+.vim/plugged
+.vim/sessions
+.vim/.netrwhist
+.vim/README.md

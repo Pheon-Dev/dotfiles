@@ -72,7 +72,7 @@ key_bindings:
   - { key: G, mods: Control|Shift, chars: "\fff -g\n" } # fd | fzf (rg)
   - { key: G, mods: Control, chars: "\flg\n" } # lazygit
   # - { key: W, mods: Control|Shift, chars: "\fww -b r\n" }
-  - { key: I, mods: Control, chars: "\fv\n" } # editor
+  - { key: I, mods: Control, chars: "\fvim\n" } # editor
   - { key: Z, mods: Control, chars: "\fzz\n" } # zellij
   # - { key: B, mods: Control, chars: "\fbr\n" } # broot
   # - { key: F, mods: Control|Shift, chars: "\ff\n" } # flamingo

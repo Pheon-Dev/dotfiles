@@ -1,6 +1,6 @@
 layout name="manta-api" {
   cwd "/home/pheon-dev/rust/manta-api"
-  
+
   tab_template name="manta_tab" {
     children
     pane size=1 borderless=true {
@@ -27,7 +27,7 @@ layout name="manta-api" {
         }
       }
     }
-  
+
   // manta_tab name="wallet-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/wallet-app" {
   //   pane split_direction="vertical" {
   //       pane borderless=true command="nvim"
@@ -43,7 +43,7 @@ layout name="manta-api" {
   //       }
   //     }
   //   }
-  // 
+  //
   // manta_tab name="kplc-app" cwd="/home/pheon-dev/rust/manta-api/web-folder/kplc-app" {
   //   pane split_direction="vertical" {
   //       pane borderless=true command="nvim"
@@ -59,13 +59,13 @@ layout name="manta-api" {
   //       }
   //     }
   //   }
-  
+
   manta_tab name="wallet-web-app" cwd="/home/pheon-dev/Documents/next/manta-wallet" {
     pane split_direction="vertical" {
         pane borderless=true command="nvim"
         pane split_direction="horizontal" {
           pane stacked=true {
-            pane name="SERVER" 
+            pane name="SERVER"
             // pane expanded=true command="bash" name="SERVER" {
             //   args "-c" "yarn dev"
             // }
@@ -75,15 +75,15 @@ layout name="manta-api" {
         }
       }
     }
-  
+
   manta_tab name="manta-api (ref)" cwd="/home/pheon-dev/rust/rust-ref/manta-api" {
     pane split_direction="vertical" {
         pane borderless=true command="nvim"
         pane split_direction="horizontal" {
           pane stacked=true {
             pane name="DOCKER"
-            pane name="SERVER" 
-            pane name="TEST" 
+            pane name="SERVER"
+            pane name="TEST"
             // pane expanded=true command="bash" name="SERVER" {
             //   args "-c" "yarn dev"
             // }

@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
 
--- unused C-n, C-j, C-k, C-l, C-h, C-a, C-x, C-z, C-c, C-v
 -- Saving and  ESC on insert Mode
 map("i", "jj", "<esc>", { noremap = true, silent = true })
 map("n", ",", "<esc>:lua vim.lsp.buf.format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
@@ -35,8 +34,8 @@ map("n", "<leader>ww", ":SudaWrite<cr>", { noremap = true, silent = true })
 map("n", "U", ":redo<cr>", { noremap = true, silent = true })
 
 -- Move to Start/End of Line
-map("n", "<C-k>", "-", { noremap = true, silent = true })
-map("n", "<C-j>", "+", { noremap = true, silent = true })
+-- map("n", "<C-k>", "-", { noremap = true, silent = true })
+-- map("n", "<C-j>", "+", { noremap = true, silent = true })
 map("n", "H", "^", { noremap = true, silent = true })
 map("n", "L", "$", { noremap = true, silent = true })
 
@@ -56,7 +55,7 @@ map("n", "gi", "<C-i>", { noremap = true, silent = true })
 map("n", "go", "<C-o>", { noremap = true, silent = true })
 
 -- Fold
-map("n", "zl", "za", { noremap = true, silent = true })
+-- map("n", "zl", "za", { noremap = true, silent = true })
 
 -- map("i", "<A-o>", "<C-o>", { noremap = true, silent = true })
 map("i", "<C-k>", "<C-o>O", { noremap = true, silent = true })
@@ -153,11 +152,6 @@ map("n", "<S-TAB>", ":bprevious<cr>", { noremap = true, silent = true })
 -- Split Join
 vim.keymap.set("n", "gs", ":TSJToggle<cr>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>lua require("harpoon.ui").nav_file(vim.v.count1)<cr>',
-  { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gm', '<cmd>lua require("harpoon.ui").nav_next()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gn', '<cmd>lua require("harpoon.ui").nav_prev()<cr>', { noremap = true, silent = true })
-
 vim.keymap.set("i", "<C-a>",
   function()
     return vim.fn["codeium#Accept"]()
@@ -182,15 +176,11 @@ vim.keymap.set("i", "<C-u>",
 -- Fzf and Floaterm
 local keybind_opts = { silent = true, noremap = true }
 
--- map("n", "<leader>f", ":call fzf#run(fzf#wrap({'source': 'fd --type file --hidden --strip-cwd-prefix --exclude $IGNORE'}))<CR>", keybind_opts)
-
 map("n", "<leader>s", ":FloatermNew rg<CR>", keybind_opts)
 map("n", "<leader>f", ":FloatermNew fzf<CR>", keybind_opts)
 map("n", "<leader>;", ":FloatermNew lf<CR>", keybind_opts)
 map("n", "<leader>l", ":FloatermNew lazygit<CR>", keybind_opts)
 -- map("n", "<leader>'", ":FloatermNew broot<CR>", keybind_opts)
-map("n", "<leader>'", ":FloatermNew --height=0.4 --width=0.6 --name=toipe --position=bottom --autoclose=2 toipe<CR>",
-  keybind_opts)
 -- map("n", "<C-n>", ":FloatermNew<CR>", keybind_opts)
 
 map("n", "<leader>e", ":MurenToggle<cr>", keybind_opts)

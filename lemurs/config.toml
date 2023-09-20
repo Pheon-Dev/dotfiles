@@ -91,7 +91,7 @@ show_background = false
 # Allow to set the default background color for the login shell
 color = "black"
 # Settings for the background block's borders
-show_border = true
+show_border = false
 border_color = "white"
 
 [power_controls]
@@ -242,9 +242,9 @@ remember = true
 
 [username_field.style]
 # Enables showing a title
-show_title = false
+show_title = true
 # The text used within the title
-title = "Login"
+title = "Who are you?"
 
 # The title's color and modifiers whilst the username field is unfocused
 title_color = "white"
@@ -275,9 +275,9 @@ content_replacement_character = "*"
 
 [password_field.style]
 # Enables showing a title
-show_title = false
+show_title = true
 # The text used within the title
-title = "Password"
+title = "And??"
 
 # The title's color and modifiers whilst the password field is unfocused
 title_color = "white"

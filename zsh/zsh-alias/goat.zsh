@@ -73,6 +73,6 @@ goat () {
     fi
     echo " "
     echo -e "$(tput setaf 6)Files Created :\n"
-    exa -la
+    eza -la
     echo " "
 }
