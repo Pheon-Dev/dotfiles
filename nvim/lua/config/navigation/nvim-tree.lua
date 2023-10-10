@@ -1,5 +1,6 @@
 local M = {}
 
+
 M.cmd = "NvimTreeToggle"
 
 M.config = function()
@@ -208,14 +209,14 @@ M.config = function()
           default = "",
           symlink = "",
           folder = {
-            default = "",
+            default = "",
             empty = "",
             empty_open = "",
             open = "",
             symlink = "",
-            symlink_open = "",
+            symlink_open = "",
             arrow_open = "", -- ○
-            arrow_closed = "", -- ●
+            arrow_closed = "", -- ●
           },
           git = {
             unstaged = "∗",
@@ -247,10 +248,10 @@ M.config = function()
         max = vim.diagnostic.severity.ERROR,
       },
       icons = {
-        hint = "",
-        info = "",
-        warning = "",
-        error = "",
+        error = ' ',
+        warning = ' ',
+        info = ' ',
+        hint = '󰠠 ',
       },
     },
     filters = {
@@ -354,6 +355,10 @@ M.config = function()
       },
     },
   })
+  local theme = require("core.colors")
+
+  vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "NvimTreeNormalFloat", { bg = theme.color0 })
 end
 
 return M

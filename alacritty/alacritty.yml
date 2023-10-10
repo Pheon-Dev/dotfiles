@@ -20,22 +20,26 @@ scrolling:
   history: 5000
 font:
   normal:
-    family: ComicMonoNF
     # family: "JetBrainsMono Nerd Font"
+    # family: ComicMonoNF
+    family: Maple Mono
     style: Regular
   bold:
-    family: ComicMonoNF
+    # family: ComicMonoNF
+    family: Maple Mono
     style: Bold
   italic:
-    family: Iosevka Nerd Font
+    # family: Iosevka Nerd Font
+    family: Maple Mono
     style: Italic
   bold_italic:
-    family: Iosevka Nerd Font
+    # family: Iosevka Nerd Font
+    family: Maple Mono
     style: Bold Italic
-  size: 10.0
+  size: 11.0
   offset:
-    x: 1
-    y: 1
+    x: 0
+    y: -2
 
   glyph_offset:
     x: 0
@@ -67,13 +71,14 @@ key_bindings:
   - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
   - { key: Semicolon, mods: Control, chars: "\flf\n" }
   - { key: L, mods: Control, chars: "\f" }
-  - { key: S, mods: Control|Shift, chars: "\fff -c\n" } # fd | fzf (cd)
-  - { key: S, mods: Control, chars: "\fff -e\n" } # fd | fzf (nvim)
-  - { key: G, mods: Control|Shift, chars: "\fff -g\n" } # fd | fzf (rg)
+  - { key: S, mods: Control|Shift, chars: "\ff -c\n" } # fd | fzf (cd)
+  - { key: S, mods: Control, chars: "\ff -e\n" } # fd | fzf (nvim)
+  - { key: G, mods: Control|Shift, chars: "\ff -g\n" } # fd | fzf (rg)
   - { key: G, mods: Control, chars: "\flg\n" } # lazygit
   # - { key: W, mods: Control|Shift, chars: "\fww -b r\n" }
-  - { key: I, mods: Control, chars: "\fvim\n" } # editor
+  - { key: I, mods: Control, chars: "\fv\n" } # editor
   - { key: Z, mods: Control, chars: "\fzz\n" } # zellij
+  # - { key: T, mods: Control, chars: "\ft\n" } # tmux
   # - { key: B, mods: Control, chars: "\fbr\n" } # broot
   # - { key: F, mods: Control|Shift, chars: "\ff\n" } # flamingo
   # - { key: W, mods: Control, chars: "\fww\n" } # internet connection

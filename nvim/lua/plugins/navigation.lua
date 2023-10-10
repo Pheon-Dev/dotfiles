@@ -3,21 +3,13 @@ local enable = require("config").enable
 local buffalo = require("config.navigation.buffalo")
 local flash = require("config.navigation.flash")
 local harpoon = require("config.navigation.harpoon")
-local tabout = require("config.navigation.tabout")
+local antelope = require("config.navigation.antelope")
 local nvim_tree = require("config.navigation.nvim-tree")
 local which_key = require("config.navigation.which-key")
 
 local default_event = require("config.event").default
 
 local M = {
-  {
-    'abecodes/tabout.nvim',
-    enabled = enable.tabout,
-    event = default_event,
-    config = tabout.config,
-    wants = { 'nvim-treesitter' },
-    after = { 'nvim-cmp' }
-  },
   {
     "folke/which-key.nvim",
     enabled = enable.which_key,
@@ -28,6 +20,12 @@ local M = {
     "Pheon-Dev/harpoon",
     enabled = enable.harpoon,
     config = harpoon.config,
+  },
+  {
+    "Pheon-Dev/antelope",
+    enabled = enable.antelope,
+    event = default_event,
+    config = antelope.config,
   },
   {
     "Pheon-Dev/buffalo-nvim",

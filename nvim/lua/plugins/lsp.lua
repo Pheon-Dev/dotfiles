@@ -1,38 +1,49 @@
 local enable = require("config").enable
 
+local lspsaga = require("config.lsp.lspsaga")
+local lspconfig = require("config.lsp.lspconfig")
+local zero = require("config.lsp.zero")
+local format = require("config.lsp.format")
+local mason = require("config.lsp.mason")
+
 local default_event = require("config.event").default
 
 local M = {
   {
     "neovim/nvim-lspconfig",
     enabled = enable.lspconfig,
-    dependencies = require("config.lsp").lspconfig_dependencies,
-    servers = require("config.lsp").lspconfig_servers,
-    config = require("config.lsp").lspconfig_config,
+    dependencies = lspconfig.dependencies,
+    servers = lspconfig.servers,
+    config = lspconfig.config,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     enabled = enable.mason_lspconfig,
-    config = require("config.lsp").mason_lspconfig_config,
+    config = mason.mason_lspconfig,
   },
   {
     "williamboman/mason.nvim",
-    build = require("config.lsp").mason_build,
+    build = mason.build,
     enabled = enable.mason,
-    config = require("config.lsp").mason_config,
+    config = mason.config,
   },
   {
     'nvimdev/lspsaga.nvim',
     enabled = enable.lspsaga,
-    config = require("config.lsp").lspsaga_config,
-    dependencies = require("config.lsp").lspsaga_dependencies,
+    event = default_event,
+    -- config = lspsaga.config,
+    dependencies = lspsaga.dependencies,
   },
   {
     "elentok/format-on-save.nvim",
     event = default_event,
     enabled = enable.format_on_save,
-    config = require("config.lsp").formart_on_save_config,
-  }
+    config = format.config,
+  },
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = zero.branch,
+  },
 }
 
 return M

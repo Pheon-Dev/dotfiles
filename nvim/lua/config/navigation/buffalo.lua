@@ -70,13 +70,24 @@ M.config = function()
 
   local buffalo = require("buffalo.ui")
 
-  map({ 't', 'n' }, '<leader>b', buffalo.toggle_buf_menu, { desc = 'Toggle Buffer Menu', noremap = opts.noremap })
-  -- map({ 't', 'n' }, '<M-Space>', buffalo.toggle_buf_menu, opts)
+  -- map({ 't', 'n' }, '<leader>b', buffalo.toggle_buf_menu, { desc = 'Toggle Buffer Menu', noremap = opts.noremap })
+  map({ 't', 'n' }, '<M-Space>', buffalo.toggle_buf_menu, opts)
   -- map({ 't', 'n' }, '<C-Space>', buffalo.toggle_tab_menu, opts)
 
-  -- map('n', '<C-j>', buffalo.nav_buf_next, opts)
+  map('n', '<C-j>', buffalo.nav_buf_next, opts)
   map('n', '<C-k>', buffalo.nav_buf_prev, opts)
-  map('n', '<C-n>', buffalo.nav_tab_next, opts)
+  -- map('n', '<C-n>', buffalo.nav_tab_next, opts)
   -- map('n', '<C-p>', buffalo.nav_tab_prev, opts)
+  local theme = require("core.colors")
+
+  vim.api.nvim_set_hl(0, "BuffaloBorder", { fg = theme.color2, bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "BuffaloWindow", { bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "BuffaloModified", { link = "Keyword" })
+  -- vim.api.nvim_set_hl(0, "Buffalo", { fg = theme.color3, bg = theme.color0 })
+  -- vim.api.nvim_set_hl(0, "BuffaloInactive", { fg = theme.color3, bg = theme.color0 })
+  -- vim.api.nvim_set_hl(0, "BuffaloActive", { fg = theme.color101, bg = theme.color0 })
+  -- vim.api.nvim_set_hl(0, "BuffaloNumberActive", { fg = theme.color4, bg = theme.color0 })
+  -- vim.api.nvim_set_hl(0, "BuffaloNumberInactive", { fg = theme.color3, bg = theme.color0 })
 end
+
 return M

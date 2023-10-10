@@ -44,5 +44,10 @@ Plug 'svermeulen/vim-easyclip'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'machakann/vim-sandwich'
+Plug 'markonm/traces.vim'
+Plug 'simnalamburt/vim-mundo'
+Plug 'Konfekt/FastFold'
+Plug 'flwyd/vim-conjoin'
+Plug 'yaocccc/vim-hlchunk'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()

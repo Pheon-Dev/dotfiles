@@ -7,21 +7,21 @@ M.dependencies = {
 M.config = function()
   require("noice").setup({
     cmdline = {
-      enabled = true,         -- enables the Noice cmdline UI
-      view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-      opts = {},              -- global options for the cmdline. See section on views
+      enabled = true,   -- enables the Noice cmdline UI
+      view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom 'cmdline_popup'
+      opts = {},        -- global options for the cmdline. See section on views
       format = {
         -- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
         -- view: (default is cmdline view)
         -- opts: any options passed to the view
         -- icon_hl_group: optional hl_group for the icon
         -- title: set to anything or empty string to hide
-        cmdline = { pattern = "^:", icon = " ❯", lang = "vim" },
-        search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
-        search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+        cmdline = { pattern = "^:", icon = "❯", lang = "vim" },
+        search_down = { kind = "search", pattern = "^/", icon = "", lang = "regex" },
+        search_up = { kind = "search", pattern = "^%?", icon = "", lang = "regex" },
         filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
         lua = { pattern = "^:%s*lua%s+", icon = "", lang = "lua" },
-        help = { pattern = "^:%s*he?l?p?%s+", icon = "炙?" },
+        help = { pattern = "^:%s*he?l?p?%s+", icon = "?" },
         input = {}, -- Used by input()
         -- lua = false, -- to disable a format, set to `false`
       },
@@ -169,8 +169,8 @@ M.config = function()
     presets = {
       -- you can enable a preset by setting it to true, or a table that will override the preset config
       -- you can also add custom presets that you can enable/disable with enabled=true
-      bottom_search = false,        -- use a classic bottom cmdline for search
-      command_palette = false,      -- position the cmdline and popupmenu together
+      bottom_search = true,         -- use a classic bottom cmdline for search
+      command_palette = true,       -- position the cmdline and popupmenu together
       long_message_to_split = true, -- long messages will be sent to a split
       inc_rename = false,           -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = true,        -- add a border to hover docs and signature help
@@ -250,6 +250,20 @@ M.config = function()
     status = {}, --- @see section on statusline components
     format = {}, --- @see section on formatting
   })
+  local theme = require("core.colors")
+
+  vim.api.nvim_set_hl(0, "NoiceConfirm", { bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "NoiceConfirmBorder", { fg = theme.color2, bg = theme.color0 })
+
+  -- vim.api.nvim_set_hl(0, "NoiceMini", { bg = theme.color3 })
+  vim.api.nvim_set_hl(0, "NoicePopup", { bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "NoicePopupmenuBorder", { fg = theme.color2, bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "NoicePopupBorder", { fg = theme.color2, bg = theme.color0 })
+
+  vim.api.nvim_set_hl(0, "NoiceCmdline", { bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "NoiceCmdlinePopup", { bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = theme.color2, bg = theme.color0 })
+  vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorderSearch", { fg = theme.color2, bg = theme.color0 })
 end
 
 return M

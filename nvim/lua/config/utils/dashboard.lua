@@ -7,7 +7,7 @@ M.config = function()
 
   if not has_dashboard then return end
   dashboard.setup({
-    -- theme = 'hyper',            --  theme is doom and hyper default is hyper
+    -- theme = 'hyper',             --  theme is doom and hyper default is hyper
     disable_move = false,       --  default is false disable move keymap for hyper
     shortcut_type = "letter",   --  shorcut type 'letter' or 'number'
     change_to_vcs_root = false, -- default is false,for open file in hyper mru. it will change to the root of vcs
@@ -40,6 +40,17 @@ M.config = function()
       end,
     })
   end
+  local theme = require("core.colors")
+
+  vim.api.nvim_set_hl(0, "DashboardIcon", { fg = theme.color75, bg = theme.color0 })
+  -- vim.api.nvim_set_hl(0, "DashboardHeader", { fg = theme.color3, bg = theme.color0 })
+  -- General
+  -- DashboardHeader DashboardFooter
+  -- Hyper theme
+  -- DashboardProjectTitle DashboardProjectTitleIcon DashboardProjectIcon
+  -- DashboardMruTitle DashboardMruIcon DashboardFiles DashboardShotCutIcon
+  -- Doome theme
+  -- DashboardDesc DashboardKey DashboardIcon DashboardShotCut
 end
 
 M.confirm_key = "l"
@@ -74,85 +85,90 @@ M.shortcut = {
   -- {
   --   icon = '󰊳 ',
   --   desc = 'Updates',
-  --   icon_hl = 'DashboardIcon',
-  --   group = '@property',
+  --   group = 'DashboardIcon',
+  --   icon_hl = '@property',
   --   action = 'Lazy update',
   --   key = 'u'
   -- },
   {
     icon = "鈴",
-    icon_hl = 'DashboardIcon',
-    desc = 'lazy',
-    group = 'Number',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = 'Number',
     action = 'Lazy',
     key = 'z'
   },
   {
-    icon = 'פּ ',
-    icon_hl = 'DashboardIcon',
-    desc = 'nt',
-    group = '@integer',
+    icon = '󱁕 ', -- פּ
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = '@string',
     action = 'NvimTreeToggle',
     key = 'j'
   },
   -- {
   --   icon = ' ',
-  --   icon_hl = 'DashboardIcon',
-  --   desc = 'lf',
-  --   group = '@property',
+  --   group = 'DashboardIcon',
+  --   desc = '',
+  --   icon_hl = '@property',
   --   action = 'FloatermNew lf',
   --   key = 'l'
   -- },
   {
-    icon = 'ﯠ ',
-    icon_hl = 'DashboardIcon',
-    desc = 'harp',
-    group = '@function',
+    icon = '󱡅 ',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = '@function',
     action = "lua require('harpoon.ui').toggle_quick_menu()",
     key = 'k'
   },
   {
-    icon = ' ',
-    icon_hl = 'DashboardIcon',
-    desc = 'fzf',
-    group = 'Label',
+    icon = '󰱽 ',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = 'Label',
     action = 'FloatermNew fzf',
     key = 'f',
   },
   {
-    icon = ' ',
-    icon_hl = 'DashboardIcon',
-    desc = 'rg',
-    group = 'DiagnosticHint',
+    icon = '󰺯 ',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = 'DiagnosticHint',
     action = 'FloatermNew rg',
     key = 's',
   },
   {
-    icon = ' ',
-    icon_hl = 'DashboardIcon',
-    desc = 'ft',
-    group = '@string',
+    icon = ' ',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = '@property',
     action = 'FloatermNew',
     key = 'i',
   },
   {
-    icon = ' ',
-    icon_hl = 'DashboardIcon',
-    desc = 'lg',
-    group = 'DiagnosticInfo',
+    icon = ' ',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = 'DiagnosticInfo',
     action = 'FloatermNew lazygit',
     key = 'l',
   },
   {
-    icon = ' ',
+    icon = '󰟿 ',
     desc = '',
     group = 'DiagnosticError',
+    icon_hl = 'DiagnosticError',
     action = 'q',
     key = 'h',
   },
 }
 M.footer = {}
 M.project = { enable = false, limit = 8, icon = 'your icon', label = '', action = 'FloatermNew fzf' }
-M.mru = { limit = 5, icon = ' ', label = 'Recent Files', }
+M.mru = {
+  limit = 5,
+  icon = ' ',
+  label = 'Recent Files',
+}
 
 return M

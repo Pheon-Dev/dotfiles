@@ -1,16 +1,10 @@
-   " _____   __            __                     __     _
-  " / ___/  / /_  ____ _  / /_  __  __   _____   / /    (_)   ____   ___
-  " \__ \  / __/ / __ `/ / __/ / / / /  / ___/  / /    / /   / __ \ / _ \
- " ___/ / / /_  / /_/ / / /_  / /_/ /  (__  )  / /___ / /   / / / //  __/
-" /____/  \__/  \__,_/  \__/  \__,_/  /____/  /_____//_/   /_/ /_/ \___/
-
     function! GitStatus()
       let [a,m,r] = GitGutterGetHunkSummary()
       return printf('+%d ~%d -%d', a, m, r)
     endfunction
 " set statusline+=%{GitStatus()}
 
-   set laststatus=2
+   set laststatus=3
    set noshowmode
 
    let g:lightline = {

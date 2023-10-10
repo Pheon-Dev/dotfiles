@@ -28,7 +28,7 @@ set scrolloff 5
 set wrapscroll
 set shellopts '-eu'
 set shell "zsh"
-set ruler 'df:acc:progress:selection:filter:ind'
+set rulerfmt 'df:acc:progress:selection:filter:ind'
 set cursorpreviewfmt "\033[7m"
 # Basic Settings
 set hidden true

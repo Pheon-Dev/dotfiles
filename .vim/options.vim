@@ -23,7 +23,8 @@ set emoji                                               " enable emojis
 set history=1000                                        " history limit
 set backspace=indent,eol,start                          " sensible backspacing
 set undofile                                            " enable persistent undo
-set undodir=/tmp                                        " undo temp file directory
+" set undodir=/tmp                                        " undo temp file directory
+set undodir=~/.vim/undo                                        " undo temp file directory
 set foldlevel=0                                         " open all folds by default
 " set inccommand=nosplit                                  " visual feedback while substituting
 set showtabline=1                                       " always show tabline

@@ -18,7 +18,7 @@ unsetopt listbeep
 
   builtin autoload +X -Uz ~autocomplete/Functions/**/.autocomplete:*~*.zwc(D-:)
   .autocomplete:__main__ "$@"
-} 
+}
 
 () {
    local -a prefix=( '\e'{\[,O} )

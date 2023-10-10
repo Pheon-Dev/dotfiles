@@ -1,5 +1,8 @@
 local enable = require("config").enable
 
+local move = require("config.utils.move")
+local indentscope = require("config.utils.indentscope")
+
 local default_event = require("config.event").default
 
 local M = {
@@ -19,7 +22,13 @@ local M = {
     "echasnovski/mini.move",
     enabled = enable.move,
     event = default_event,
-    config = require("config.move").config,
+    config = move.config,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    enabled = enable.indentscope,
+    event = default_event,
+    config = indentscope.config,
   },
 }
 

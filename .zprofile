@@ -4,4 +4,6 @@
 
 [[ -f ~/.zshrc ]] && . ~/.zshrc
 
-startx
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  startx
+fi
