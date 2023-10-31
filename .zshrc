@@ -1,3 +1,5 @@
+#!/bin/dash sh
+#
 export ZSH="$HOME/.config/zsh/zsh-base"
 source $ZSH/zsh.sh
 

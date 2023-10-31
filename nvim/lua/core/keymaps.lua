@@ -81,17 +81,17 @@ map("n", "<S-TAB>", ":bprevious<cr>", { noremap = true, silent = true })
 -- Split Join
 vim.keymap.set("n", "gs", ":TSJToggle<cr>", { noremap = true, silent = true })
 
-vim.keymap.set("i", "<C-e>",
+vim.keymap.set("i", "<C-c>",
   function()
     return vim.fn["codeium#Accept"]()
   end
   , { expr = true, silent = true, desc = "Accept Suggestion" })
-vim.keymap.set("i", "<C-n>",
+vim.keymap.set("i", "<C-]>",
   function()
     return vim.fn["codeium#CycleCompletions"](1)
   end,
   { expr = true, silent = true, desc = "Cycle Completions Forward" })
-vim.keymap.set("i", "<C-p>",
+vim.keymap.set("i", "<C-[>",
   function()
     return vim.fn["codeium#CycleCompletions"](-1)
   end,

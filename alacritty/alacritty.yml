@@ -37,6 +37,7 @@ font:
     family: Maple Mono
     style: Bold Italic
   size: 11.0
+  # size: 8.5
   offset:
     x: 0
     y: -2

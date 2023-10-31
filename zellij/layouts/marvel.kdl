@@ -1,0 +1,99 @@
+layout name="marvel-cloud" {
+  cwd "/home/pheon-dev/Documents/marvel-cloud/"
+
+  tab_template name="marvel_tab" {
+    children
+    pane size=1 borderless=true {
+        plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+        format_left  "{mode} #[bg=#1e1e2e,fg=#82aaff,bold]⟪{session}⟫ {tabs}"
+        format_right "{datetime}"
+        format_space ""
+
+        // hide_frame_for_single_pane "true"
+        mode_normal        "#[bg=#24273a] {name}"
+        mode_locked        "#[bg=#24273a] {name}"
+        mode_resize        "#[bg=#24273a] {name}"
+        mode_pane          "#[bg=#24273a] {name}"
+        mode_tab           "#[bg=#24273a] {name}"
+        mode_scroll        "#[bg=#24273a] {name}"
+        mode_enter_search  "#[bg=#24273a] {name}"
+        mode_search        "#[bg=#24273a] {name}"
+        mode_rename_tab    "#[bg=#24273a] {name}"
+        mode_rename_pane   "#[bg=#24273a] {name}"
+        mode_session       "#[bg=#24273a] {name}"
+        mode_move          "#[bg=#24273a] {name}"
+        mode_prompt        "#[bg=#24273a] {name}"
+        mode_tmux          "#[bg=#24273a] {name}"
+
+        tab_normal              "#[fg=#585b70]  {index} {name} "
+        tab_normal_fullscreen   "#[fg=#585b70]  {index} {name}  "
+        tab_normal_sync         "#[fg=#585b70]  {index} {name}  "
+
+        tab_active              "#[fg=#e0d8f4,bg=#24273a,bold,italic] {name} "
+        tab_active_fullscreen   "#[fg=#e0d8f4,bold,italic] {name}  "
+        tab_active_sync         "#[fg=#e0d8f4,bold,italic] {name}  "
+
+        datetime        "#[fg=#585b70,bold] {format} "
+        datetime_format "%A, %d %b %Y %H:%M"
+        datetime_timezone "Africa/Nairobi"
+      }
+    }
+  }
+
+  marvel_tab name="cargo-app" focus=true cwd="/home/pheon-dev/Documents/marvel-cloud/apps/cargo-app" {
+        pane split_direction="vertical" {
+          pane borderless=true command="nvim"
+          // pane split_direction="horizontal" {
+          //   pane stacked=true {
+          //     pane
+          //     pane
+          //     pane
+          //     pane
+          //   }
+          // }
+      }
+    }
+
+
+  marvel_tab name="marvel-app" cwd="/home/pheon-dev/Documents/marvel-cloud/apps/marvel-app" {
+        pane split_direction="vertical" {
+          pane borderless=true command="nvim"
+          // pane split_direction="horizontal" {
+          //   pane stacked=true {
+          //     pane
+          //     pane
+          //     pane
+          //   }
+          // }
+        }
+    }
+
+  marvel_tab name="server" {
+    pane split_direction="vertical" {
+        pane borderless=true command="yarn" {
+              args "dev"
+            }
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane
+            pane
+          }
+        }
+      }
+    }
+
+    marvel_tab name="extra" {
+    pane split_direction="vertical" {
+        pane borderless=true
+        pane split_direction="horizontal" {
+          pane stacked=true {
+            pane
+            pane
+            pane
+          }
+        }
+      }
+    }
+
+}
+

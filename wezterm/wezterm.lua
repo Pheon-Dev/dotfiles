@@ -23,40 +23,39 @@ config.color_schemes = {
 
 config.color_scheme = "Catppuccin Theme"
 
-config.enable_wayland = true
+-- config.enable_wayland = true
 config.hide_mouse_cursor_when_typing = true
-config.animation_fps = 30
-config.max_fps = 60
-config.font = wezterm.font(
-  "Maple Mono",
-  {
-    -- weight = 'Regular',
-    italic = false
-  }
-)
-
--- config.font = wezterm.font_with_fallback({
---   "JetBrainsMono Nerd Font",
---   "Iosevka Nerd Font",
---   "ComicMonoNF",
---   -- "FiraMono Nerd Font",
--- })
-
+-- config.animation_fps = 30
+-- config.max_fps = 60
+-- config.font = wezterm.font("Maple Mono", {
+--   -- weight = 'Regular',
+--   italic = false
+-- }
+-- )
 config.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace" -- "Never", "Always", "WhenFollowedBySpace"
+config.font_size = 11.5
+
+config.font = wezterm.font_with_fallback({
+  --   "JetBrainsMono Nerd Font",
+  "Maple Mono",
+  --   "Iosevka Nerd Font",
+  --   "ComicMonoNF",
+  --   -- "FiraMono Nerd Font",
+})
+
 config.underline_thickness = 1
 config.underline_position = -2.0
--- config.dpi = 90.0
-config.bold_brightens_ansi_colors = true
+-- config.dpi = 192.0
+-- config.bold_brightens_ansi_colors = true
 
 -- config.default_prog = { "sesh", "attach", "tab", "--create" }
 
-config.font_size = 11.0
 config.line_height = 0.9
 config.automatically_reload_config = true
 
 config.window_frame = {
   font = wezterm.font({ family = "Maple Mono", weight = "Bold" }),
-  font_size = 10.0,
+  font_size = 13.0,
   border_left_width = "0.0cell",
   border_right_width = "0.0cell",
   border_bottom_height = "0.0cell",

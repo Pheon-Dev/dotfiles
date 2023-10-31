@@ -17,8 +17,9 @@ local M = {
     config = which_key.config,
   },
   {
-    "Pheon-Dev/harpoon",
+    "ThePrimeagen/harpoon",
     enabled = enable.harpoon,
+    -- event = lazy_event,
     config = harpoon.config,
   },
   {

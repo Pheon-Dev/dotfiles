@@ -2,8 +2,8 @@
   {
     "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["custom/arch", "clock"],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-left": ["custom/arch", "hyprland/workspaces"],
+    "modules-center": ["clock"],
     "modules-right": [
       "cpu",
       "memory",
@@ -38,7 +38,8 @@
       }
     },
     "clock": {
-      "format": "{:%H:%M  %a  %d|%m|%y}"
+      // "format": "{:%H:%M  %a  %d|%m|%y}"
+      "format": "{:%H:%M}"
     },
     "backlight": {
       "device": "intel_backlight",
@@ -114,8 +115,8 @@
   {
     "layer": "top",
     "output": ["HDMI-A-1"],
-    "modules-left": ["custom/arch", "clock"],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-left": ["custom/arch", "hyprland/workspaces"],
+    "modules-center": ["clock"],
     "modules-right": [
       "cpu",
       "memory",
@@ -146,7 +147,7 @@
       }
     },
     "clock": {
-      "format": "{:%H:%M    %A, %d %B %Y}"
+      "format": "{:%H:%M}"
     },
     "backlight": {
       "device": "intel_backlight",

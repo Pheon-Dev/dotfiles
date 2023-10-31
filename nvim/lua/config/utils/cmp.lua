@@ -100,7 +100,7 @@ M.config = function()
     mapping = {
       ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
       ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-      ["<C-c>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+      ["<C-e>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
       ["<C-y>"] = cmp.config.disable,
       ["<C-x>"] = cmp.mapping({
         i = cmp.mapping.abort(),
@@ -157,17 +157,19 @@ M.config = function()
   })
 
   cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = "path" },
-    }, {
+    -- mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources(
       {
-        name = "cmdline",
-        option = {
-          ignore_cmds = { "Man", "!" }
-        }
+        { name = "path" },
       },
-    }),
+      {
+        {
+          name = "cmdline",
+          option = {
+            ignore_cmds = { "Man", "!" }
+          }
+        },
+      }),
     enabled = function()
       -- Set of commands where cmp will be disabled
       local disabled = {
@@ -184,7 +186,7 @@ M.config = function()
 
   -- `/`, `?` cmdline setup.
   cmp.setup.cmdline({ "?", "/" }, {
-    mapping = cmp.mapping.preset.cmdline(),
+    -- mapping = cmp.mapping.preset.cmdline(),
     sources = {
       { name = 'buffer' }
     }

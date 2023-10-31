@@ -1,6 +1,5 @@
 local M = {}
 
-
 M.dependencies = {
   'nvim-treesitter/nvim-treesitter',
   'nvim-tree/nvim-web-devicons',
@@ -49,7 +48,7 @@ M.config = function()
     },
     symbol_in_winbar = {
       enable = true,
-      separator = ' ⟫ ',
+      separator = '  ',
       show_file = true,
       folded_level = 1,
       color_mode = true,

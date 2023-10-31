@@ -3,9 +3,9 @@ keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
-        bind "Alt f" { TogglePaneFrames; SwitchToMode "Normal"; }
-        bind "Alt `" { ToggleFloatingPanes; SwitchToMode "Normal"; }
-        bind "Alt ," { NewTab; SwitchToMode "Normal"; }
+        bind "Alt F" { TogglePaneFrames; SwitchToMode "Normal"; }
+        bind "Alt f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "Alt N" { NewTab; SwitchToMode "Normal"; }
         bind "Alt n" { NewPane; SwitchToMode "Normal"; }
         bind "Alt d" { Detach; }
         bind "Alt q" { Quit; }
@@ -154,6 +154,8 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
     }
     shared_except "locked" {
+        bind "Alt ," { GoToPreviousTab; SwitchToMode "Normal"; }
+        bind "Alt ." { GoToNextTab; SwitchToMode "Normal"; }
         bind "Alt g" { SwitchToMode "Locked"; }
         bind "Alt q" { Quit; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
@@ -166,9 +168,21 @@ keybinds clear-defaults=true {
         bind "Alt v" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "Alt b" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "Alt n" { NewPane; SwitchToMode "Normal"; }
-        bind "Alt ," { NewTab; SwitchToMode "Normal"; }
+        bind "Alt N" { NewTab; SwitchToMode "Normal"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
+        bind "Alt y" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/harpoon.wasm" {
+            floating true;
+            move_to_focused_tab true;
+          }
+        }
+        bind "Alt w" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
+            ignore_case true
+            floating true
+          }
+        }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }

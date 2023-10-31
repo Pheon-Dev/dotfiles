@@ -1,9 +1,9 @@
-#!/bin/bash zsh
+#!/bin/dash sh
 # https://github.com/junegunn/fzf/blob/master/ADVANCED.md
 # https://thevaluable.dev/practical-guide-fzf-example/
 # --bind 'alt-w:unbind(change,alt-w)+change-prompt(2. fzf> )+enable-search+clear-query' \
 
-export IGNORE=.git*,.yarn,.rustup,go/pkg/mod/*,.cargo/*,.cache,/home/linuxbrew,node_modules/*,targets,Downloads/pouch,wallet-app/node_modules,kplc-app/node_modules,.cache/*,Music,Videos,Pictures,.cargo,Music/*,.nvm,.vercel,.next,.gitmoji,.hyprland,.tmux,.vim/plugged,.vim/autoload,.vim/.git
+export IGNORE=.git*,.yarn,.rustup,go/pkg/mod/*,.cargo/*,.cache,/home/linuxbrew,node_modules/*,targets,Downloads/pouch,wallet-app/node_modules,kplc-app/node_modules,.cache/*,Music,Videos,Pictures,.cargo,Music/*,.nvm,.vercel,.next,.gitmoji,.hyprland,.tmux,.vim/plugged,.vim/autoload,.vim/.git,.m2,.gradle
 
 fdir() {
   fd --type directory -HE="{$IGNORE}" --strip-cwd-prefix --follow
