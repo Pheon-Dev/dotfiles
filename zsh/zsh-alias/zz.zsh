@@ -108,7 +108,7 @@ zz () {
     layout=$(ls "$HOME/.config/zellij/layouts" | awk 'BEGIN { FS = "\n" } { print $1 }' | cut -d "." -f 1)
     new_session=$(echo $layout | awk 'BEGIN { FS = " " } { print $1 }' | gum filter)
     zellij -l $HOME/.config/zellij/layouts/$new_session.kdl --session $new_session
-    clear
+    # clear
   fi
 }
 

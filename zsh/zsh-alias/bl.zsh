@@ -8,10 +8,12 @@ alias bls="bluetoothctl scan on"
 alias blc="bluetoothctl connect CC:98:8B:A7:BB:38"
 alias blr="bluetoothctl connect"
 alias bli="bluetoothctl info"
+alias blo="bluetoothctl connect 4D:9A:B6:44:A3:45"
 alias bld="bluetoothctl disconnect CC:98:8B:A7:BB:38"
 alias blp="bluetoothctl pair CC:98:8B:A7:BB:38"
 # alias bl="systemctl start bluetooth && bluetoothctl connect CC:98:8B:A7:BB:38"
 alias bl="bluetoothctl connect CC:98:8B:A7:BB:38"
+
 bkjhl () {
 
 # Define the MAC address of the device to search for

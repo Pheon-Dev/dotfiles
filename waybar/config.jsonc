@@ -2,8 +2,8 @@
   {
     "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["custom/arch", "hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-left": ["clock", "hyprland/workspaces"],
+    // "modules-center": ["clock"],
     "modules-right": [
       "cpu",
       "memory",
@@ -24,8 +24,8 @@
       // "format": "{icon}",
       "on-click": "activate",
       "tooltip": false,
-      "active-only": true,
-      "all-outputs": false,
+      "active-only": false,
+      "all-outputs": true,
       "sort-by-number": true,
       // "persistent_workspaces": {
       //   "10": [],
@@ -76,7 +76,7 @@
       "format": "{ifname}",
       "format-wifi": "󰤨  {essid} {signalStrength}%",
       "format-ethernet": "{ipaddr}/{cidr}  ",
-      "format-disconnected": "󰤭",
+      "format-disconnected": "󰤭 ",
       "tooltip": false,
       "on-click": "sh $HOME/.config/rofi/bin/net",
       "states": {
@@ -115,8 +115,8 @@
   {
     "layer": "top",
     "output": ["HDMI-A-1"],
-    "modules-left": ["custom/arch", "hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-left": ["clock", "hyprland/workspaces"],
+    // "modules-center": ["clock"],
     "modules-right": [
       "cpu",
       "memory",
@@ -137,7 +137,7 @@
       // "format": "{icon}",
       "tooltip": false,
       "active-only": false,
-      "all-outputs": false,
+      "all-outputs": true,
       "sort-by-number": true,
       "format-icons": {
         "urgent": "",

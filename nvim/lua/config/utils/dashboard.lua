@@ -1,6 +1,7 @@
 local M = {}
 
-M.dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+-- M.dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+M.dependencies = {}
 
 M.config = function()
   local has_dashboard, dashboard = pcall(require, "dashboard")
@@ -82,38 +83,15 @@ M.header = {
 }
 
 M.shortcut = {
-  -- {
-  --   icon = '󰊳 ',
-  --   desc = 'Updates',
-  --   group = 'DashboardIcon',
-  --   icon_hl = '@property',
-  --   action = 'Lazy update',
-  --   key = 'u'
-  -- },
   {
-    icon = "鈴",
-    group = 'DashboardIcon',
-    desc = '',
-    icon_hl = 'Number',
-    action = 'Lazy',
-    key = 'z'
-  },
-  {
-    icon = '󱁕 ', -- פּ
+    icon = '󰏇 ', -- פּ 󱁕
     group = 'DashboardIcon',
     desc = '',
     icon_hl = '@string',
-    action = 'NvimTreeToggle',
+    -- action = 'NvimTreeToggle',
+    action = 'Oil',
     key = 'j'
   },
-  -- {
-  --   icon = ' ',
-  --   group = 'DashboardIcon',
-  --   desc = '',
-  --   icon_hl = '@property',
-  --   action = 'FloatermNew lf',
-  --   key = 'l'
-  -- },
   {
     icon = '󱡅 ',
     group = 'DashboardIcon',
@@ -122,6 +100,30 @@ M.shortcut = {
     action = "lua require('harpoon.ui').toggle_quick_menu()",
     key = 'k'
   },
+  {
+    icon = ' ',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = 'DiagnosticInfo',
+    action = 'FloatermNew lazygit',
+    key = 'l',
+  },
+  {
+    icon = ' ',
+    group = 'DashboardIcon',
+    desc = '',
+    icon_hl = '@property',
+    action = 'FloatermNew lf',
+    key = ';'
+  },
+  -- {
+  --   icon = '󰊳 ',
+  --   desc = 'Updates',
+  --   group = 'DashboardIcon',
+  --   icon_hl = '@property',
+  --   action = 'Lazy update',
+  --   key = 'u'
+  -- },
   {
     icon = '󰱽 ',
     group = 'DashboardIcon',
@@ -144,15 +146,15 @@ M.shortcut = {
     desc = '',
     icon_hl = '@property',
     action = 'FloatermNew',
-    key = 'i',
+    key = '`',
   },
   {
-    icon = ' ',
+    icon = "鈴",
     group = 'DashboardIcon',
     desc = '',
-    icon_hl = 'DiagnosticInfo',
-    action = 'FloatermNew lazygit',
-    key = 'l',
+    icon_hl = 'Number',
+    action = 'Lazy',
+    key = 'z'
   },
   {
     icon = '󰟿 ',
@@ -166,9 +168,9 @@ M.shortcut = {
 M.footer = {}
 M.project = { enable = false, limit = 8, icon = 'your icon', label = '', action = 'FloatermNew fzf' }
 M.mru = {
-  limit = 5,
-  icon = ' ',
-  label = 'Recent Files',
+  limit = 3,
+  icon = '↘',
+  label = '',
 }
 
 return M

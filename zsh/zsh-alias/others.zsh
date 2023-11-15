@@ -108,14 +108,14 @@ ports () {
     echo ""
     echo -e "$(tput setaf 5)Port                 PID"
     echo -e "$(tput setaf 6)"
-    fuser $2/tcp
+    sudo fuser $2/tcp
     echo ""
   fi
   if [[ $1 == "-k" || $1 == "--kill" ]]; then
     echo ""
     echo -e "$(tput setaf 5)Port                 PID"
     echo -e "$(tput setaf 6)"
-    fuser -k $2/tcp
+    sudo fuser -k $2/tcp
     echo ""
   fi
 }

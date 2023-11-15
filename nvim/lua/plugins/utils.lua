@@ -27,6 +27,7 @@ local M = {
   {
     "voldikss/vim-floaterm",
     event = lazy_event,
+    -- event = default_event,
     enabled = enable.floaterm,
   },
   {
@@ -88,11 +89,6 @@ local M = {
     "tpope/vim-repeat",
     event = default_event,
     enabled = enable.vim_repeat,
-  },
-  {
-    "Exafunction/codeium.vim",
-    event = default_event,
-    enabled = enable.codeium,
   },
   {
     "AckslD/muren.nvim",

@@ -43,14 +43,14 @@ layout name="marvel-cloud" {
   marvel_tab name="cargo-app" focus=true cwd="/home/pheon-dev/Documents/marvel-cloud/apps/cargo-app" {
         pane split_direction="vertical" {
           pane borderless=true command="nvim"
-          // pane split_direction="horizontal" {
-          //   pane stacked=true {
-          //     pane
-          //     pane
-          //     pane
-          //     pane
-          //   }
-          // }
+          pane split_direction="horizontal" {
+            pane stacked=true {
+            pane borderless=false command="yarn" {
+              args "dev"
+            }
+            pane
+            }
+          }
       }
     }
 
@@ -58,21 +58,23 @@ layout name="marvel-cloud" {
   marvel_tab name="marvel-app" cwd="/home/pheon-dev/Documents/marvel-cloud/apps/marvel-app" {
         pane split_direction="vertical" {
           pane borderless=true command="nvim"
-          // pane split_direction="horizontal" {
-          //   pane stacked=true {
-          //     pane
-          //     pane
-          //     pane
-          //   }
-          // }
+          pane split_direction="horizontal" {
+            pane stacked=true {
+            pane borderless=false command="yarn" {
+              args "dev"
+            }
+            pane
+            }
+          }
         }
     }
 
   marvel_tab name="server" {
     pane split_direction="vertical" {
-        pane borderless=true command="yarn" {
-              args "dev"
-            }
+        pane borderless=true
+        // pane borderless=false command="yarn" {
+        //       args "dev"
+        //     }
         pane split_direction="horizontal" {
           pane stacked=true {
             pane

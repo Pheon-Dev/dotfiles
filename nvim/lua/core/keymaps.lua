@@ -3,7 +3,8 @@ local map = vim.api.nvim_set_keymap
 
 -- Saving and  ESC on insert Mode
 map("i", "jj", "<esc>", { noremap = true, silent = true })
-map("n", ",", "<esc>:lua vim.lsp.buf.format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
+-- map("n", ",", "<esc>:lua vim.lsp.buf.format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
+map("n", ",", "<esc>:lua require('format-on-save').format()<cr><esc>:w! | noh<cr>", { noremap = true, silent = true })
 -- map("n", ",", "<esc>:w! | noh<cr>", { noremap = true, silent = true })
 
 -- Windows
@@ -86,12 +87,12 @@ vim.keymap.set("i", "<C-c>",
     return vim.fn["codeium#Accept"]()
   end
   , { expr = true, silent = true, desc = "Accept Suggestion" })
-vim.keymap.set("i", "<C-]>",
+vim.keymap.set("i", "<C-n>",
   function()
     return vim.fn["codeium#CycleCompletions"](1)
   end,
   { expr = true, silent = true, desc = "Cycle Completions Forward" })
-vim.keymap.set("i", "<C-[>",
+vim.keymap.set("i", "<C-p>",
   function()
     return vim.fn["codeium#CycleCompletions"](-1)
   end,

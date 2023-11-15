@@ -13,6 +13,7 @@
 @define-color subtext0 #a6adc8;
 @define-color subtext1 #bac2de;
 
+@define-color surface  #24273a;
 @define-color surface0 #313244;
 @define-color surface1 #45475a;
 @define-color surface2 #585b70;
@@ -20,6 +21,7 @@
 @define-color overlay0 #6c7086;
 @define-color overlay1 #7f849c;
 @define-color overlay2 #9399b2;
+@define-color overlay3 #a6adc8;
 
 @define-color blue      #89b4fa;
 @define-color lavender  #b4befe;
@@ -83,17 +85,68 @@ window#waybar {
   /* font-size: 20px; */
 	/* margin-left: 15px; */
   color: #51afef;
+ background-color: shade(@base, 1.0);
+ /* background-color: shade(@surface0, 1.0); */
+}
+
+#memory {
+  color: @text;
+  background: shade(@surface0, 1.0);
+}
+
+#cpu {
+  color: @text;
+ /* background-color: shade(@base, 1.0); */
+ background-color: shade(@surface, 1.0);
+}
+
+#clock {
+  color: @base;
+ background-color: shade(@overlay2, 1.0);
+}
+
+#battery {
+  color: @base;
+  background: shade(@overlay3, 1.0);
+}
+
+#pulseaudio {
+  color: @text;
+ /* background-color: shade(@base, 1.0); */
+ background-color: shade(@surface1, 1.0);
+}
+
+#network {
+  color: @base;
+  background: shade(@overlay1, 1.0);
+}
+
+#disk {
+  color: @subtext1;
+ background-color: shade(@surface2, 1.0);
+}
+
+#bluetooth {
+  color: @text;
+ /* background-color: shade(@base, 1.0); */
+ background-color: shade(@overlay0, 1.0);
+}
+
+#backlight {
+  color: @base;
+ /* background-color: shade(@base, 1.0); */
+ background-color: shade(@overlay2, 1.0);
 }
 
 #workspaces button {
   background: shade(@base, 1.0);
+ /* background-color: shade(@surface0, 1.0); */
   color: @text;
 }
 
 #pulseaudio, #bluetooth, #network, #battery, #memory, #cpu, #backlight, #bluetooth, #disk, #clock {
   /* background: shade(@base, 0.9); */
- background-color: shade(@base, 1.0);
-  color: @text;
+  /* background: shade(@surface0, 1.0); */
   border-radius: 5px;
   /* margin-top: 1px; */
   margin-left: 10px;
