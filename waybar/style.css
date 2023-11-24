@@ -39,11 +39,11 @@
 @define-color rosewater #f5e0dc;
 * {
   border: none;
-  font-family: 'IosevkaNF', 'Symbols Nerd Font Mono';
+  font-family: 'Maple Mono', 'Symbols Nerd Font Mono';
   font-style: italic;
   font-weight: bold;
-  /* padding: 0; */
-  /* margin: 0; */
+  padding: 0;
+  margin: 0;
   /* font-size: 16px; */
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
   min-height: 15px;
@@ -57,36 +57,35 @@ window#waybar {
   border: 1px solid alpha(@base, 1.0);
 }
 
+#workspaces button {
+  background-color: shade(@base, 1.0);
+ /* background-color: shade(@surface0, 1.0); */
+  /* color: @text; */
+	margin-right: 2px;
+	padding-right: 2px;
+  margin-left: 2px;
+  margin-right: 0px;
+}
+
 #workspaces button.active {
-  border-radius: 3px;
-  background-color: shade(@surface0, 1.0);
+  border-radius: 0px;
+  background-color: shade(@base, 1.0);
+  border-bottom: 2px solid @overlay3;
   color: @base;
-  /* margin-top: 2px; */
-  /* margin-bottom: 2px; */
-	/* margin-right: 15px; */
-  /* padding-top: 1px; */
-  /* padding-bottom: 1px; */
-  /* padding-left: 2px; */
-  /* padding-right: 2px; */
+	margin-right: 5px;
+  padding-left: 5px;
 }
 
 #custom-arch {
-  /* border-radius: 10px; */
   color: @text;
-  /* margin-top: 1px; */
 	margin-right: 5px;
- /*  padding-top: 1px; */
- /*  padding-bottom: 1px; */
   padding-left: 10px;
   padding-right: 10px;
 }
 
 #custom-arch {
-  /* font-size: 20px; */
-	/* margin-left: 15px; */
   color: #51afef;
  background-color: shade(@base, 1.0);
- /* background-color: shade(@surface0, 1.0); */
 }
 
 #memory {
@@ -101,8 +100,9 @@ window#waybar {
 }
 
 #clock {
-  color: @base;
- background-color: shade(@overlay2, 1.0);
+  color: @text;
+ /* background-color: shade(@overlay2, 1.0); */
+ background-color: shade(@base, 1.0);
 }
 
 #battery {
@@ -127,7 +127,7 @@ window#waybar {
 }
 
 #bluetooth {
-  color: @text;
+  color: @surface0;
  /* background-color: shade(@base, 1.0); */
  background-color: shade(@overlay0, 1.0);
 }
@@ -138,19 +138,15 @@ window#waybar {
  background-color: shade(@overlay2, 1.0);
 }
 
-#workspaces button {
-  background: shade(@base, 1.0);
- /* background-color: shade(@surface0, 1.0); */
-  color: @text;
-}
-
 #pulseaudio, #bluetooth, #network, #battery, #memory, #cpu, #backlight, #bluetooth, #disk, #clock {
   /* background: shade(@base, 0.9); */
   /* background: shade(@surface0, 1.0); */
-  border-radius: 5px;
+  border-radius: 0px;
   /* margin-top: 1px; */
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  /* padding-bottom: 3px;
+  padding-top: 5px; */
+  padding-left: 8px;
+  padding-right: 8px;
 }

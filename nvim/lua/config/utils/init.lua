@@ -12,6 +12,8 @@ M.dial = config.dial
 M.fold = config.fold
 M.muren = config.muren
 M.move = config.move
+M.fundo = config.fundo
+M.bracketed = config.bracketed
 M.indentscope = config.indentscope
 
 return M

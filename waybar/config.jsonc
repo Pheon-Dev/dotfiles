@@ -2,9 +2,10 @@
   {
     "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["clock", "hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     // "modules-center": ["clock"],
     "modules-right": [
+      "clock",
       "cpu",
       "memory",
       "pulseaudio",
@@ -31,15 +32,15 @@
       //   "10": [],
       // },
       "format-icons": {
-        //   "urgent": "",
-        //   "active": "",
-        "special": "󰈩"
-        //   // "default": "󰧞"
+          "urgent": " ",
+          "active": " ",
+        "special": "✪ ", // 󰧞
+          "default": " "
       }
     },
     "clock": {
       // "format": "{:%H:%M  %a  %d|%m|%y}"
-      "format": "{:%H:%M}"
+      "format": "{:%H:%M  %A  %d, %b %Y}"
     },
     "backlight": {
       "device": "intel_backlight",
@@ -48,7 +49,7 @@
     },
     "pulseaudio": {
       // "format": "{icon} {volume}%",
-      "format": "VOL {volume}%",
+      "format": "vol {volume}%",
       "format-muted": "",
       "tooltip": false,
       "format-icons": {
@@ -93,20 +94,20 @@
       "tooltip": false
     },
     "cpu": {
-      // "format": "CPU {avg_frequency} GHz",
-      "format": "CPU {}%",
+      // "format": "cpu {avg_frequency} GHz",
+      "format": "cpu {}%",
       "format-alt": "󰻠 {}%",
       "interval": 5
     },
     "memory": {
-      // "format": "RAM {used}/{total} GB",
-      "format": "RAM {}%",
+      // "format": "ram {used}/{total} GB",
+      "format": "ram {}%",
       "format-alt": "󰍛 {}%",
       "interval": 5
     },
     "disk": {
-      // "format": "STO {used}/{total} GB",
-      "format": "STO {percentage_used}%",
+      // "format": "sto {used}/{total} GB",
+      "format": "sto {percentage_used}%",
       "format-alt": "󰋊 {}%",
       "interval": 5
       // "path": "/mnt/Datos"
@@ -115,13 +116,14 @@
   {
     "layer": "top",
     "output": ["HDMI-A-1"],
-    "modules-left": ["clock", "hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     // "modules-center": ["clock"],
     "modules-right": [
+      "clock",
       "cpu",
       "memory",
-      "disk",
       "pulseaudio",
+      "disk",
       "bluetooth",
       "network",
       "backlight",
@@ -147,7 +149,9 @@
       }
     },
     "clock": {
-      "format": "{:%H:%M}"
+      // "format": "{:%H:%M}"
+      "format": "{:%H:%M  %A  %d, %B %Y}"
+      // "format": "{:%H:%M  %A  %d|%m|%y}"
     },
     "backlight": {
       "device": "intel_backlight",
@@ -176,7 +180,7 @@
     },
     "pulseaudio": {
       // "format": "{icon} {volume}%",
-      "format": "VOL {volume}%",
+      "format": "vol {volume}%",
       "format-muted": "",
       "tooltip": false,
       "format-icons": {
@@ -186,19 +190,19 @@
       "scroll-step": 1
     },
     "cpu": {
-      "format": "CPU {avg_frequency} GHz [ {}% ]",
-      "format-alt": "CPU {}%",
+      "format": "cpu {avg_frequency} GHz [ {}% ]",
+      "format-alt": "cpu {}%",
       // "format-alt": "󰻠 {}%",
       "interval": 5
     },
     "memory": {
-      "format": "RAM {used}/{total} GB [ {}% ]",
-      "format-alt": "RAM {}%",
+      "format": "ram {used}/{total} GB [ {}% ]",
+      "format-alt": "ram {}%",
       // "format-alt": "󰍛 {}%",
       "interval": 5
     },
     "disk": {
-      "format": "STO {used}/{total} GB [ {percentage_used}% ]",
+      "format": "sto {used}/{total} GB [ {percentage_used}% ]",
       "format-alt": "󰋊 {}%",
       "interval": 5
       // "path": "/mnt/Datos"

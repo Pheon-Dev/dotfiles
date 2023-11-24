@@ -3,6 +3,20 @@
 # ZELLIJ
 alias zf="zellij edit --floating --"
 alias zr='zellij run --floating --'
+alias zj='zellij'
+alias zl='zellij list-sessions'
+
+zn () {
+  zellij -l ~/.config/zellij/layouts/$1.kdl
+}
+
+zd () {
+  zellij delete-session $1
+}
+
+za () {
+  zellij attach $1
+}
 
 zz () {
   clear
