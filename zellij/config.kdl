@@ -11,8 +11,8 @@ keybinds clear-defaults=true {
         bind "Alt q" { Quit; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt ;" { Run "lf";TogglePaneEmbedOrFloating; }
-        bind "Alt '" { Run "flamingo"; }
+        // bind "Alt ;" { Run "lf";TogglePaneEmbedOrFloating; }
+        // bind "Alt '" { Run "flamingo"; }
         bind "Alt e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
         bind "Alt z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
     }
@@ -154,8 +154,8 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
     }
     shared_except "locked" {
-        bind "Alt ," { GoToPreviousTab; SwitchToMode "Normal"; }
-        bind "Alt ." { GoToNextTab; SwitchToMode "Normal"; }
+        // bind "Alt ," { GoToPreviousTab; SwitchToMode "Normal"; }
+        // bind "Alt ." { GoToNextTab; SwitchToMode "Normal"; }
         bind "Alt g" { SwitchToMode "Locked"; }
         bind "Alt q" { Quit; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }

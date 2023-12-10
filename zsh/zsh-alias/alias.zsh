@@ -159,7 +159,6 @@ alias ye="yarn add --ignore-engines"
 
 # alias f="fuck"
 alias fsg="flameshot gui -p ~/Downloads/Picture"
-alias psc="pscale"
 
 alias vercel="$HOME/.yarn/bin/vercel"
 alias firebase="$HOME/.yarn/bin/firebase"

@@ -55,9 +55,9 @@ layout name="noble" {
           }
         }
       }
-    floating_panes {
-      pane command="lf"
-    }
+    // floating_panes {
+    //   pane command="lf"
+    // }
     }
 
 

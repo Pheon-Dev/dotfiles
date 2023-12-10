@@ -2,6 +2,7 @@
 
 source "$HOME/.config/zsh/zsh-alias/alias.zsh"
 source "$HOME/.config/zsh/zsh-alias/pass.zsh"
+source "$HOME/.config/zsh/zsh-alias/pscale.zsh"
 source "$HOME/.config/zsh/zsh-alias/dock.zsh"
 source "$HOME/.config/zsh/zsh-alias/goat.zsh"
 source "$HOME/.config/zsh/zsh-alias/mt.zsh"

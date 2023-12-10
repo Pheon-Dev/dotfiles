@@ -45,9 +45,13 @@ layout name="marvel-cloud" {
           pane borderless=true command="nvim"
           pane split_direction="horizontal" {
             pane stacked=true {
+            pane borderless=false command="pscale" {
+              args "connect" "marvel-cloud" "dev"
+            }
             pane borderless=false command="yarn" {
               args "dev"
             }
+            pane
             pane
             }
           }
@@ -63,6 +67,7 @@ layout name="marvel-cloud" {
             pane borderless=false command="yarn" {
               args "dev"
             }
+            pane
             pane
             }
           }

@@ -43,7 +43,7 @@ layout name="elements" {
   metal_tab name="beryllium" focus=true {
     pane split_direction="vertical" {
         pane borderless=true command="bash" {
-          args "-c" "fd --type directory -HE='{.cache,.cargo,node_modules,Videos,Music,.nvm,.hyprland,Pictures,.gitmoji,.git,.vercel,.next,target,.yarn,.tmux,$IGNORE}' --strip-cwd-prefix --follow | fzf --bind 'ctrl-l:execute(cd {} 2>/dev/null && nvim --listen ~/.cache/nvim/server.pipe || nvim --server ~/.cache/nvim/server.pipe --remote ~/{})'"
+          args "-c" "fd --type directory -HE='{.cache,.cargo,node_modules,Videos,.m2,Music,.nvm,.hyprland,Pictures,.gitmoji,.git,.vercel,.next,target,.yarn,.tmux,$IGNORE}' --strip-cwd-prefix --follow | fzf --bind 'ctrl-l:execute(cd {} 2>/dev/null && nvim --listen ~/.cache/nvim/server.pipe || nvim --server ~/.cache/nvim/server.pipe --remote ~/{})'"
         }
         pane split_direction="horizontal" {
           pane stacked=true {
@@ -52,9 +52,9 @@ layout name="elements" {
           }
         }
       }
-     floating_panes {
-       pane command="lf"
-     }
+     // floating_panes {
+     //   pane command="lf"
+     // }
   }
   metal_tab name="plutonium" {
       pane split_direction="vertical" {

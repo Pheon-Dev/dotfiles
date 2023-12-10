@@ -2,24 +2,25 @@ local enable = require("config").enable
 
 local rust = require("config.languages.rust")
 local go = require("config.languages.go")
-local lua = require("config.languages.lua")
 local typescript = require("config.languages.typescript")
+local tsc = require("config.languages.tsc")
 
 local default_event = require("config.event").default
 
 local M = {
-  {
-    "folke/neodev.nvim",
-    enabled = enable.neodev,
-    event = default_event,
-    opts = lua.neodev_opts,
-  },
   {
     "pmizio/typescript-tools.nvim",
     enabled = enable.typescript,
     event = default_event,
     dependencies = typescript.dependencies,
     config = typescript.config,
+  },
+  {
+    "dmmulroy/tsc.nvim",
+    enabled = enable.typescript,
+    event = default_event,
+    -- dependencies = tsc.dependencies,
+    config = tsc.config,
   },
   {
     "saecki/crates.nvim",
