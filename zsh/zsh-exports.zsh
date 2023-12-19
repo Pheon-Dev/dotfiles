@@ -1,15 +1,18 @@
 #!/bin/bash zsh
 # zmodload zsh/zprof # time-zsh
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='~/.config/nvim-linux64/bin/nvim'
+export VISUAL='~/.config/nvim-linux64/bin/nvim'
+# export EDITOR='nvim'
+# export VISUAL='nvim'
 
 VIM_MODE_VICMD_KEY='jj'
 
 export STARSHIP_CACHE=~/.starship/cache
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-cp $HOME/.tmux.conf $HOME/.tmux/.tmux.conf
+# setxkbmap -option "caps:escape"
+# cp $HOME/.tmux.conf $HOME/.tmux/.tmux.conf
 cp $HOME/.zshrc $HOME/.config/zsh/.zshrc
 
 if [[ ! "$OSTYPE" =~ ^freebsd ]]; then

@@ -52,7 +52,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
     glow bat npm yarn unzip fd acpi toipe nitrogen neofetch btop \
     pass ripgrep docker docker-compose brightnessctl bluez bluez-utils \
-    python3 python3-pip xclip nb bob
+    python3 python3-pip xclip nb bob tlp tlp-rdw
+
+  # brew install gh planetscale/tap/pscale 
 
   # Start the bluetooth service
   echo -e "Starting the Bluetooth Service...\n"

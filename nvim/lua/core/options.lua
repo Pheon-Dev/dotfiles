@@ -16,7 +16,7 @@ g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 o.autowrite = true           -- Enable auto write
 -- o.autowriteall = true        -- Enable auto write
 o.clipboard = "unnamedplus"  -- Sync with system clipboard
-o.completeo = "menu,menuone,noselect"
+o.completeopt = "menu,menuone,noselect"
 o.conceallevel = 0           -- Hide * markup for bold and italic 3
 o.confirm = true             -- Confirm to save changes before exiting modified buffer
 o.cursorline = true          -- Enable highlighting of the current line
@@ -165,14 +165,14 @@ vim.cmd("syntax enable")
 vim.cmd("let g:go_def_mode='gopls'")
 vim.cmd("let g:go_info_mode='gopls'")
 
--- Lf
+-- lf
 g.lf_map_keys            = 0
 g.lf_command_override    = 'lf -command "set ratios 1:1"'
--- Float Term
+-- float term
 g.floaterm_borderchars   = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
 g.floaterm_width         = 0.9 -- default 0.6
 g.floaterm_height        = 0.9 -- default 0.6
-g.floaterm_rootmarkers   = { "Cargo.toml", "Cargo.toml.lock", "package.json", ".git", ".gitignore",
+g.floaterm_rootmarkers   = { "cargo.toml", "cargo.toml.lock", "package.json", ".git", ".gitignore",
   "package-lock.json", "yarn.lock", "tsconfig.json" }
 g.floaterm_opener        = "edit"
 g.floaterm_wintype       = "float" -- options split, vsplit
@@ -184,7 +184,7 @@ g.floaterm_titleposition = "left"  -- options left, right, center
 g.floaterm_position      =
 "center"                           -- wintype 'split/vsplit': 'leftabove', 'aboveleft', 'rightbelow', 'belowright', 'topleft', 'botright' default 'botright'
 
-g.floaterm_keymap_toggle = '<M-`>'
+g.floaterm_keymap_toggle = '<m-`>'
 g.floaterm_keymap_new    = "``"
 g.floaterm_keymap_prev   = "`p"
 g.floaterm_keymap_next   = "`n"
@@ -201,4 +201,3 @@ g.fzf_action             = {
   ['ctrl-b'] = 'split',
   ['ctrl-v'] = 'vsplit',
 }
-

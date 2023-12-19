@@ -1,11 +1,11 @@
 #!/bin/bash zsh
 pass-export () {
   # password management
+  export PASS_PUB_KEY=$(pass show pass/pub-key)
   export GITHUB_TOKEN=$(pass show github/token)
   export GITLAB_TOKEN=$(pass show gitlab/token)
   export OPENAI_API_KEY=$(pass show api-key/bb-token)
-  export PASS_PUB_KEY=$(pass show pass/pub-key)
-  export INFOBIP_API_KEY=$(pass show infobip/API)
+  # export INFOBIP_API_KEY=$(pass show infobip/API)
   # export HUGGING_FACE_HUB_TOKEN=$(pass show hugging-face/token)
 }
 
