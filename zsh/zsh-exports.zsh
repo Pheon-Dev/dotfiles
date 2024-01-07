@@ -1,10 +1,10 @@
 #!/bin/bash zsh
 # zmodload zsh/zprof # time-zsh
 
-export EDITOR='~/.config/nvim-linux64/bin/nvim'
-export VISUAL='~/.config/nvim-linux64/bin/nvim'
-# export EDITOR='nvim'
-# export VISUAL='nvim'
+# export EDITOR='~/.config/nvim-linux64/bin/nvim'
+# export VISUAL='~/.config/nvim-linux64/bin/nvim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 VIM_MODE_VICMD_KEY='jj'
 

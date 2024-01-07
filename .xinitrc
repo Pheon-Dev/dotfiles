@@ -3,5 +3,5 @@
 nitrogen --restore 2> /dev/null
 setxkbmap -option "caps:escape"
 
-# dwmbar &
+dwmbar &
 exec dwm

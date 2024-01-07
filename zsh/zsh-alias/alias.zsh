@@ -57,6 +57,9 @@ alias vl="$EDITOR --listen ~/.cache/nvim/server.pipe"
 alias vs="$EDITOR --server ~/.cache/nvim/server.pipe --remote"
 alias v="$EDITOR"
 
+# exec-once = 
+alias kanata-silent="kanata --cfg ~/.config/kanata/config.kbd > /dev/null 2>&1"
+alias kn="kanata --cfg ~/.config/kanata/config.kbd"
 alias cat="bat"
 alias man="batman"
 

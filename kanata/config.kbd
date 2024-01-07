@@ -1,4 +1,5 @@
 ;; https://github.com/jtroo/kanata/tree/main
+;; https://github.com/jtroo/kanata/blob/main/docs/avoid-sudo-linux.md
 (defsrc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
@@ -10,112 +11,189 @@
 (defalias
   ;; toggle layer aliases
   num (layer-toggle numbers)
-  con (layer-toggle control)
-  chr (layer-toggle chords)
-  arr (layer-toggle arrows)
-  msc (layer-toggle misc)
+  qck (layer-toggle quick)
+  eco (layer-toggle echords)
+  fig (layer-toggle figures)
+  drn (layer-toggle directions)
+  sup (layer-toggle super)
   lay (layer-toggle layers)
-  mse (layer-toggle mouse)
+  war (layer-toggle warp)
 
-  ;; change the base layer between qwerty and dvorak
-  ;; dvk (layer-switch dvorak)
+  ;; change the base layer
   qwr (layer-switch qwerty)
 
   ;; tap-hold keys with letters for tap and layer change for hold
-  anm (tap-hold-release 200 200 s @num)
-  ctl (tap-hold-release 200 200 a @con)
-  oar (tap-hold-release 200 200 o @arr)
-  ech (tap-hold-release 200 200 e @chr)
-  umc (tap-hold-release 200 200 u @msc)
-  grl (tap-hold-release 200 200 grv @lay)
-  .ms (tap-hold-release 200 200 . @mse)
+  grl (tap-hold-release 280 280 grv @lay)
+  anm (tap-hold-release 280 280 a @num)
+  que (tap-hold-release 280 280 q @qck)
+  dir (tap-hold-release 280 280 d @drn)
+  ech (tap-hold-release 280 280 e @eco)
+  fgr (tap-hold-release 280 280 f @fig)
+  spr (tap-hold-release 280 280 s @sup)
+  wrp (tap-hold-release 280 280 w @war)
 
   ;; tap for capslk, hold for lctl
-  cap (tap-hold-release 200 200 caps lctl)
-
-  ;; chords
+  cap (tap-hold-release 280 280 caps lctl)
+  0 0
+  1 1
+  2 2
+  3 3
+  4 4
+  5 5
+  6 6
+  7 7
+  8 8
+  9 9
+  ; ;
+  : S-;
+  - -
+  alp (multi a b c d e f g h i j k l m n o p q r s t u v w x y z)
+  l80 (macro h t t p @: / / 100 l o c a l h o s t @: @8 @0 @8 @0)
+  l30 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @0)
+  l31 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @1)
+  ls (macro l ret)
+  con (macro p s c a l e @- c o n n e c t spc m a r v e l @- c l o u d spc d e v ret)
+  exp (macro p a s s @- e x p o r t ret)
+  fzf (macro f spc min e ret)
+  rg (macro f spc min g ret)
+  lg (macro l g ret)
+  lf (macro l f ret)
+  nv (macro v ret)
+  zz (macro z z ret)
+  yd (macro y d ret)
+  net (macro w w ret)
+  btp (macro b t o p ret)
+  s1 M-1
+  s2 M-2
+  s3 M-3
+  s4 M-4
+  s5 M-5
+  s6 M-6
+  s7 M-7
+  s8 M-8
+  s9 M-9
+  m1 M-S-1
+  m2 M-S-2
+  m3 M-S-3
+  m4 M-S-4
+  m5 M-S-5
+  m6 M-S-6
+  m7 M-S-7
+  m8 M-S-8
+  m9 M-S-9
+  me M-e
+  mw M-w
+  mrt M-ret
+  msp M-s
+  mas M-S-s
+  mtf M-tab
+  mtb M-S-tab
+  y1 S-1
+  y2 S-2
+  y3 S-3
+  y4 S-4
+  y5 S-5
+  y6 S-6
+  y7 S-7
+  y8 S-8
+  y9 S-9
+  y0 S-0
+  a1 A-1
+  a2 A-2
+  a3 A-3
+  a4 A-4
+  a5 A-5
+  a6 A-6
+  a7 A-7
+  a8 A-8
+  a9 A-9
+  a0 A-0
+  y' S-'
+  { S-[
+  } S-]
+  [ [
+  ] ]
   csv C-S-v
   csc C-S-c
+  csi C-S-i
+  csm C-S-m
+  csr C-S-r
+  csj C-S-j
+  csl C-S-l
+  csh C-S-h
+  csk C-S-k
+  csp C-S-tab
+  csn C-tab
+  asp A-S-tab
+  asn A-tab
+  ral (tap-hold-release 200 200 sldr ralt)
 )
 
 (deflocalkeys-linux
   pho 445
 )
 
-(defalias
-  ;; shifted keys
-  { S-[
-  } S-]
-  : S-;
-  ral (tap-hold-release 200 200 sldr ralt)
-)
-
-(defalias
-  alp (multi a b c d e f g h i j k l m n o p q r s t u v w x y z)
-  ls (macro l s spc min a l ret)
-)
-
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps @ctl @anm d    f    g    h    j    k    l    ;    '    ret
+  tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
+  @cap @anm @spr @dir @fgr g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
-(deflayer dvorak
-  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
-  tab  '    ,    @.ms p    y    f    g    c    r    l    /    =    \
-  @cap @anm @oar @ech @umc i    d    h    t    n    s    -    ret
-  lsft ;    q    j    k    x    b    m    w    v    z    rsft
-  lctl lmet lalt           spc            @ral rmet rctl
-)
-
 (deflayer layers
-  _    @qwr _    lrld _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    @qwr lrld _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    lrpv lrnx _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
 )
 
+(deflayer quick
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    @yd  _    @nv  _    _    _    _    _
+  _    _    @rg  _    @fzf @lg  _    _    _    _    _    @lf  ret
+  _    @zz  @exp @con _    @btp @net _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
 (deflayer numbers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    7    8    9    0    _    _    _
-  _    _    _    _    _    _    3    4    5    6    min  +    _
-  _    _    _    _    _    _    0    1    2    _    /    _
+  _    _    _    _    _    _    _    bspc 7    8    9    S-8  _    _
+  _    _    bspc C-bspc _   _    3    4    5    6    min  =    ret
+  _    _    _    _    _    0    1    2    S-min +    /    _
   _    _    _              _              _    _    _
 )
 
-(deflayer control
+(deflayer super
+  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
+  _    _    @mw  @msp _    _    _    _    _    _    @asp _    _    _
+  _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
+  _    _    _    _    M-m  @mtb @asn @mrt M-,  M-.  _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer figures
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    C-q  C-w  C-e  C-r  C-t  C-y  C-u  C-i  C-o  C-p  _    _    _
-  _    _    C-s  C-d  C-f  C-g  C-h  C-j  C-k  C-l  _    _    _
-  _    C-z  C-x  C-c  C-v  C-b  C-n  C-m  _    _    /    _
+  _    _    _    _    _    _    _    @y7  @y8  @y9  @y0  @{   @}   _
+  _    _    _    _    _    _    @y3  @y4  @y5  @y6  @:   @y'  _
+  _    _    _    _    _    _    @y1  @y2  @[   @]   _    _
   _    _    _              _              _    _    _
 )
 
-(deflayer misc
+(deflayer echords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    ins  @{   @}    [   ]    _    _    _
-  _    _    _    _    C-u  _    C-bspc bspc esc ret _    _    _
-  _    C-z  C-x  C-c  C-v  _    _    del  _    _    _    _
+  _    C-q  C-w  _    C-r  C-t  C-y  C-u  C-i  C-o  C-p  _    _    _
+  _    C-a  C-s  C-d  C-f  C-g  C-h  C-j  C-k  C-l  C-e  _    ret
+  _    C-z  C-x  C-c  C-v  C-b  C-n  ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 
-(deflayer chords
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    @csc _    @ls  _    _    _
-  _    @alp _    _    C-u  _    C-d  _    S-;  _    C-s  _    _
-  _    _    _    _    _    _    C-b  _    _    @csv _    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer arrows
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-  _    _    _    _    _    _    C-S-tab pgup up pgdn C-tab _  _    _
-  _    _    _    _    _    _    home left down rght end  _    _
-  _    _    _    _    _    _    _    _    C-w  _    _    _
+(deflayer directions
+  _    A-1  A-2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  _    _    _    _
+  _    _    _    @csr _    _    _    _    @csi _    _    _    _    _
+  _    _    _    _    @csn _   left down up   rght _    _    ret
+  _    _    _    @csc @csv @csp -   ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
 
@@ -124,13 +202,24 @@
   mwd (mwheel-down 50 120)
   mwl (mwheel-left 50 120)
   mwr (mwheel-right 50 120)
+  mau (movemouse-up 1 1)
+  mal (movemouse-left 1 1)
+  mad (movemouse-down 1 1)
+  mar (movemouse-right 1 1)
+  msu (movemouse-accel-up 1 1000 1 5)
+  msl (movemouse-accel-left 1 1000 1 5)
+  msd (movemouse-accel-down 1 1000 1 5)
+  msr (movemouse-accel-right 1 1000 1 5)
+  sm (setmouse 32228 32228)
+  fst (movemouse-speed 50)
+  slw (movemouse-speed 1)
 )
 
-(deflayer mouse
+(deflayer warp
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @mwu bck  _    fwd  _    _    _    _    _    _    _    _    _
-  _    @mwd mlft _    mrgt mmid _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    @mwu mmid _    bck  @slw @fst _
+  _    _    @sm  @mwd @mwr mlft @mal @mad @mau @mar mrgt _    _
+  _    _    _    _    _    @mwl fwd  ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 

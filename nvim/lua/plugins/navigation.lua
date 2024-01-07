@@ -1,7 +1,6 @@
 local enable = require("config").enable
 
 local oil = require("config.navigation.oil")
-local harpoon = require("config.navigation.harpoon")
 local antelope = require("config.navigation.antelope")
 local which_key = require("config.navigation.which-key")
 
@@ -13,12 +12,6 @@ local M = {
     enabled = enable.which_key,
     event = default_event,
     config = which_key.config,
-  },
-  {
-    "ThePrimeagen/harpoon",
-    branch = harpoon.branch,
-    enabled = enable.harpoon,
-    config = harpoon.config,
   },
   {
     "Pheon-Dev/antelope",

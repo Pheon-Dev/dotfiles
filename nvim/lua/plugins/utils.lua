@@ -7,8 +7,10 @@ local cmp = require("config.utils.cmp")
 local yanky = require("config.utils.yanky")
 local dial = require("config.utils.dial")
 local muren = require("config.utils.muren")
+local substitute = require("config.utils.substitute")
 local fold = require("config.utils.fold")
 local fundo = require("config.utils.fundo")
+local bookmarks = require("config.utils.bookmarks")
 
 local lazy_event = require("config.event").lazy
 local default_event = require("config.event").default
@@ -35,6 +37,12 @@ local M = {
     "lambdalisue/suda.vim",
     event = default_event,
     enabled = enable.suda,
+  },
+  {
+    "MattesGroeger/vim-bookmarks",
+    event = default_event,
+    enabled = enable.bookmarks,
+    config = bookmarks.config
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -112,6 +120,12 @@ local M = {
     dependencies = fundo.dependencies,
     build = fundo.build,
     config = fundo.config,
+  },
+  {
+    "otavioschwanck/cool-substitute.nvim",
+    event = default_event,
+    enabled = enable.substitute,
+    config = substitute.config
   },
 }
 
