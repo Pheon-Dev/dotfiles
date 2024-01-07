@@ -62,6 +62,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 
 yay -Syu rustup rustc
 rustup default nightly
+cargo install kanata
 
 yay -Syu exa starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-meslo-nerd \
 zsh git neovim zellij picom rofi joshuto alacritty fzf flameshot \
