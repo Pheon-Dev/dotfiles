@@ -105,3 +105,5 @@ sudo systemctl start bluetooth
 brew install gh
 brew upgrade
 ```
+# update Thundebolt firmware for T480(s)
+https://wiki.archlinux.org/title/fwupd
