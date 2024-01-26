@@ -107,6 +107,7 @@ brew install gh
 python-validity
 util-linux (fstrim)
 powertop
+httpie
 slock
 brew upgrade
 ```
