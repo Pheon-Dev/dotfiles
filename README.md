@@ -105,7 +105,7 @@ sudo systemctl start bluetooth
 brew install gh
 
 python-validity
-fstroim
+util-linux (fstrim)
 powertop
 slock
 brew upgrade
