@@ -103,6 +103,11 @@ sudo systemctl start bluetooth
 # brew
 /bin/bash/ -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install gh
+
+python-validity
+fstroim
+powertop
+slock
 brew upgrade
 ```
 # update Thundebolt firmware for T480(s)
