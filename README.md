@@ -9,13 +9,11 @@ iwctl
 gdisk /dev/sdx
   - x
   - z
-  - x
-  - z
   - y
   - y
 pacman-key --init
 pcaman-key --populate archlinux
-pacman -Sy
+pacman -Syyu archinstall
 # unplug usb
 archinstall
   - us/uk
@@ -64,10 +62,10 @@ yay -Syu rustup rustc
 rustup default nightly
 cargo install kanata
 
-yay -Syu exa starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-meslo-nerd \
-zsh git neovim zellij picom rofi joshuto alacritty fzf flameshot \
+yay -Syu eza starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-iosevka-nerd \
+zsh git neovim lf alacritty fzf flameshot \
 aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
-glow bat npm yarn unzip fd acpi toipe nitrogen neofetch btop \
+glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
 pass ripgrep docker docker-compose
 
 sudo chsh -s $(which zsh)
