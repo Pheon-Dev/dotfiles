@@ -82,6 +82,7 @@ cd /usr/share/fonts/
 git clone https://github.com/Pheon-Dev/fonts.git
 cd fonts
 mv TTF/* /usr/share/fonts
+# https://github.com/androlabs/emoji-archlinux
 
 # firefox
 # about:profiles
