@@ -39,7 +39,7 @@ textbox-prompt-colon {
   background-color:               @SEL;
   text-color:                     @FG;
   padding:                        8px 12px 8px 12px;
-  font:			                "JetBrainsMono Nerd Font 12";
+  font:			                "Maple Mono 12";
 }
 
 entry {

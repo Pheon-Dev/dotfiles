@@ -43,7 +43,7 @@ textbox-prompt-colon {
     background-color:               @BG;
     text-color:                     @BG;
     padding:                        8px 12px 8px 12px;
-    font:			                "Fira Code 13";
+    font:			                "Maple Mono 13";
 }
 
 entry {

@@ -42,7 +42,7 @@ local M = {
     "MattesGroeger/vim-bookmarks",
     event = default_event,
     enabled = enable.bookmarks,
-    config = bookmarks.config
+    config = bookmarks.config,
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -57,7 +57,7 @@ local M = {
     config = theme.config,
   },
   {
-    'glepnir/dashboard-nvim',
+    "glepnir/dashboard-nvim",
     enabled = enable.dashboard,
     event = vim_enter_event,
     config = dashboard.config,
@@ -67,14 +67,14 @@ local M = {
     "nvim-lualine/lualine.nvim",
     enabled = enable.lualine,
     event = default_event,
-    config = lualine.config
+    config = lualine.config,
   },
   {
     "hrsh7th/nvim-cmp",
     enabled = enable.cmp,
     event = {
       insert_enter_event,
-      cmd_enter_event
+      cmd_enter_event,
     },
     dependencies = cmp.dependencies,
     config = cmp.config,
@@ -114,7 +114,7 @@ local M = {
     config = fold.config,
   },
   {
-    'kevinhwang91/nvim-fundo',
+    "kevinhwang91/nvim-fundo",
     enabled = enable.fundo,
     event = default_event,
     dependencies = fundo.dependencies,
@@ -125,7 +125,7 @@ local M = {
     "otavioschwanck/cool-substitute.nvim",
     event = default_event,
     enabled = enable.substitute,
-    config = substitute.config
+    config = substitute.config,
   },
 }
 

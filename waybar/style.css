@@ -39,8 +39,9 @@
 @define-color rosewater #f5e0dc;
 * {
   border: none;
-  font-family: 'Maple Mono', 'Symbols Nerd Font Mono';
-  font-style: italic;
+  font-family: "Maple Mono", "Symbols Nerd Font Mono";
+  /* font-style: italic; */
+  font-size: 12px;
   font-weight: bold;
   padding: 0;
   margin: 0;
@@ -53,92 +54,134 @@
 
 window#waybar {
   /* you can also GTK3 CSS functions! */
-  background-color: shade(@base, 1.0);
-  border: 1px solid alpha(@base, 1.0);
+  background-color: shade(@surface0, 1);
+  /* border: 1px solid alpha(@lavender, 1); */
 }
 
 #workspaces button {
-  background-color: shade(@base, 1.0);
- /* background-color: shade(@surface0, 1.0); */
+  background-color: shade(@base, 1);
+  /* background-color: shade(@surface0, 1.0); */
   /* color: @text; */
-	margin-right: 2px;
-	padding-right: 2px;
+  margin-right: 2px;
+  padding-right: 2px;
   margin-left: 2px;
   margin-right: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: @text;
+  /* background-color: shade(@base, 1.0); */
 }
 
 #workspaces button.active {
   border-radius: 0px;
-  background-color: shade(@base, 1.0);
+  background-color: shade(@surface0, 1);
   border-bottom: 2px solid @overlay3;
   color: @base;
-	margin-right: 5px;
+  margin-right: 5px;
   padding-left: 5px;
 }
 
 #custom-arch {
   color: @text;
-	margin-right: 5px;
+  margin-right: 5px;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 #custom-arch {
   color: #51afef;
- background-color: shade(@base, 1.0);
+  background-color: shade(@base, 1);
+}
+
+#workspaces {
+  color: @text;
+  background-color: shade(@base, 1);
 }
 
 #memory {
   color: @text;
-  background: shade(@surface0, 1.0);
+  background-color: shade(@base, 1);
 }
 
 #cpu {
   color: @text;
- /* background-color: shade(@base, 1.0); */
- background-color: shade(@surface, 1.0);
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
+}
+
+#custom-updates {
+  color: @text;
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
+}
+
+#custom-battery {
+  color: @text;
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
+}
+
+#custom-separator {
+  color: @text;
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
+}
+
+#custom-fan {
+  color: @text;
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
 }
 
 #clock {
   color: @text;
- /* background-color: shade(@overlay2, 1.0); */
- background-color: shade(@base, 1.0);
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
 }
 
 #battery {
-  color: @base;
-  background: shade(@overlay3, 1.0);
+  color: @text;
+  background: shade(@base, 1);
 }
 
 #pulseaudio {
   color: @text;
- /* background-color: shade(@base, 1.0); */
- background-color: shade(@surface1, 1.0);
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
 }
 
 #network {
-  color: @base;
-  background: shade(@overlay1, 1.0);
+  color: @text;
+  background: shade(@base, 1);
 }
 
 #disk {
   color: @subtext1;
- background-color: shade(@surface2, 1.0);
+  background-color: shade(@base, 1);
 }
 
 #bluetooth {
-  color: @surface0;
- /* background-color: shade(@base, 1.0); */
- background-color: shade(@overlay0, 1.0);
+  color: @text;
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
 }
 
 #backlight {
-  color: @base;
- /* background-color: shade(@base, 1.0); */
- background-color: shade(@overlay2, 1.0);
+  color: @text;
+  /* background-color: shade(@base, 1.0); */
+  background-color: shade(@base, 1);
 }
 
-#pulseaudio, #bluetooth, #network, #battery, #memory, #cpu, #backlight, #bluetooth, #disk, #clock {
+#pulseaudio,
+#bluetooth,
+#network,
+#battery,
+#memory,
+#cpu,
+#backlight,
+#bluetooth,
+#disk,
+#clock {
   /* background: shade(@base, 0.9); */
   /* background: shade(@surface0, 1.0); */
   border-radius: 0px;
@@ -149,4 +192,17 @@ window#waybar {
   padding-top: 5px; */
   padding-left: 8px;
   padding-right: 8px;
+}
+
+#window {
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: shade(@text, 1);
+}
+
+window#waybar.empty #window {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
 }

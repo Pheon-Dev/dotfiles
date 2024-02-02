@@ -1,7 +1,10 @@
 #!/sbin/sh
+#
+echo foo | xclip -i
 
-nitrogen --restore 2> /dev/null
-setxkbmap -option "caps:escape"
+feh --bg-center ~/.config/dwm/wall/katana.jpg --bg-fill ~/.config/dwm/wall/shinobu.jpg &
+
+# setxkbmap -option "caps:escape"
 
 dwmbar &
 exec dwm

@@ -57,9 +57,6 @@ alias vl="$EDITOR --listen ~/.cache/nvim/server.pipe"
 alias vs="$EDITOR --server ~/.cache/nvim/server.pipe --remote"
 alias v="$EDITOR"
 
-# exec-once = 
-alias kanata-silent="kanata --cfg ~/.config/kanata/config.kbd > /dev/null 2>&1"
-alias kn="kanata --cfg ~/.config/kanata/config.kbd"
 alias cat="bat"
 alias man="batman"
 
@@ -196,17 +193,7 @@ alias notes="cd $HOME/.nb/home && nvim"
 alias lout="sudo systemctl restart ly.service"
 alias nitro="nitrogen --restore > /dev/null 2>&1"
 
+alias cp="rsync -avh --inplace --no-whole-file --info=progress2"
+
 alias anime="$HOME/.local/bin/anime dl"
 alias eww="$HOME/rust/eww/target/release/eww"
-
-alias tlp-edit="sudo nvim /etc/tlp.conf"
-alias tlp-install="yay -Syu tlp tlp-rdw"
-alias tlp-start="sudo tlp start"
-alias tlp-stat="sudo tlp-stat"
-alias tlp-diff="sudo tlp-stat --cdiff"
-alias tlp-conf="sudo tlp-stat -c"
-alias tlp-enable="sudo systemctl enable tlp.service"
-alias tlp-restart="sudo systemctl restart tlp.service"
-alias tlp-stop="sudo systemctl stop tlp.service"
-alias tlp-disable="sudo systemctl disable tlp.service"
-alias tlp-pause="sudo systemctl pause tlp.service"

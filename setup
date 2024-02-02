@@ -47,13 +47,14 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
   yay -Syu rustup rustc
   rustup default nightly
 
-  yay -Syu --noconfirm eza vim starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-meslo-nerd \
+  cargo install kanata
+
+  yay -Syu --noconfirm eza vim starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-maple ttf-iosevka-nerd \
     zsh git neovim zellij picom rofi joshuto alacritty fzf flameshot \
     youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
-    glow bat npm yarn unzip fd acpi toipe nitrogen neofetch btop \
+    glow bat npm yarn unzip fd acpi toipe feh neofetch btop \
     pass ripgrep docker docker-compose brightnessctl bluez bluez-utils \
     python3 python3-pip xclip nb bob tlp tlp-rdw
-
   # brew install gh planetscale/tap/pscale 
 
   # Start the bluetooth service
@@ -81,3 +82,11 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
   cp -R starship ~/.config/
   # cp -R .z* ~/
 fi
+
+Create a file /etc/X11/xorg.conf.d/30-touchpad.conf that contains this:
+
+Section "InputClass"
+    Identifier "touchpad catchall"
+    Driver "libinput"
+    Option "Tapping" "on"
+EndSection

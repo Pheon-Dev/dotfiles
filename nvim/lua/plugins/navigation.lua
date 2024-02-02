@@ -12,6 +12,7 @@ local M = {
     enabled = enable.which_key,
     event = default_event,
     config = which_key.config,
+    init = which_key.init,
   },
   {
     "Pheon-Dev/antelope",
@@ -20,7 +21,7 @@ local M = {
     config = antelope.config,
   },
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     enable = enable.oil,
     event = default_event,
     dependencies = oil.dependencies,
