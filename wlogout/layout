@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "swaylock",
+    "action" : "swaylock -e -f -i ~/.config/hypr/wallpapers/kocho.jpg -C ~/.config/swaylock/config",
     "text" : "Lock",
     "keybind" : "l"
 }

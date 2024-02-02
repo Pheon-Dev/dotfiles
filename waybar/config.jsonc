@@ -34,7 +34,7 @@
       // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
     "custom/separator": {
-      "format": "|",
+      "format": "󰮾",
       "tooltip": false,
     },
     "hyprland/workspaces": {
@@ -79,8 +79,8 @@
       "separate-outputs": true
     },
     "clock": {
-      // "format": "󱑃 {:%H:%M  %a %d|%m|%y}"
-      "format": "󱑃 {:%H:%M | 󰃭 %A |  %d, %b %Y}",
+      // "format": "󱑃 {:%H:%M  %a %d󰮾%m󰮾%y}"
+      "format": "󱑃 {:%H:%M 󰮾 󰃭 %A 󰮾  %d, %b %Y}",
        "interval": 60,
     "tooltip": true,
     // "format": "{:%H.%M}",
@@ -232,7 +232,7 @@
       // "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
     "custom/separator": {
-      "format": "|",
+      "format": "󰮾",
       "tooltip": false,
     },
     "hyprland/workspaces": {
@@ -251,8 +251,8 @@
     },
     "clock": {
       // "format": "{:%H:%M}"
-      "format": "{:%H:%M | %A  %d, %B %Y}"
-      // "format": "{:%H:%M  %A  %d|%m|%y}"
+      "format": "{:%H:%M 󰮾 %A  %d, %B %Y}"
+      // "format": "{:%H:%M  %A  %d󰮾%m󰮾%y}"
     },
     "backlight": {
       "device": "intel_backlight",

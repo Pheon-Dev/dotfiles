@@ -58,13 +58,17 @@ cp -r $HOME/.zshrc $HOME/.config/zsh/.zshrc
 echo -e "\e[1A\e[K porting [••••••••••••••••••••••••••••]"
 # cp -r $HOME/.vim $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/.vim && rm -rf .git* plugged autoload sessions && cd - > /dev/null 2>&1
 echo -e "\e[1A\e[K porting [•••••••••••••••••••••••••••••]"
-cp -r $HOME/.mozilla/firefox/4yw0z4lr.default-release/chrome $HOME/.config/dotfiles
+# cp -r $HOME/.mozilla/firefox/4yw0z4lr.default-release/chrome $HOME/.config/dotfiles
 echo -e "\e[1A\e[K porting [••••••••••••••••••••••••••••••]"
 # cp -r $HOME/.config/wezterm $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/wezterm && rm -rf .git* && cd - > /dev/null 2>&1
 echo -e "\e[1A\e[K porting [•••••••••••••••••••••••••••••••]"
 # sudo cp -r /etc/lemurs > /dev/null 2>&1
+# sudo cp -r /etc/pam.d/sudo . > /dev/null 2>&1
+# sudo cp -r /etc/pam.d/login . > /dev/null 2>&1
+# sudo cp -r /etc/pam.d/system-local-login . > /dev/null 2>&1
 echo -e "\e[1A\e[K porting [••••••••••••••••••••••••••••••••]"
 cp -r $HOME/.config/kanata $HOME/.config/dotfiles && cd $HOME/.config/dotfiles/kanata && rm -rf .git* && cd - > /dev/null 2>&1
 echo -e "\e[1A\e[K porting [•••••••••••••••••••••••••••••••••]"
-sudo cp -r /etc/tlp.conf > /dev/null 2>&1
+# sudo cp -r /etc/tlp.conf . > /dev/null 2>&1
+# sudo cp -r /etc/systemd/system/powertop.service . > /dev/null 2>&1
 echo -e "\e[1A\e[K porting [complete]"

@@ -8,6 +8,13 @@
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
+(defvar
+  tap-timeout   100
+  hold-timeout  280
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
 (defalias
   ;; toggle layer aliases
   num (layer-toggle numbers)
@@ -15,7 +22,6 @@
   clt (layer-toggle change)
   qck (layer-toggle quick)
   eco (layer-toggle echords)
-  sft (layer-toggle shiffft)
   drn (layer-toggle directions)
   sup (layer-toggle super)
   lay (layer-toggle layers)
@@ -25,20 +31,28 @@
   qwr (layer-switch qwerty)
 
   ;; tap-hold keys with letters for tap and layer change for hold
-  grl (tap-hold-release 280 280 grv @lay)
-  anm (tap-hold-release 280 280 a @num)
-  cal (tap-hold-release 280 280 c @clt)
-  voo (tap-hold-release 280 280 v @vom)
-  que (tap-hold-release 280 280 q @qck)
-  dir (tap-hold-release 280 280 d @drn)
-  ech (tap-hold-release 280 280 e @eco)
-  fft (tap-hold-release 280 280 f @sft)
-  spr (tap-hold-release 280 280 s @sup)
-  wrp (tap-hold-release 280 280 w @war)
+  grl (tap-hold-release $ht $ht grv @lay)
+  anm (tap-hold-release $ht $ht a @num)
+  cal (tap-hold-release $ht $ht c @clt)
+  voo (tap-hold-release $ht $ht v @vom)
+  que (tap-hold-release $ht $ht q @qck)
+  dir (tap-hold-release $ht $ht d @drn)
+  ech (tap-hold-release $ht $ht e @eco)
+  spr (tap-hold-release $ht $ht s @sup)
+  wrp (tap-hold-release $ht $ht w @war)
 
   ;; tap for a, hold for b
-  ;; c (tap-hold-release 280 280 a b)
-  cap (tap-hold-release 280 280 caps lctl)
+  ;; c (tap-hold-release $ht $ht a b)
+  ;; cap (tap-hold-release $ht $ht esc lctl)
+  cap (tap-hold $tt $ht esc lctl)
+  spa (tap-hold $tt $ht spc  lsft)
+
+  ;; 1 tap : "," key
+  ;; 2 taps: A-s
+  ;; 3 taps: Escape
+  ;; 4 taps: Escape
+  sav (tap-dance 200 (, A-s esc esc))
+
   0 0
   1 1
   2 2
@@ -51,7 +65,10 @@
   9 9
   ; ;
   : S-;
+  $ S-4
   - -
+  cmd (tap-dance 200 (; @:))
+
   alp (multi a b c d e f g h i j k l m n o p q r s t u v w x y z)
   l80 (macro h t t p @: / / 100 l o c a l h o s t @: @8 @0 @8 @0)
   l30 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @0)
@@ -134,9 +151,9 @@
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @spr @dir @fft g    h    j    k    l    ;    '    ret
-  lsft z    x    @cal @voo b    n    m    ,      .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  @cap @anm @spr @dir f    g    h    j    k    l    @cmd '    ret
+  lsft z    x    @cal @voo b    n    m    @sav .    /    rsft
+  lctl lmet lalt           @spa           ralt rmet rctl
 )
 
 (deflayer layers
@@ -186,14 +203,6 @@
   _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
   _    _    _    _    M-m  @mtb @net @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
-)
-
-(deflayer shiffft
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    S-q  S-w  S-e  S-r  S-t  S-y  S-7  S-8  S-9  S-0  @{   @}   _
-  _    S-a  S-s  S-d  _    S-g  S-h  S-4  S-5  S-l  @:   @S'   _
-  _    S-z  S-x  S-c  S-v  S-b  S-1  S-2  _    _    _    _
-  _    _    _              _              _    _    _
 )
 
 (deflayer echords

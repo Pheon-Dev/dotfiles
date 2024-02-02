@@ -235,7 +235,7 @@ map u unarchive
 map . set hidden!
 map p paste
 map P paste-async
-map / fzf_jump
+map f fzf_jump
 map x cut
 map X chmodx
 map y copy
@@ -253,24 +253,17 @@ map i $~/.config/lf/lf-preview $f | less -R
 
 # Movement
 map grr cd ~/rust
-map grm cd ~/rust/canvas/manta-api
-
 map goo cd ~/go
-map gof cd ~/go/src/github.com/Pheon-Dev/flamingo
-map goz cd ~/go/src/github.com/Pheon-Dev/zebra
 
 map gdc cd ~/Documents
 map gdw cd ~/Downloads
 
 map gfg cd ~/.config
-map gfj cd ~/.config/zellij
-map gff cd ~/.config/flamingo
 map gfa cd ~/.config/alacritty
 map gfd cd ~/.config/dwm
 map gfz cd ~/.config/zsh
 map gfl cd ~/.config/lf
 map gfn cd ~/.config/nvim
-map gfb cd ~/.config/broot
 map gfo cd ~/.config/dotfiles
 map gfs cd ~/.config/starship
 map gfk cd ~/.config/kitty
@@ -281,4 +274,3 @@ map glz cd ~/.local/share/nvim/lazy
 map gls cd ~/.local/state/nvim/swap
 
 map gcn cd ~/.cache/nvim
-
