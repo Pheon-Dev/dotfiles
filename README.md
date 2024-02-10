@@ -83,6 +83,7 @@ git clone https://github.com/Pheon-Dev/fonts.git
 cd fonts
 mv TTF/* /usr/share/fonts
 # https://github.com/androlabs/emoji-archlinux
+# yay -Syu all-repository-fonts
 
 # firefox
 # about:profiles
@@ -101,7 +102,7 @@ sudo systemctl start bluetooth
 
 # brew
 /bin/bash/ -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install gh
+brew install gh broot
 brew upgrade
 
 python-validity
