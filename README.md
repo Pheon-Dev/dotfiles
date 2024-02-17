@@ -66,7 +66,7 @@ yay -Syu eza starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-iosevka-nerd 
 zsh git neovim lf alacritty fzf flameshot \
 aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
 glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
-pass ripgrep docker docker-compose
+pass ripgrep docker docker-compose jq
 
 sudo chsh -s $(which zsh)
 
