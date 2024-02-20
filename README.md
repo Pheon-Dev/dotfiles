@@ -110,5 +110,5 @@ httpie
 slock
 
 ```
-# update Thundebolt firmware for T480(s)
+# Update Thunderbolt firmware for T480(s)
 https://wiki.archlinux.org/title/fwupd
