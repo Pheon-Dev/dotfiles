@@ -1,5 +1,5 @@
-```bash
 # arch installation
+```bash
 rfkill unblock wlan
 iwctl
  - device list show
@@ -62,20 +62,18 @@ yay -Syu rustup rustc
 rustup default nightly
 cargo install kanata
 
-yay -Syu eza starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-iosevka-nerd \
+yay -Syu eza starship zoxide z firefox all-repository-fonts \
 zsh git neovim lf alacritty fzf flameshot \
 aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
 glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
-pass ripgrep docker docker-compose jq
+pass ripgrep docker docker-compose jq greetd greetd-tuigreet
 
 sudo chsh -s $(which zsh)
 
 # login manager
-sudo nvim /etc/ly/config.ini
-- save true
-sudo systemctl enable ly.service
-sudo nvim /lib/systemd/system/ly.service
-sudo systemctl restart ly.service
+sudo nvim /etc/greetd/config.toml
+command = "tuigreet -r --cmd Hyprland"
+sudo systemctl enable greetd.service
 
 # fonts
 cd /usr/share/fonts/
@@ -83,7 +81,7 @@ git clone https://github.com/Pheon-Dev/fonts.git
 cd fonts
 mv TTF/* /usr/share/fonts
 # https://github.com/androlabs/emoji-archlinux
-# yay -Syu all-repository-fonts
+# yay -Syu noto-fonts-emoji
 
 # firefox
 # about:profiles
