@@ -84,7 +84,7 @@ sudo chsh -s $(which zsh)
 
 # login manager
 sudo nvim /etc/greetd/config.toml
-command = "tuigreet -r --cmd Hyprland"
+command = "tuigreet -r --cmd Hyprland or startx"
 sudo systemctl enable greetd.service
 
 # fonts
