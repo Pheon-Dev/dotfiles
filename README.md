@@ -119,6 +119,7 @@ python-validity
 util-linux (fstrim)
 powertop
 httpie
+curlie
 slock
 
 ```
