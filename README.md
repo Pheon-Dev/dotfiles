@@ -38,7 +38,7 @@ echo "exec dwm" > ~/.xinitrc
 echo "startx" > ~/.bash_profile
 cp ~/.bash_profile ~/.zprofile # s/bashrc/zshrc/g
 
-others=$(nvim | zellij | starship | rofi | zsh | picom | alacritty | lazygit )
+others=$(nvim |starship | rofi | zsh | alacritty | lazygit )
 git clone https://github.com/Pheon-Dev/$others.git
 
 exit
