@@ -73,9 +73,6 @@ tldr atuin dust chezmoi
 # bash/zsh/etc
 bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 
-# fish
-bash (curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | psub)
-
 atuin register -u <USERNAME> -e <EMAIL>
 atuin import auto
 atuin sync
