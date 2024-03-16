@@ -63,7 +63,7 @@ yay -Syu rustup rustc
 rustup default nightly
 cargo install kanata
 
-yay -Syu eza starship zoxide z firefox all-repository-fonts \
+yay -Syu eza starship zoxide z firefox \
 zsh git neovim lf alacritty fzf flameshot \
 aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
 glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
@@ -90,7 +90,7 @@ git clone https://github.com/Pheon-Dev/fonts.git
 cd fonts
 mv TTF/* /usr/share/fonts
 # https://github.com/androlabs/emoji-archlinux
-# yay -Syu noto-fonts-emoji
+# yay -Syu noto-fonts-emoji  all-repository-fonts
 
 # firefox
 # about:profiles
