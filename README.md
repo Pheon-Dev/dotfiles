@@ -16,7 +16,7 @@ pcaman-key --populate archlinux
 pacman -Syyu archinstall
 # unplug usb
 archinstall
-  - us/uk
+  - uk keyboard 
   - mirrors
   - select disk
   - btrfs
