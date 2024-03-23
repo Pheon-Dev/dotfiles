@@ -119,6 +119,7 @@ httpie
 curlie
 slock
 radion
+falion
 
 ```
 # Update Thunderbolt firmware for T480(s)
