@@ -43,8 +43,7 @@ git clone https://github.com/Pheon-Dev/$others.git
 
 exit
 reboot
-# chezmoi
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+# package managers
 # install yay
 nmcli dev wifi list
 nmcli dev wifi connect "essid" password "*******"
