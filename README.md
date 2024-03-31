@@ -1,19 +1,23 @@
 # arch installation
 ```bash
+# network connection 
 rfkill unblock wlan
 iwctl
  - device list show
  - station wlan0 scan
  - station wlan0 connect <essid>
  - quit
+# format disk
 gdisk /dev/sdx
   - x
   - z
   - y
   - y
+# updates
 pacman-key --init
 pcaman-key --populate archlinux
 pacman -Syyu archinstall
+# installation 
 # unplug usb
 archinstall
   - uk keyboard 
