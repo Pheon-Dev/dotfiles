@@ -123,6 +123,7 @@ curlie
 slock
 radion
 falion
+nyaa-tui
 
 ```
 # Update Thunderbolt firmware for T480(s)
