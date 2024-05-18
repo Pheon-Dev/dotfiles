@@ -124,6 +124,7 @@ slock
 radion
 falion
 nyaa-tui
+superfile
 
 ```
 # Update Thunderbolt firmware for T480(s)
