@@ -50,7 +50,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
   cargo install kanata
 
   yay -Syu --noconfirm eza vim starship zoxide z firefox ttf-nerd-fonts-symbols* ttf-maple ttf-iosevka-nerd \
-    zsh git neovim zellij picom rofi joshuto alacritty fzf flameshot \
+    zsh git neovim zellij picom rofi joshuto alacritty fzf flameshot superfile \
     youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
     glow bat npm yarn unzip fd acpi toipe feh neofetch btop \
     pass ripgrep docker docker-compose brightnessctl bluez bluez-utils \
