@@ -125,6 +125,7 @@ radion
 falion
 nyaa-tui
 superfile
+serpl
 
 ```
 # Update Thunderbolt firmware for T480(s)
