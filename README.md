@@ -93,7 +93,7 @@ git clone https://github.com/Pheon-Dev/fonts.git
 cd fonts
 mv TTF/* /usr/share/fonts
 # https://github.com/androlabs/emoji-archlinux
-# yay -Syu noto-fonts-emoji  all-repository-fonts
+# yay -Syu ttf-maple ttf-fira-code
 
 # firefox
 # about:profiles
