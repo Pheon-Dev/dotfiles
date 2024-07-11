@@ -71,7 +71,7 @@ zsh git neovim lf alacritty fzf flameshot \
 aria2c youtube-dl mpv lazygit ly xdg-utils wireless_tools gum \
 glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
 pass ripgrep docker docker-compose jq greetd greetd-tuigreet \
-tldr atuin dust brightnessctl
+tldr atuin dust brightnessctl pulsemixer xorg-xsetroot upower
 
 # bash/zsh/etc
 bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
