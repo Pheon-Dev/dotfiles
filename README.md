@@ -125,6 +125,14 @@ sudo tlp start
 sudo tlp-stat -c
 sudo tlp-stat -b
 
+# Touchpad
+sudo nvim /etc/X11/xorg.conf.d/30-touchpad.conf
+Section "InputClass"
+	Identifier "touchpad catchall"
+	Driver "libinput"
+	Option "Tapping" "on"
+EndSection
+
 python-validity
 util-linux (fstrim)
 powertop
