@@ -115,6 +115,16 @@ sudo systemctl start bluetooth
 brew install gh broot
 brew upgrade
 
+# tlp
+yay -Syu tlp
+tlp.service enable
+sudo systemctl enable tlp.service
+sudo systemctl start tlp.service
+sudo nvim /etc/tlp.conf
+sudo tlp start
+sudo tlp-stat -c
+sudo tlp-stat -b
+
 python-validity
 util-linux (fstrim)
 powertop
