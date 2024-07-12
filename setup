@@ -83,6 +83,21 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
   # cp -R .z* ~/
 fi
 
+### pwd migration ###
+#### old machine ####
+pass-push
+mkdir ~/exported-keys
+cd ~/exported-keys
+gpg-pub-out # gpg --output public.pgp --armor --export devpheon@gmail.com
+gpg-pvt-out # gpg --output private.pgp --armor --export-secret-key devpheon@gmail.com
+#### new machine ####
+gh repo clone Pheon-Dev/pwd-store .password-store
+#### copy exported keys directory from old machine ####
+cp -r /mnt/path/exported-keys ~/
+cd ~/exported-keys
+gpg-pvt-import # gpg --import private.pgp
+gpg-pub-import # gpg --import public.pgp
+
 Create a file /etc/X11/xorg.conf.d/30-touchpad.conf that contains this:
 
 Section "InputClass"
