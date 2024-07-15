@@ -162,6 +162,10 @@ cd ~/exported-keys
 gpg-pvt-import # gpg --import private.pgp
 gpg-pub-import # gpg --import public.pgp
 
+# if unusable public key error:
+gpg --list-key
+echo "pub-key:6:" | gpg --import-ownertrust
+
 ```
 # Update Thunderbolt firmware for T480(s)
 https://wiki.archlinux.org/title/fwupd
