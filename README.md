@@ -126,6 +126,8 @@ sudo nvim /etc/tlp.conf
 sudo tlp start
 sudo tlp-stat -c
 sudo tlp-stat -b
+# Failed to start load kernel modules after installing some modules e.g tlp_smapi
+sudo systemctl status systemd-modules-load
 
 # Touchpad
 sudo nvim /etc/X11/xorg.conf.d/30-touchpad.conf
