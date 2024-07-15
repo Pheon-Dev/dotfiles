@@ -99,8 +99,9 @@ mv TTF/* /usr/share/fonts
 # firefox
 # about:profiles
 # about:configs
-# /compact true
-# /legacy true
+# browser.compactmode.show true
+# toolkit.legacyUserProfileCustomizations.stylesheets true
+# browser.urlbar.resultMenu.keyboardAccessible false
 cd $HOME/.mozilla/firefox/---.default-release
 git clone https://github.com/Pheon-Dev/userChrome.css.git
 mv userChrome.css chrome
@@ -145,6 +146,21 @@ falion
 nyaa-tui
 superfile
 serpl
+
+### pwd migration ###
+#### old machine ####
+pass-push
+mkdir ~/exported-keys
+cd ~/exported-keys
+gpg-pub-out # gpg --output public.pgp --armor --export devpheon@gmail.com
+gpg-pvt-out # gpg --output private.pgp --armor --export-secret-key devpheon@gmail.com
+#### new machine ####
+gh repo clone Pheon-Dev/pwd-store .password-store
+#### copy exported keys directory from old machine ####
+cp -r /mnt/path/exported-keys ~/
+cd ~/exported-keys
+gpg-pvt-import # gpg --import private.pgp
+gpg-pub-import # gpg --import public.pgp
 
 ```
 # Update Thunderbolt firmware for T480(s)
