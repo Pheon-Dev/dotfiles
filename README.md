@@ -80,7 +80,7 @@ aria2c youtube-dl mpv lazygit xdg-utils wireless_tools gum \
 glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
 pass ripgrep docker docker-compose jq greetd greetd-tuigreet \
 tldr atuin dust brightnessctl pulsemixer xorg-xsetroot upower \
-yt-dlp poppler jq 7-Zip ImageMagick ffmpegthumbnailer
+yt-dlp poppler 7-Zip ImageMagick ffmpegthumbnailer \
 
 # bash/zsh/etc
 bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
