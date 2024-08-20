@@ -74,7 +74,7 @@ yay -Syu rustup rustc
 rustup default nightly
 cargo install kanata
 
-yay -Syu eza starship zoxide z firefox \
+yay -Syu eza starship zoxide z zen-browser-bin \
 zsh git neovim yazi alacritty fzf flameshot \
 aria2c youtube-dl mpv lazygit xdg-utils wireless_tools gum \
 glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
@@ -109,7 +109,7 @@ mv TTF/* /usr/share/fonts
 # yay -Syu ttf-maple ttf-fira-code noto-fonts-emoji
 
 ```
-# firefox
+# firefox or zen browser
 ```bash
 # about:profiles
 # about:configs
