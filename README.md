@@ -81,6 +81,7 @@ glow bat npm yarn unzip fd acpi toipe feh neofetch btop powertop \
 pass ripgrep docker docker-compose jq greetd greetd-tuigreet \
 tldr atuin dust brightnessctl pulsemixer xorg-xsetroot upower \
 yt-dlp poppler 7-Zip ImageMagick ffmpegthumbnailer \
+gimp
 
 # bash/zsh/etc
 bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
