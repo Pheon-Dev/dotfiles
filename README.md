@@ -196,6 +196,11 @@ gpg --list-key
 echo "pub-key:6:" | gpg --import-ownertrust
 
 ```
+
+# TTY if greeter fails
+```bash
+Ctrl+Shift+Fn+F1-6
+```
 # enable scroll firefox
 
 #### Edit /etc/security/pam_env.conf and add this line:
